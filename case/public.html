@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8" />
-    <title>Public Uploads</title>
+    <title>My Cases</title>
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Intl"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -14,10 +14,10 @@
 </head>
 <script>
 
-    var folderId = '75040714415');
+    var publicFolderID = sessionStorage.getItem("publicFolderID");
     var accessToken;
     var contentExplorer = new Box.ContentExplorer();
-    var canCreateNewFolder = 'false';
+    var canCreateNewFolder = 'true';
     var selectedFolder;
     var currentSelected;
     var currentSpan;
@@ -61,7 +61,7 @@
       }
     });
     function loadExplorer() {
-      contentExplorer.show(folderId, accessToken, {
+      contentExplorer.show(publicFolderID, accessToken, {
         container: '.ct',
         logoUrl: 'pixel.png',
         canDelete: false,
