@@ -24,7 +24,7 @@
 
     #content {
       width: 600px !important;
-      height: 800px !important;
+      height: 600px !important;
       overflow-x: hidden;
 
     }
@@ -75,7 +75,7 @@
 
     div#map {
       width: 70%;
-      height: 100%;
+      height: 80%;
       float: left;
       overflow-x: hidden;
     }
@@ -369,7 +369,7 @@
         (tabView == 'cases'?selection = $("#caselistselector").val():selection = $("#evidencelistselector").val());
 
         if (selection == 'postcode') {
-          loadInfo(tabView, $("#postcodesearch").val(), all);
+          loadInfo(tabView, $("#postcodesearch").val(), 'postcode');
         } else if (selection == 'all' || selection=='mine') {
           loadInfo(tabView, null, selection);
         } else if (selection == 'map') {
@@ -387,6 +387,7 @@
     });
 
     function loadInfo(type, postcodefilter, scope,useMap) {
+      console.log("filter:" + postcodefilter);
       clearOverlays();
       var url;
       if (type == 'cases') {
@@ -419,11 +420,11 @@
         $.each(response.entries, function(k, data) {
 
           if (type == 'cases'
-          && ((postcodefilter == undefined || data.metadata.enterprise.case.postcode.includes(postcodefilter))
+          && ((postcodefilter == undefined || data.metadata.enterprise.case.postCode.includes(postcodefilter))
             || (scope=='mine' && data.metadata.enterprise.case.officerEmail==sessionStorage.getItem("userLogin"))
             || scope=='all')) {
 
-              var c = new casefolder(data.metadata.enterprise.case.caseId, data.metadata.enterprise.case.victimpostalcode, data.id);
+              var c = new casefolder(data.metadata.enterprise.case.caseId, data.metadata.enterprise.case.postCode, data.id);
               var listItem = $("<div class=place id='caselist_" + c.id + "'>" + c.name + "</div>");
               listItem.on("click", function(event) {
               google.maps.event.trigger(c.marker, 'click', {
