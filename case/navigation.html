@@ -16,6 +16,27 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    var links = document.getElementsByTagName("a");
+
+  console.log(links.length);
+  for(var i = 0; i < links.length; i++) {
+  console.log(links[i].innerHTML);
+  links[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    //var currentp = document.getElementsByClassName("activep");
+    current[0].className = current[0].className.replace("active", "");
+    //currentp[0].className = currentp[0].className.replace("activep", "");
+    this.parentNode.className = this.parentNode.className +" active";
+    //this.parentNode.className='activep';
+  });
+  }
+  });
+  </script>
 </head>
 
 <body style="background-color:#F4F6F9;">
@@ -27,15 +48,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item">
-                  <a class="nav-link waves-effect waves-light text-black-50" href="upload.html" target="main">MY EVIDENCE</a>
+                <li class="nav-item active">
+                  <a class="nav-link waves-effect waves-light text-black-50 " href="upload.html" target="main">MY EVIDENCE</a>
                 </li>
 
                 <li class="nav-item">
                   <a class="nav-link waves-effect waves-light text-black-50" href="https://box-162828.workflowcloud.com/forms/59aed697-984d-45de-8238-46b48d94da02" target="main">CREATE WORKSPACE</a>
                 </li>
 
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link waves-effect waves-light text-black-50" href="https://box-162828.workflowcloud.com/forms/83b90de6-07da-423b-998d-c3f144babd5d" target="main">CREATE CASE<span class="sr-only">(current)</span></a>
         </li>
 
