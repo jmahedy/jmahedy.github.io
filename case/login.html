@@ -27,6 +27,7 @@
     sessionStorage.clear();
     sessionStorage.setItem('folderMap',JSON.stringify(Array.from(personalFolderMap.entries())));
     sessionStorage.setItem('caseFolderId',caseFolderId);
+    sessionStorage.setItem('publicFolderID',publicFolderID);
     $('#userlogin').on('submit', (function(ev) {
       $("#signbutton").hide();
       $("#loader").show();
