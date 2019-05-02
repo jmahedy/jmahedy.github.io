@@ -26,7 +26,6 @@
     var showCopsButton = true;
     var showVideoButton = false;
     var objType = 'COPFS';
-    var contentSidebar = new Box.ContentSidebar();
 
     var testResponseInterceptor = (response /* https://github.com/axios/axios#request-config */) => {
     		if(response.type) {
@@ -73,7 +72,6 @@
         responseInterceptor:testResponseInterceptor,
         contentPreviewProps: {
         contentSidebarProps: {
-  
           hasMetadata: true,
         hasSkills: true,
         hasProperties: true,
