@@ -5,3 +5,12 @@
 .active a{
     color: white !important;
 }
+
+.navheight {
+   max-height:37px;
+}
+
+.navfont {
+  font-size: 15px;
+  font-weight: bolder;
+}

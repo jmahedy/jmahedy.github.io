@@ -17,13 +17,11 @@
 
 </head>
 
-<body style="background-color:#F4F6F9">
+<body>
 
   <script>
-    console.log('map:' + JSON.parse(sessionStorage.getItem('folderMap')));
-    console.log('user:' + sessionStorage.getItem('userLogin'));
-    const folderIdA = new Map(JSON.parse(sessionStorage.getItem('folderMap'))).get(sessionStorage.getItem('userLogin'));
-    const folderIdB = sessionStorage.getItem("caseFolderId");
+    const folderIdA = '57771271224';
+    const folderIdB = '57772325388';
     const explorerA = new Box.ContentExplorer();
     const explorerB = new Box.ContentExplorer();
     var sourceId;
@@ -31,37 +29,45 @@
     var sourceType;
     var sourceCurrent=folderIdA;
     var targetCurrent=folderIdB;
-    var undoSettings;
+
     var accessToken = "";
-    var justMovedS = false;
-    var justMovedT = false;
+
     $(document).ready(function() {
+      $("#panel-fullscreen").click(function (e) {
+              e.preventDefault();
 
-      //var settings = {
-      //  "async": true,
-      //  "crossDomain": true,
-      //  //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
-      //  "url": "https://bl2vhdoqzh.execute-api.eu-west-2.amazonaws.com/default/box-jwt-tokengenerator?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&clientId=r1yki89hxnzv6mrz14njndrr59dm5w0h&userId=6203007648",
-      //  "method": "GET",
-      //  "headers": {}
-      //}
+              var $this = $(this);
 
-      //$.ajax(settings).done(function(response) {
-        //console.log(response);
-        accessToken = sessionStorage.getItem("accessToken");
+              if ($this.children('i').hasClass('glyphicon-resize-full'))
+              {
+                  $this.children('i').removeClass('glyphicon-resize-full');
+                  $this.children('i').addClass('glyphicon-resize-small');
+              }
+              else if ($this.children('i').hasClass('glyphicon-resize-small'))
+              {
+                  $this.children('i').removeClass('glyphicon-resize-small');
+                  $this.children('i').addClass('glyphicon-resize-full');
+              }
+              $(this).closest('.panel').toggleClass('panel-fullscreen');
+          });
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6300501378",
+        "method": "GET",
+        "headers": {}
+      }
+
+      $.ajax(settings).done(function(response) {
+        console.log(response);
+        accessToken = response.token;
         console.log(accessToken);
         loadExplorerA();
         loadExplorerB();
-      //});
-      $("#undoButton").on('click',(function(ev) {
-        $.ajax(undoSettings).done(function(response) {
-          console.log(response);
-          reload();
-        });
+      });
 
-      }));
       $("#mover").on('submit', (function(ev) {
-        var url = "https://api.box.com/2.0/" + sourceType + "s/" + sourceId;
+        var url = "https://api.box.com/2.0/" + sourceType + "s/" + sourceId
         ev.preventDefault();
         console.log("moving " + sourceId + " to " + targetFolder);
         var settings = {
@@ -78,36 +84,15 @@
 
         $.ajax(settings).done(function(response) {
           console.log(response);
-          $(".loader").hide();
-          //Show undo button and create settings for undo
-          undoSettings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://api.box.com/2.0/" + sourceType + "s/" + sourceId,
-            "method": "PUT",
-            "headers": {
-              "Authorization": "Bearer " + accessToken,
-              "Cache-Control": "no-cache"
-            },
-            "data": "{\"parent\": {\"id\" : " + sourceCurrent + "}}"
-          };
-          reload();
-          console.log('toggle move off, toggle undo on');
-          toggleButtonOn('undoButton');
-          toggleButtonOff('moveButton');
-          justMovedS=true;
-          justMovedT=true;
+          explorerA.hide();
+          explorerA.clearCache();
+          explorerB.hide();
+          explorerB.clearCache();
+          loadExplorerA();
+          loadExplorerB();
         });
       }));
     });
-    function reload() {
-      explorerA.hide();
-      explorerA.clearCache();
-      explorerB.hide();
-      explorerB.clearCache();
-      loadExplorerA();
-      loadExplorerB();
-    }
     function loadExplorerA() {
       explorerA.show(sourceCurrent, accessToken, {
         container: '.explorer-a',
@@ -125,33 +110,25 @@
         sourceId = item[0].id;
         sourceType = item[0].type;
         if (targetFolder != null) {
-          toggleButtonOn('moveButton');
+          toggleButtonOn();
         }
       });
       explorerA.addListener('navigate',(folder)=> {
         sourceCurrent=folder.id;
         sourceFolder=null;
-        console.log('toggle move off, toggle undo off ' + justMovedS);
-        toggleButtonOff('moveButton');
-        if(justMovedS) {
-          justMovedS=false;
-        }
-        else {
-          toggleButtonOff('undoButton');
-        }
-
+        toggleButtonOff();
 
       });
       explorerA.addListener('preview',(file) => {
         console.log("preview:" + file.id);
       });
     }
-    function toggleButtonOn(id) {
-        document.getElementById(id).disabled = false;
+    function toggleButtonOn() {
+        document.getElementById('moveButton').disabled = false;
     }
-    function toggleButtonOff(id) {
+    function toggleButtonOff() {
 
-        document.getElementById(id).disabled = true;
+        document.getElementById('moveButton').disabled = true;
     }
       function loadExplorerB() {
         explorerB.show(targetCurrent, accessToken, {
@@ -165,25 +142,14 @@
         });
         explorerB.addListener('select', (item) => {
           targetFolder = item[0].id;
-          var targetType = item[0].type;
-          if (sourceId != null && targetType=='folder') {
-            toggleButtonOn('moveButton');
-          }
-          else {
-            toggleButtonOff('moveButton');
+          if (sourceId != null) {
+            toggleButtonOn();
           }
         });
         explorerB.addListener('navigate',(folder)=> {
           targetCurrent=folder.id;
           targetFolder=null;
-          console.log('toggle move off, toggle undo off ' + justMovedT);
-          toggleButtonOff('moveButton');
-          if(justMovedT) {
-            justMovedT=false;
-          }
-          else {
-            toggleButtonOff('undoButton');
-          }
+          toggleButtonOff();
         });
       }
 
@@ -216,43 +182,34 @@
     bottom: 0;
     overflow: auto;
 }
-.btn-primary { background-color: black;border-color:#E0E0E0;font-style: normal }
-.btn-primary:disabled { background-color: #E0E0E0;border-color:black;color:black;font-style: italic }
-.btn-primary.disabled { background-color: #E0E0E0;border-color:black;color:black;font-style: normal }
-
-.btn-primary:hover { background-color: black !important;border-color:#E0E0E0;font-style: bold !important;  }
   </style>
 
 
-  <div class="container-fluid" style="background-color:#F4F6F9">
+  <div class="container">
 	<div class="row">
 
 	</div>
 	<div class="row mtm mbl">
 		<div class="col col-md-5">
-
+			<h4>Uploaded evidence</h4>
 			<!-- Box Content Explorer -->
 			<div class="tab-pane show active mts" style="border: 1px solid #cdd4de; padding: 10px" role="tabpanel" id="explorer">
-				<div style="height:400px" class="explorer-a"><span class='loader'><img src='ajax-loader.gif'/></span></div>
+				<div style="height:400px" class="explorer-a"></div>
 			</div>
 		</div>
 		<div class="col col-sm-1">
       <form id=mover class="form-inline" action="/create-collaboration" method="post">
-				<div style="margin: auto;text-align: center;">
-				<button id="moveButton" type="submit" class="btn btn-primary btn-sm" style="margin-top:150px;" disabled>
-        Move->
-      </button>
-        	<button id="undoButton" type="button" class="btn btn-primary btn-sm" style="margin-top:10px;" disabled>
-            <-Undo</button>
-			</form>
-    </div>
-
-    </div>
+				<div class="form-group">
+				</div>
+				<button id="moveButton" color="#0071D2" type="submit" class="btn btn-primary btn-sm" style="margin-top:150px;margin-left:-15px;" disabled>
+        Move-></button>
+			</form></div>
 
 		<div class="col col-md-5">
+			<h4>Cases</h4>
 			<!-- Box Content Explorer -->
 			<div class="tab-pane show active mts" style="border: 1px solid #cdd4de; padding: 10px" role="tabpanel" id="explorer">
-				<div style="height:400px" class="explorer-b"><span class='loader'><img src='ajax-loader.gif'/></span></div>
+				<div style="height:400px" class="explorer-b"></div>
 			</div>
 		</div>
 
@@ -267,6 +224,10 @@
     }
     .mts {
       margin-top: 20px;
+    }
+
+    .mtm {
+      margin-top: 40px;
     }
 
     .mtl {

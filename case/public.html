@@ -92,81 +92,7 @@
 
         console.log('preview');
       });
-      contentExplorer.addListener('select', (item) => {
-        selectedFolder = item[0].id;
-        sessionStorage.setItem('selectedId',selectedFolder);
-        //if video file, show transcode button
-        console.log("Showing cops?" + showCopsButton);
-
-        if(showCopsButton) {
-            fixButton();
-            objType='COPFS';
-            hackDom('COPFS');
-        } else {
-          var name = item[0].name;
-          console.log(name + " - " + name.endsWith('mp4'));
-          if(name.endsWith('mp4') || name.endsWith('avi')) {
-            fixButton();
-            objType='Video';
-            showVideoButton=true;
-            hackDom('Video');
-
-          }
-        }
-        console.log(item[0].type);
-        if(item[0].type=='file'  && 1==2) {
-          console.log("Showing sidebar");
-            contentSidebar.show(selectedFolder, sessionStorage.getItem('accessToken'), {
-              container: '.sb',
-             defaultView: 'metadata',
-              hasMetadata: true,
-            hasSkills: false,
-            hasProperties: true,
-            hasAccessStats: true,
-            hasActivityFeed: true,
-            hasClassification:true,
-            hasVersions:true,
-            hasNotices:true
-          });
-        }
-        else {
-          contentSidebar.hide();
-          contentSidebar.clearCache();
-        }
-        //check to see if video
-
-      });
-      function fixButton() {
-        var divs = document.getElementsByTagName('div');
-        console.log("fixign button");
-        for(i=0;i<divs.length;i++) {
-          if(divs[i].className=='bce-more-options' && divs[i].parentNode.parentNode.className.includes('bce-item-row-selected')) {
-            console.log("displaying more options:" + divs[i].innerHTML);
-            divs[i].style.display='block';
-            if(currentSelected && currentSelected!=divs[i]) {
-              console.log("hiding currentSelected:" + currentSelected.innerHTML);
-
-              currentSelected.style.display='none';
-            }
-            currentSelected = divs[i];
-          }
-        }
-      };
-      contentExplorer.addListener('navigate', (item) => {
-        showVideoButton=false;
-        console.log("Item:" + item.id + "=" + folderId);
-        if(item.id==folderId) {
-            console.log(item.id  + "=" + folderId + " setting to true");
-            showCopsButton=true;
-          }
-          else {
-            console.log(item.id  + "!=" + folderId + " setting to false");
-            showCopsButton=false;
-            console.log("hiding currentSelected");
-            currentSelected.style.display='none';
-
-          }
-      });
+    
     }
 
     function hackDom(objType) {
@@ -314,7 +240,7 @@
     color: white;
 }
 </style>
-<body>
+<body style="background-color:#F4F6F9">
 
     <div class="container-fluid" style="height:700px; width:85vw">
       <div class="row">
