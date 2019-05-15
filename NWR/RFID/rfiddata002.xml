@@ -1,4 +1,8 @@
 <xml>
-<train>My Train</train>
-<time>08:00:04</time>
+<stock>Thameslink Carriage</stock>
+<date>14/05/2019</date>
+<time>19:22:04</time>
+<latitude>51.1151382</latitude>
+<longitude>-0.166776</longitude>
+<depot>Three Bridges</depot>
 </xml>
