@@ -140,7 +140,7 @@
     var curInfoWindow;
     var camImage = '/templates/img/photo.png';
     var vidImage = './templates/img/video.png';
-    var xmlImage = './NWR/train.png';
+    var xmlImage = '/NWR/train.png';
     var curSW;
     var curNE;
 
@@ -271,7 +271,7 @@
       var url;
       $(".loaderE").show();
       var useThisFolder = startFolderId;
-      url = 'https://api.box.com/2.0/folders/' + startFolderId + '/items?fields=name,id,metadata.enterprise.case,metadata.enterprise.gpsCoordinates&type=file';
+      url = 'https://api.box.com/2.0/folders/' + startFolderId + '/items?fields=name,id,metadata.enterprise.nwrDepotRfid&type=file';
       console.log(url);
       var settings = {
         "async": true,
@@ -287,7 +287,7 @@
         var i = 0;
         $.each(response.entries, function(k, data) {
           if(data.metadata && checkMap(data.metadata.enterprise.gpsCoordinates,useMap)) {
-            var bf = new boxfile(data.name, data.id, data.metadata.enterprise.gpsCoordinates.latitudeNumber, data.metadata.enterprise.gpsCoordinates.longitudeNumber);
+            var bf = new boxfile(data.name, data.id, data.metadata.enterprise.nwrDepotRfid.latitude1, data.metadata.enterprise.nwrDepotRfid.longitude1);
             var listItem = $("<li class='list-group-item place' id='boxfileslist_" + bf.id + "'><i class='glyphicon glyphicon-picture'></i> " + bf.name + "</li>");
             listItem.on("click", function(event) {
               google.maps.event.trigger(bf.marker, 'click', {
