@@ -1,4 +1,8 @@
 <xml>
-<train>My Train</train>
+<stock>My Train</stock>
+<date>15/05/2019</date>
 <time>08:00:04</time>
+<latitude>51.3973133</latitude>
+<longitude>-0.077204</longitude>
+<depot>Norward Junction</depot>
 </xml>
