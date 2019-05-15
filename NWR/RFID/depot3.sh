@@ -13,5 +13,5 @@ curl -X POST \
   -H 'cache-control: no-cache' \
   -H 'content-length: 445' \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
-  -F 'attributes={"name":"rfiddata001.xml", "parent": {"id": "76628355894"}}' \
+  -F 'attributes={"name":"rfiddata003.xml", "parent": {"id": "76628355894"}}' \
   -F file=@/Users/jmahedy/Desktop/rfiddata001.xml
