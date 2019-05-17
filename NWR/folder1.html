@@ -30,7 +30,20 @@
       canDelete: false,
       canRename: false,
       canShare: false,
-      canCreateNewFolder: false
+      canCreateNewFolder: false,
+      contentPreviewProps: {
+          contentSidebarProps: {
+              detailsSidebarProps: {
+                  hasNotices: true,
+                  hasProperties: true,
+                  hasAccessStats: true,
+                  hasVersions: true
+              },
+              hasActivityFeed: true,
+              hasSkills: true,
+              hasMetadata: true
+          }
+      }
     });
   </script>
 </body>
