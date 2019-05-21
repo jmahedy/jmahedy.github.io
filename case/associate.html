@@ -15,6 +15,13 @@
   <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/elements/4.4.0/en-US/explorer.css" />
   <script src="https://cdn01.boxcdn.net/platform/elements/4.4.0/en-US/explorer.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+  <style>
+    .notie-container {
+      box-shadow: none;
+    }
+  </style>
+
 </head>
 
 <body style="background-color:#F4F6F9">
@@ -56,6 +63,7 @@
       $("#undoButton").on('click',(function(ev) {
         $.ajax(undoSettings).done(function(response) {
           console.log(response);
+          notie.alert({ text: `The ${sourceType} was moved back to its original location.` })
           reload();
         });
 
@@ -64,6 +72,7 @@
         var url = "https://api.box.com/2.0/" + sourceType + "s/" + sourceId;
         ev.preventDefault();
         console.log("moving " + sourceId + " to " + targetFolder);
+
         var settings = {
           "async": true,
           "crossDomain": true,
@@ -79,6 +88,9 @@
         $.ajax(settings).done(function(response) {
           console.log(response);
           $(".loader").hide();
+
+          notie.alert({ text: `The ${sourceType} transferred successfully.` })
+
           //Show undo button and create settings for undo
           undoSettings = {
             "async": true,
@@ -282,6 +294,8 @@
     }
   </style>
 
+
+  <script src="https://unpkg.com/notie"></script>
 </body>
 
 </html>
