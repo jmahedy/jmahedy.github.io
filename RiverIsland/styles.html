@@ -11,21 +11,17 @@
     -->
 
     <!-- Latest version of Box Content Preview for en-US locale -->
-    <script src="https://cdn01.boxcdn.net/platform/preview/2.6.1/en-US/preview.js"></script>
-    <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/preview/2.6.1/en-US/preview.css" />
+    <script src="https://cdn01.boxcdn.net/platform/preview/1.58.2/en-US/preview.js"></script>
+    <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/preview/1.58.2/en-US/preview.css" />
 </head>
 <body>
-    <div class="preview-container" style="height:90vh; width:100vw;" align="center";></div>
+    <div class="preview-container" style="height:90vh; width:100vw; align="center";></div>
     <script>
         var preview = new Box.Preview();
-      	preview.show('463136868387', sessionStorage.getItem("accessToken"), {
+      	preview.show('442575738207', sessionStorage.getItem("accessToken"), {
             container: '.preview-container',
-            logoUrl: 'logo-small.jpg',
-            showDownload: 'true',
-            header: 'light',
-            showAnnotations: 'true',
-
-            collection: ['441529924393','441527196748']
+            logoUrl: 'favicon.ico',
+            showDownload: false
         });
     </script>
 </body>
