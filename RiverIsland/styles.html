@@ -17,11 +17,15 @@
 <body>
     <div class="preview-container" style="height:90vh; width:100vw; align="center";></div>
     <script>
-        var preview = new Box.Preview();
-      	preview.show('442575738207', sessionStorage.getItem("accessToken"), {
-            container: '.preview-container',
-            logoUrl: 'favicon.ico',
-            showDownload: false
+      var preview = new Box.Preview();
+      preview.show('463425833149', sessionStorage.getItem("accessToken"), {
+          container: '.preview-container',
+          logoUrl: 'favicon.ico',
+          showDownload: 'true',
+          header: 'light',
+          showAnnotations: 'true',
+
+          collection: ['463442312216','463442341016','463442163936']
         });
     </script>
 </body>
