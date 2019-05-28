@@ -22,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Box Platform - Template Application</title>
+  <title>Box Platform - Open Banking</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -39,7 +39,7 @@
 
 <form class="border border-light p-5">
 
-    <p class="h4 mb-4 light-blue-text text-left">Request 3rd Party Client Document Access</p>
+    <p class="h4 mb-4 light-blue-text text-left">Request 3rd Party Client Documen Access</p>
 
     <label for="textInput">First Name</label>
     <input type="text" id="First" class="form-control mb-4" placeholder="John">
@@ -52,18 +52,29 @@
 
     <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="jmahedy+demo9@box.com">
 
+    <select class="browser-default custom-select mb-4" id="Client">
+    <option value="Client ID" selected=" ">Client ID</option>
+    <option value="000129019201">000129019201</option>
+    <option value="000129019202">000129019202</option>
+    <option value="000129019203">000129019203</option>
+    <option value="000129019204">000129019204</option>
+    </select>
+
     <select class="browser-default custom-select mb-4" id="Access">
-    <option value="ID Documents" disabled="ID Documents" selected=" ">Choose your option</option>
+    <option value="Access to" disabled="ID Documents" selected=" ">Access type</option>
     <option value="Statements">Statements</option>
     <option value="Tax Information">Tax Information</option>
     <option value="Vault Documents">Vault Documents</option>
+    <option value="77805270972">ID Documents</option>
+
+
     </select>
 
     <select class="browser-default custom-select mb-4" id="Length">
-    <option value="1 Day" disabled="1 Day" selected="">Choose your option</option>
-    <option value="5 Days">5 Days</option>
-    <option value="10 Days">10 Days</option>
-    <option value="15 Days">15 Days</option>
+    <option value="Length" disabled="Length" selected="Length">Shared for duration</option>
+    <option value="1 Day">5 Days</option>
+    <option value="2 Days">10 Days</option>
+    <option value="3 Days">15 Days</option>
     </select>
 
     <button class="btn btn-info btn-block my-4" type="submit">REQUEST ACCESSS</button>

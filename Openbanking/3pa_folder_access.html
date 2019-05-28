@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <style>
+
+  #parent {
+   display: table;
+   width: 40%;
+}
+#form_login {
+
+   display: table-cell;
+   text-align: center;
+   vertical-align: middle;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+accessToken = sessionStorage.getItem("accessToken");
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.box.com/2.0/collaborations/",
+  "method": "POST",
+  "headers": {
+    "Authorization": "Bearer Wj0aYBjw38I79hSo3kfwP3qnMTLknHE9",
+    "Content-Type": "text/plain",
+    "User-Agent": "PostmanRuntime/7.13.0",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "531b7735-fdea-4caf-b5a7-68256d06706d,d2907684-fbdd-4d02-bd51-054a7239f323",
+    "Host": "api.box.com",
+    "accept-encoding": "gzip, deflate",
+    "content-length": "128",
+    "Connection": "keep-alive",
+    "cache-control": "no-cache"
+  },
+  "data": "{\"item\": { \"id\": \"77805270972\", \"type\": \"folder\"}, \"accessible_by\": { \"login\": \"jmahedy+openbanking@box.com\"}, \"role\": \"editor\"}"
+}
+
+
+
+$( 'button' ).click(function() {
+  alert ('hello');
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+});
+
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Box Platform - Open Banking</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="parent">
+
+<form class="border border-light p-5">
+
+    <p class="h4 mb-4 light-blue-text text-left">Request 3rd Party Client Folder Access</p>
+
+    <label for="textInput">First Name</label>
+    <input type="text" id="First" class="form-control mb-4" placeholder="John">
+
+    <label for="textInput">Surname</label>
+    <input type="text" id="Surname" class="form-control mb-4" placeholder="Mahedy">
+
+    <label for="textInput">Institution</label>
+    <input type="text" id="Institution" class="form-control mb-4" placeholder="Box Bank">
+
+    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="jmahedy+demo9@box.com">
+
+    <select class="browser-default custom-select mb-4" id="Client">
+    <option value="Client ID" selected=" ">Client ID</option>
+    <option value="000129019201">000129019201</option>
+    <option value="000129019202">000129019202</option>
+    <option value="000129019203">000129019203</option>
+    <option value="000129019204">000129019204</option>
+    </select>
+
+    <select class="browser-default custom-select mb-4" id="Access">
+    <option value="Access to" disabled="ID Documents" selected=" ">Access type</option>
+    <option value="Statements">Statements</option>
+    <option value="Tax Information">Tax Information</option>
+    <option value="Vault Documents">Vault Documents</option>
+    <option value="77805270972">77805270972</option>
+    </select>
+
+    <select class="browser-default custom-select mb-4" id="Length">
+    <option value="Length" disabled="Length" selected="Length">Shared for duration</option>
+    <option value="1 Day">5 Days</option>
+    <option value="2 Days">10 Days</option>
+    <option value="3 Days">15 Days</option>
+    </select>
+
+    <button id="collab" class="btn btn-info btn-block my-4" type="button">REQUEST ACCESSS</button>
+
+    </div>
+
+</form>
+
+</body>
+
+</html>
