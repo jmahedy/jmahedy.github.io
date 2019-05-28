@@ -82,18 +82,19 @@
 
     <script type="text/javascript">
 
-    accessToken = sessionStorage.getItem("accessToken");
-
 
       //$(document).ready() is cross-browser
       $("#collab").click(function() {
+        accessToken = sessionStorage.getItem("accessToken");
+        payLoad = {"item": { "id": "1234", "type": "folder"}, "accessible_by": { "login": "jmahedy+openbanking@box.com"}, "role": "editor"} ;
+        payLoad.item.id = $("select#Client").val();
         var settings = {
           "async": true,
           "crossDomain": true,
           "url": "https://api.box.com/2.0/collaborations/",
           "method": "POST",
           "headers": {
-            "Authorization": "Bearer " +accessToken,
+            "Authorization": "Bearer " + accessToken,
             "Content-Type": "text/plain",
             "Accept": "*/*",
             "Host": "api.box.com",
@@ -104,8 +105,9 @@
           },
             //"data": "{\"item\": { \"id\": "\\"+ $("select#Client").val() +"\\", \"type\": \"folder\"}, \"accessible_by\": { \"login\": \"jmahedy+openbanking@box.com\"}, \"role\": \"previewer\"}
 
-          "data": "{\"item\": { \"id\": '\"+ $("select#Client").val() +'\", \"type\": \"folder\"}, \"accessible_by\": { \"login\": \"jmahedy+openbanking@box.com\"}, \"role\": \"previewer\"}"
+          "data": payLoad
         }
+        alert(JSON.stringify(payLoad));
         $.ajax(settings).done(function (response) {
           console.log(response);
         });
