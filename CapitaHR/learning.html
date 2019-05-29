@@ -38,6 +38,10 @@
                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed"
                   aria-selected="false">Completed Modules</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#suggested" role="tab" aria-controls="suggested"
+                  aria-selected="false">Suggested Modules</a>
+              </li>
             </ul>
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -47,7 +51,7 @@
     <p class="card-text">Capita has over 63,000 talented, committed and engaged employees, essential to delivering business critical services and solutions across all our markets.
 
 Their skills, knowledge, attitude and creativity ensure we continue to deliver great service and positive outcomes for our clients. 2017 has been a challenging year with businesses being restructured and disposed of. During these periods of change, we worked hard to ensure those affected were informed, involved and communicated to before and during the process.</p>
-    <a class="card-link"><iframe src="https://wppdemo.app.box.com/embed/s/h51ssqyrs1ttued6cf1clmlkrptwzsca?sortColumn=date&view=list" width="800" height="550" frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe></a>
+    <a class="card-link"><iframe src="https://capitademo.app.box.com/embed/s/h51ssqyrs1ttued6cf1clmlkrptwzsca?sortColumn=date&view=list" width="800" height="550" frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe></a>
   </div>
 </div></div>
             </div>
@@ -57,22 +61,26 @@ Their skills, knowledge, attitude and creativity ensure we continue to deliver g
                   <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/preview/1.58.2/en-US/preview.css" />
               </head>
               <body>
-                  <div class="preview-container" style="height:1000px; width:1000%;"></div>
+                  <div class="preview-container" style="height:500px; width:250%;"></div>
                   <script>
                       var preview = new Box.Preview();
                       preview.show('465867223917', sessionStorage.getItem("accessToken"), {
+
                           container: '.preview-container',
                           showDownload: true,
-                          logoUrl: 'favicon.ico',
+                          logoUrl: 'toplogo.png',
                           contentSidebarProps: {
                             container: '.sb',
                              //defaultView: 'metadata',
                             hasMetadata: true,
-                          hasSkills: true,
-                          hasMetadata: true,
-                          hasProperties: true,
-                          hasAccessStats: true,
-                          defaultView:'skills'
+                            hasActivityFeed: true,
+                            hasAccessStats: true,
+                            hasProperties: true,
+                            hasSkills: true,
+                            hasMetadata: true,
+                            hasProperties: true,
+                            hasAccessStats: true,
+                            defaultView:'skills'
                           }
                       });
                   </script></div>
@@ -86,8 +94,8 @@ Their skills, knowledge, attitude and creativity ensure we continue to deliver g
 
                     // Show the content explorer
                     completedContentExplorer.show(completedFolderId, accessToken, {
-                        logoUrl: 'logo-small.jpg',
-                        container: '.completedcontainer',
+                        logoUrl: 'toplogo.png',
+                        container: '.suggestedcontainer',
                         contentPreviewProps: {
                             contentSidebarProps: {
                                 detailsSidebarProps: {
@@ -105,6 +113,35 @@ Their skills, knowledge, attitude and creativity ensure we continue to deliver g
             </script>
             </div>
           </div>
+
+          <div class="tab-pane fade" id="suggested" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="completedcontainer" style="height:90vh; width:100vw;"></div>
+            <script>
+                      var suggestedContentExplorer = new Box.ContentExplorer();
+                      var suggestedFolderId = '77909139566';
+                        var accessToken = sessionStorage.getItem("accessToken"); //'ERtaeEtF6SAIf6yBAwFeqKaHBCAAzcox';
+
+                // Show the content explorer
+                completedContentExplorer.show(completedFolderId, accessToken, {
+                    logoUrl: 'toplogo.png',
+                    container: '.completedcontainer',
+                    contentPreviewProps: {
+                        contentSidebarProps: {
+                            detailsSidebarProps: {
+                                hasNotices: true,
+                                hasProperties: true,
+                                hasAccessStats: true,
+                                hasVersions: true
+                            },
+                            hasActivityFeed: true,
+                            hasSkills: true,
+                            hasMetadata: true
+                        }
+                    }
+                });
+        </script>
+        </div>
+      </div>
 
 
           </body>
