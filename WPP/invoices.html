@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <meta charset="utf-8" />
-  <title>Box Platform - Template Application</title>
+  <title>River Island Store Portal - Images</title>
       <!DOCTYPE html>
       <head>
           <meta charset="utf-8" />
@@ -27,7 +27,7 @@
               <div class="container" style="height:90vh; width:100vw;"></div>
             <script>
             var contentExplorer = new Box.ContentExplorer();
-            var folderId = '77635894645';
+            var folderId = '78121614306';
             var accessToken = sessionStorage.getItem("accessToken"); //'ERtaeEtF6SAIf6yBAwFeqKaHBCAAzcox';
 
       // Show the content explorer
@@ -40,11 +40,14 @@
                       hasNotices: true,
                       hasProperties: true,
                       hasAccessStats: true,
+                      hasMetadata: true,
                       hasVersions: true
                   },
                   hasActivityFeed: true,
                   hasSkills: true,
-                  hasMetadata: true
+                  hasMetadata: true,
+                  canRename: false,
+                  canDelete: false
               }
           }
       });
