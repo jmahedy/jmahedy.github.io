@@ -15,59 +15,32 @@
   </head>
 
 <body>
-<script>
 
-  var imageCapture;
+  <video id="player" controls autoplay></video>
+  <button id="capture">Capture</button>
+  <canvas id="canvas" width=320 height=240></canvas>
+  <script>
+    const player = document.getElementById('player');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const captureButton = document.getElementById('capture');
 
-  function onGetUserMediaButtonClick() {
-    navigator.mediaDevices.getUserMedia({video: true})
-    .then(mediaStream => {
-      document.querySelector('video').srcObject = mediaStream;
+    const constraints = {
+      video: true,
+    };
 
-      const track = mediaStream.getVideoTracks()[0];
-      imageCapture = new ImageCapture(track);
-    })
-    .catch(error => ChromeSamples.log(error));
-  }
+    captureButton.addEventListener('click', () => {
+      // Draw the video frame to the canvas.
+      context.drawImage(player, 0, 0, canvas.width, canvas.height);
+    });
 
-  function onGrabFrameButtonClick() {
-    imageCapture.grabFrame()
-    .then(imageBitmap => {
-      const canvas = document.querySelector('#grabFrameCanvas');
-      drawCanvas(canvas, imageBitmap);
-    })
-    .catch(error => ChromeSamples.log(error));
-  }
+    // Attach the video stream to the video element and autoplay.
+    navigator.mediaDevices.getUserMedia(constraints)
+      .then((stream) => {
+        player.srcObject = stream;
+      });
+  </script>
 
-  function onTakePhotoButtonClick() {
-    imageCapture.takePhoto()
-    .then(blob => createImageBitmap(blob))
-    .then(imageBitmap => {
-      const canvas = document.querySelector('#takePhotoCanvas');
-      drawCanvas(canvas, imageBitmap);
-    })
-    .catch(error => ChromeSamples.log(error));
-  }
-
-  /* Utils */
-
-  function drawCanvas(canvas, img) {
-    canvas.width = getComputedStyle(canvas).width.split('px')[0];
-    canvas.height = getComputedStyle(canvas).height.split('px')[0];
-    let ratio  = Math.min(canvas.width / img.width, canvas.height / img.height);
-    let x = (canvas.width - img.width * ratio) / 2;
-    let y = (canvas.height - img.height * ratio) / 2;
-    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-    canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height,
-        x, y, img.width * ratio, img.height * ratio);
-  }
-
-  document.querySelector('video').addEventListener('play', function() {
-    document.querySelector('#grabFrameButton').disabled = false;
-    document.querySelector('#takePhotoButton').disabled = false;
-  });
-
-</script>
 </body>
 
 </html>
