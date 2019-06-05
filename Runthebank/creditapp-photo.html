@@ -72,7 +72,9 @@
                 video.mozSrcObject = stream; // Assign the stream to #video-still
             } else {
                 var vendorURL = window.URL || window.webkitURL;
-                video.src = vendorURL.createObjectURL(stream); // Assign the stream to #video-still
+                //video.src = vendorURL.createObjectURL(stream); // Assign the stream to #video-still
+                video.srcObject=stream;
+                video.play();
             }
             video.play(); // Tell #video-still to play
         }
