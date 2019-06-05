@@ -16,77 +16,30 @@
 
 <body>
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
-    Launch demo modal
-  </button>
+  <video id="player" controls autoplay></video>
+  <button id="capture">Capture</button>
+  <canvas id="canvas" width=320 height=240></canvas>
+  <script>
+    const player = document.getElementById('player');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const captureButton = document.getElementById('capture');
 
-  <!-- Modal -->
-  <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Photo Of Applicant</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-  <html>
+    const constraints = {
+      video: true,
+    };
 
-  <head>
+    captureButton.addEventListener('click', () => {
+      // Draw the video frame to the canvas.
+      context.drawImage(player, 0, 0, canvas.width, canvas.height);
+    });
 
-    <title>Apply For Credit</title>
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
-
-    </head>
-
-  <body>
-
-    <video id="player" controls autoplay></video>
-    <button id="capture">Capture</button>
-    <canvas id="canvas" width=900 height=900></canvas>
-    <script>
-      const player = document.getElementById('player');
-      const canvas = document.getElementById('canvas');
-      const context = canvas.getContext('2d');
-      const captureButton = document.getElementById('capture');
-
-      const constraints = {
-        video: true,
-      };
-
-      captureButton.addEventListener('click', () => {
-        // Draw the video frame to the canvas.
-        context.drawImage(player, 0, 0, canvas.width, canvas.height);
+    // Attach the video stream to the video element and autoplay.
+    navigator.mediaDevices.getUserMedia(constraints)
+      .then((stream) => {
+        player.srcObject = stream;
       });
-
-      // Attach the video stream to the video element and autoplay.
-      navigator.mediaDevices.getUserMedia(constraints)
-        .then((stream) => {
-          player.srcObject = stream;
-        });
-    </script>
-
-  </body>
-
-  </html>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  </script>
 
 </body>
 
