@@ -151,6 +151,15 @@
 
             var data = canvas.toDataURL('image/png');
             photo.setAttribute('src', data);
+            $.ajax({
+                  type: "POST",
+                  url: "http://localhost:5000/camupload",
+                  data: {
+                     imgBase64: data
+                  }
+                }).done(function(msg) {
+                  console.log("saved");
+                });
         } else {
             clearphoto();
         }
