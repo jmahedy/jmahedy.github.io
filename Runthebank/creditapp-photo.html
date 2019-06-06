@@ -131,7 +131,8 @@
               photo.setAttribute('src', data);
               $.ajax({
                     type: "POST",
-                    url: "http://localhost:5000/camupload",
+                    //url: "http://localhost:5000/camupload",
+                    url: "http://box-java-sandpit.herokuapp.com/camupload",
                     data: {
                        imgBase64: data,
                        folderId:folderId
