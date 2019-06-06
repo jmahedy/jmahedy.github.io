@@ -3,6 +3,7 @@
 <head>
 
   <title>Apply For Credit</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -14,10 +15,49 @@
 
 </head>
 
+<script>
+
+$(document).ready(function() {
+
+    $('#kyc').on('submit', (function(ev) {
+    $("#signbutton").hide();
+    $("#loader").show();
+    ev.preventDefault();
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+      "url": "https://api.box.com/2.0/folders/66305650782",
+      "method": "GET",
+      "headers": {
+
+        "Authorization": "Bearer " +sessionStorage.getItem("accessToken")
+
+      }
+    };
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      if (1==1) {
+        //Metdata fund
+        window.location.replace('/Runthebank/ok.html');
+      }
+      else {
+        window.location.replace('/Runthebank/creditapp-photo.html');
+      }
+
+
+    });
+  }));
+});
+</script>
+
 <body>
 
-<div class=""
-<form class="border border-light p-5" action="https://jmahedy.github.io/Runthebank/creditapp-photo.html" method="get">
+
+
+
+<form id="kyc" class="border border-light p-5" action="#ß" method="get">
 
     <p class="h4 mb-4 text-center">My Credit Application</p>
 
