@@ -88,48 +88,106 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- contact -->
 <section class="contact py-5">
 	<div class="container py-lg-5">
-		<h2 class="heading mb-sm-5 mb-4">Apply here <strong> it's quick and easy </strong></h2>
-		<div class="row">
-			<div class="col-lg-4 col-md-6 contact-address">
-				<h4 class="mb-4 w3f_title">Contact Address</h4>
-				<ul class="list-w3">
-					<li class="d-flex"><span class="fa mt-1 mr-1 fa-map-marker"></span>2130 Fulton Street, San Diego, <br>CA 94117-1080 USA</li>
-					<li class="my-3"><span class="fa mr-1 fa-phone"></span>1-600-1234-567</li>
-					<li class="my-3"><span class="fa mr-1 fa-phone"></span>1-600-1234-567</li>
-					<li class=""><span class="fa mr-1 fa-envelope"></span><a href="mailto:info@example.com">info@example.com</a></li>
-				</ul>
-				<h4 class="mt-sm-5 mt-4 mb-3 w3f_title">Follow Us</h4>
-				<p>Sed mattis hendrerit dolor sed rhoncus. Praesent arcu quam, sodales ac varius.</p>
-				<ul class="list-social">
-					<li><a href="#" class="facebook"><span class="fa mr-1 fa-facebook"></span></a></li>
-					<li class="my-3"><a href="#" class="twitter"><span class="fa mr-1 fa-twitter"></span></a></li>
-					<li class="my-3"><a href="#" class="google"><span class="fa mr-1 fa-google-plus"></span></a></li>
-					<li class=""><a href="#" class="linkedin"><span class="fa mr-1 fa-linkedin"></span></a></li>
-				</ul>
-			</div>
-			<div class="col-lg-4 col-md-6 contact-form mt-md-0 mt-sm-5 mt-4">
-				<h4 class="mb-4 w3f_title">Contact Form</h4>
-				<form name="contactform" id="contactform" method="post" action="#" onsubmit="return(validate());" novalidate="novalidate">
-						<div class="form-group">
-						  <label>Name</label>
-						  <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
-						</div>
-						<div class="form-group">
-						  <label>Email</label>
-						  <input type="email" class="form-control" id="name" placeholder="Enter Email" name="email">
-						</div>
-						<div class="form-group">
-						  <label>How can we help?</label>
-						  <textarea name="issues" class="form-control" id="iq" placeholder="Enter Your Message Here"></textarea>
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
-			</div>
-			<div class="col-lg-4 contact-map mt-lg-0 mt-sm-5 mt-4">
-				<h4 class="mb-4 w3f_title">Contact Map</h4>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555" allowfullscreen=""></iframe>
-			</div>
-		</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <script>
+
+  $(document).ready(function() {
+
+      $('#kyc').on('submit', (function(ev) {
+      $("#signbutton").hide();
+      $("#loader").show();
+      ev.preventDefault();
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+        "url": "https://api.box.com/2.0/folders/78810593163/items?type=folder&fields=id,name,metadata.enterprise.kycClient",
+        "method": "GET",
+        "headers": {
+
+          "Authorization": "Bearer " +sessionStorage.getItem("accessToken")
+
+        }
+      };
+      $.ajax(settings).done(function(response) {
+        console.log(response);
+        var hasIdValidated = "No";
+        var folderId;
+        $.each(response.entries, function(k, data) {
+          console.log(data.name);
+          if(data.name==$("#name").val()) {
+            console.log("Found name:" + data.name + ":validated?" + data.metadata.enterprise.kycClient.idValidated);
+            hasIdValidated=data.metadata.enterprise.kycClient.idValidated;
+            folderId=data.id;
+          }
+        });
+        if (hasIdValidated=="Yes") {
+          //Metdata fund
+          window.location.replace('/Runthebank/ok.html');
+        }
+        else {
+          window.location.replace('/Runthebank/creditapp-photo.html?folderId=' + folderId);
+        }
+
+
+      });
+    }));
+  });
+  </script>
+
+  <body>
+
+
+
+
+  <form id="kyc" class="border border-light p-5" action="#ß" method="get">
+
+      <p class="h4 mb-4 text-center">My Credit Application</p>
+
+      <label for="textInput">First name</label>
+      <input type="text" id="name" class="form-control mb-4" placeholder="Name">
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" class="form-control mb-4" placeholder="E-mail">
+
+      <label for="email">Address Line 1</label>
+      <input type="email" id="address1" class="form-control mb-4" placeholder="Address Line 1">
+
+      <label for="email">Address Line 2</label>
+      <input type="email" id="address2" class="form-control mb-4" placeholder="Address Line 2">
+
+      <label for="email">Address Line 3</label>
+      <input type="email" id="address2" class="form-control mb-4" placeholder="Address Line 3">
+
+      <label for="email">Postal Code</label>
+      <input type="email" id="postcode" class="form-control mb-4" placeholder="Postal Code">
+
+      <label for="type">What service are you applying for?</label>
+
+
+      <select class="browser-default custom-select mb-4" id="type">
+
+          <option value="" disabled="" selected="">Type of credit</option>
+          <option value="1">Credit Card</option>
+          <option value="2">Personal Loan</option>
+          <option value="3">Mortgage</option>
+
+
+            <input id="multi8" class="multi-range" type="range" step="100" />
+              <button class="btn btn-info btn-block my-4" type="submit">Next</button>
+          </form>
 	</div>
 </section>
 <!-- //contact -->
