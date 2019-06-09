@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- nav -->
 		<nav class="py-3 d-lg-flex">
 			<div id="logo">
-				<h1> <a href="index.html"><span class="fa fa-university"></span> Box Bank </a></h1>
+				<h1> <a href="index.html"><span class="fa fa-university"></span> Box  </a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
@@ -110,7 +110,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="row advantages_grids">
 			<div class="col-lg-6 mt-lg-0 mt-4">
 
-
+        <div class="container" style="height:90vh; width:100vw;"></div>
+        <!-- Latest version of the explorer js for your locale -->
+        <script src="https://cdn01.boxcdn.net/platform/elements/10.0.0/en-US/explorer.js"></script>
+        <script>
+          var folderId = '73553726252';
+          var accessToken = sessionStorage.getItem("accessToken"); //'ERtaeEtF6SAIf6yBAwFeqKaHBCAAzcox';
+          var contentExplorer = new Box.ContentExplorer();
+          contentExplorer.show(folderId, accessToken, {
+            container: '.container',
+            logoUrl: 'logo-small.png',
+            canDownload: false,
+            canDelete: false,
+            canRename: false,
+            canShare: false,
+            canCreateNewFolder: false
+          });
+        </script>
 
 			</div>
 
