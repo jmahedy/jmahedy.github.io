@@ -19,7 +19,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/mdb.min.css" rel="stylesheet">
 <!-- Your custom styles (optional) -->
 <link href="css/style.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/elements/9.1.1/en-US/uploader.css">
+<script src="https://cdn01.boxcdn.net/platform/elements/9.1.0/en-US/uploader.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Bank Card Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -36,10 +37,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 
     <script>
-
-    let searchParams = new URLSearchParams(window.location.search)
-    var folderId=searchParams.get("folderId");
-
+  $(document).ready(function() {
+      var contentUploader = new Box.ContentUploader();
+      contentUploader.show(sessionStorage.getItem("idFolderId"), sessionStorage.getItem("accessToken"), {
+        container: '.pcontainer'
+      });
+      var contentUploader1 = new Box.ContentUploader();
+      contentUploader1.show(sessionStorage.getItem("addressFolderId"), sessionStorage.getItem("accessToken"), {
+        container: '.bcontainer'
+      });
+      var contentUploader2 = new Box.ContentUploader();
+      contentUploader2.show(sessionStorage.getItem("idFolderId"), sessionStorage.getItem("accessToken"), {
+        container: '.dcontainer'
+      });
+      var contentUploader3 = new Box.ContentUploader();
+      contentUploader3.show(sessionStorage.getItem("payslipsFolderId"), sessionStorage.getItem("accessToken"), {
+        container: '.scontainer'
+      });
+      contentUploader.addListener('complete',function(file) {
+        $("#u1").hide();
+					$("#u2").show();
+			});
+      contentUploader2.addListener('complete',function(file) {
+        $("#u2").hide();
+					$("#u3").show();
+			});
+      contentUploader1.addListener('complete',function(file) {
+        $("#u3").hide();
+					$("#u4").show();
+			});
+    });
 </script>
 
 	<!-- css files -->
@@ -108,32 +135,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <section class="advantages pt-5">
 	<div class="container pb-lg-5">
 		<div class="row advantages_grids">
-			<div class="col-lg-6 mt-lg-0 mt-4">
+			<div class="col-lg-10 mt-lg-0 mt-4">
         <form class="border border-light p-5">
             <div class="container-fluid">
-            <div class="custom-file" style="height: 65px">
+            <div id="u1" class="custom-file1" style="height:265px;width:800px;">
 
-              <input type="file" class="custom-file-input" id="customFileLang">
-              <label class="custom-file-label">UPLOAD PASSPORT</label>
+
+              <label class="custom-file-label1">UPLOAD PASSPORT</label>
+              <div style="height:265px;width:800px;"class="pcontainer"></div>
+
             </div>
 
-            <div class="custom-file" style="height: 65px">
-              <input type="file" class="custom-file-input" id="customFileLang">
-              <label class="custom-file-label">UPLOAD DRIVERS LICENSE</label>
+            <div id="u2" class="custom-file" style="height:465px;display:none;">
+
+              <label class="custom-file-label1">UPLOAD DRIVERS LICENSE</label>
+                <div style="height:265px;width:800px;" class="dcontainer"></div>
             </div>
 
-          <div class="custom-file" style="height: 65px">
-              <input type="file" class="custom-file-input" id="customFileLang">
-              <label class="custom-file-label">UPLOAD UTILITY BILLS</label>
+          <div id="u3" class="custom-file" style="height: 465px;display:none;">
+              <label class="custom-file-label1">UPLOAD UTILITY BILLS</label>
+                <div style="height:265px;width:800px;" class="bcontainer"></div>
             </div>
 
-          <div class="custom-file" style="height: 65px">s
-              <input type="file" class="custom-file-input" id="customFileLang">
-            <label class="custom-file-label">UPLOAD PASSPORT</label>
+          <div id="u4" class="custom-file" style="height: 465px;display:none;">
+            <label class="custom-file-label1">UPLOAD PAYLIPS</label>
+              <div style="height:265px;width:800px;"class="scontainer"></div>
             </div>
           </div>
 
-          <button class="btn btn-yellow" type="submit">UPLOAD FILES</button>
+
 
         </form>
 
