@@ -141,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
             if (hasIdValidated == "Yes") {
               //Metdata found
-              window.location.replace('/Runthebank/ok.html');
+              window.location.replace('/Runthebank/product.html?type=' + $("type").val);
             } else {
               //Get folder ID of address verification folders
               //apply metadata from form
@@ -242,12 +242,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <select class="browser-default custom-select mb-4" id="type">
 
           <option value="" disabled="" selected="">Type of credit</option>
-          <option value="1">Credit Card</option>
-          <option value="2">Personal Loan</option>
-          <option value="3">Mortgage</option>
-
-
-            <input id="multi8" class="multi-range" type="range" step="100" />
+          <option value="cc">Credit Card</option>
+          <option value="pl">Personal Loan</option>
+          <option value="mg">Mortgage</option>
+</select>
 
             <ul>
 <img   id="loader" src="ajax-loader_t.gif" style="display:none;">
