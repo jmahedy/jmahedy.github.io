@@ -156,8 +156,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function takePicture() {
             var context = canvas.getContext('2d');
             if (width && height) {
-                canvas.width = width;
-                canvas.height = height;
+                //canvas.width = width;
+                //canvas.height = height;
                 context.drawImage(video, 0, 0, 800, 600);
                 var data = canvas.toDataURL('image/jpg');
       //          photo.setAttribute('src', data);
