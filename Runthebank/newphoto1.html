@@ -115,10 +115,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         height = width / (4 / 3);
                     }
                     // Set some attributes of the #video-still element
-                    video.setAttribute('width', 800);
-                    video.setAttribute('height', 600);
-                    canvas.setAttribute('width', 800);
-                    canvas.setAttribute('height', 600);
+                    video.setAttribute('width', 640);
+                    video.setAttribute('height', 480);
+                    canvas.setAttribute('width', 640);
+                    canvas.setAttribute('height', 480);
                     // Set streaming to true
                     streaming = true;
                 }
@@ -158,7 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             if (width && height) {
                 canvas.width = width;
                 canvas.height = height;
-                context.drawImage(video, 0, 0, 800, 600);
+                context.drawImage(video, 0, 0, 640, 480);
                 var data = canvas.toDataURL('image/jpg');
       //          photo.setAttribute('src', data);
 
