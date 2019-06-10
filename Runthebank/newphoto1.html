@@ -62,7 +62,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             video = document.getElementById('video-still');
             canvas = document.getElementById('canvas');
             img = document.getElementById('img');
-            canvas.drawImage(img, 800, 600);
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 800, 600);
 
             photo = document.getElementById('photo');
             startbutton = document.getElementById('startbutton');
