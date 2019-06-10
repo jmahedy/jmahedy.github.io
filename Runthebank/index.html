@@ -9,6 +9,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Box Banking</title>
 <!-- for-mobile-apps -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Bank Card Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -22,6 +24,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
+        $(document).ready(function() {
+          //get dv and statemetns
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+            "url": "https://api.box.com/2.0/folders/?parent_id=78810593163&path=John Mahedy/Digital Vault",
+            "method": "GET",
+            "headers": {"Authorization": "Bearer " + sessionStorage.getItem("accessToken")}
+          };
+          $.ajax(settings).done(function(response) {
+
+            $.each(response.entries, function(k, data) {
+              if (data.name == "Digital Vault") {
+                sessionStorage.setItem("dv",data.id)
+              }
+            });
+          });
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+            "url": "https://api.box.com/2.0/folders/?parent_id=78810593163&path=John Mahedy/Statements",
+            "method": "GET",
+            "headers": {"Authorization": "Bearer " + sessionStorage.getItem("accessToken")}
+          };
+          $.ajax(settings).done(function(response) {
+
+            $.each(response.entries, function(k, data) {
+              if (data.name == "Statements") {
+                sessionStorage.setItem("st",data.id)
+              }
+            });
+          });
+        });
+
     </script>
 
 	<!-- css files -->
@@ -201,7 +239,7 @@ All loans are subject to status. Early settlement fees apply.</p>
 				<h4 class="mb-4 w3f_title">Resources</h4>
 				<ul class="list-w3">
 					<li class="my-2">
-						<a href="#">
+						<a href="https://box-java-sandpit.herokuapp.com/account?action=reset&name=John Mahedy">
 							24/7 Help Line
 						</a>
 					</li>

@@ -38,10 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <script>
 
-    let searchParams = new URLSearchParams(window.location.search)
-    var folderId=searchParams.get("folderId");
     $(document).ready(function() {
-      var folderId = '78804834591';
+      var folderId = sessionStorage.getItem("st");
       var accessToken = sessionStorage.getItem("accessToken"); //'ERtaeEtF6SAIf6yBAwFeqKaHBCAAzcox';
       var contentExplorer = new Box.ContentExplorer();
       contentExplorer.show(folderId, accessToken, {
