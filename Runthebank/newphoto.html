@@ -61,8 +61,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             // Define elements
             video = document.getElementById('video-still');
             canvas = document.getElementById('canvas');
+            img = document.getElementById('img');
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+
             photo = document.getElementById('photo');
             startbutton = document.getElementById('startbutton');
+            nextButton = document.getElementById('nextButton');
             // Check for vendor version of getUserMedia
             navigator.getMedia = (navigator.getUserMedia ||
                 navigator.webkitGetUserMedia ||
@@ -110,10 +115,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         height = width / (4 / 3);
                     }
                     // Set some attributes of the #video-still element
-                    video.setAttribute('width', 800);
-                    video.setAttribute('height', 600);
-                    canvas.setAttribute('width', 800);
-                    canvas.setAttribute('height', 600);
+                    video.setAttribute('width', 480);
+                    video.setAttribute('height', 320);
+                    //canvas.setAttribute('width', 800);
+                    //canvas.setAttribute('height', 600);
                     // Set streaming to true
                     streaming = true;
                 }
@@ -121,7 +126,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             // Add click event to #startbutton
             startbutton.addEventListener('click', function (event) {
                 event.preventDefault();
-                takepicture(); // Take a picture
+                takePicture(); // Take a picture
+            }, false);
+            nextbutton.addEventListener('click', function (event) {
+                event.preventDefault();
+                savePicture(); // Save a picture
             }, false);
             clearphoto();
         }
@@ -144,29 +153,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         // drawing that to the screen, we can change its size and/or apply
         // other changes before drawing it.
         // Capture an image.
-        function takepicture() {
+        function takePicture() {
+          $("startButton").text("RETAKE PHOTO");
             var context = canvas.getContext('2d');
             if (width && height) {
-                canvas.width = width;
-                canvas.height = height;
-                context.drawImage(video, 0, 0, width, height);
+                //canvas.width = width;
+                //canvas.height = height;
+                context.drawImage(video, 0, 0, 480, 320);
                 var data = canvas.toDataURL('image/jpg');
       //          photo.setAttribute('src', data);
-                $.ajax({
-                      type: "POST",
-                      //url: "http://localhost:5000/camupload",
-                      url: "https://box-java-sandpit.herokuapp.com/camupload",
-                      data: {
-                         imgBase64: data,
-                         folderId:folderId
-                      }
-                    }).done(function(msg) {
-                      console.log("saved");
-                    window.location.replace('/Runthebank/newfiles.html');
-                    });
+
             } else {
                 clearphoto();
             }
+        }
+        function savePicture() {
+          var data = canvas.toDataURL('image/jpg');
+          $.ajax({
+                type: "POST",
+                //url: "http://localhost:5000/camupload",
+                url: "https://box-java-sandpit.herokuapp.com/camupload",
+                data: {
+                   imgBase64: data,
+                   folderId:folderId
+                }
+              }).done(function(msg) {
+                console.log("saved");
+                window.location.replace('/Runthebank/newfiles.html');
+              });
         }
         // Set up our event listener to run the startup process
         // once loading is complete.
@@ -193,7 +207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- nav -->
 		<nav class="py-3 d-lg-flex">
 			<div id="logo">
-				<h1> <a href="index.html"><span class="fa fa-university"></span> Bank Card </a></h1>
+				<h1> <a href="index.html"><span class="fa fa-university"></span> Box Bank</a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
@@ -239,21 +253,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- advantages and details -->
 <section class="advantages pt-5">
-	<div class="container pb-lg-5">
+	<div class="container pb-lg-16">
 		<div class="row advantages_grids">
 			<div class="col-lg-6 mt-lg-0 mt-4">
 
 
           <div class="camera">
-           <video width="800" height="600" id="video-still">Video stream not available.</video>
+        <video width="480" height="320" id="video-still">Video stream not available.</video>
+        <p>Camera</p>
+        <!--<img src="/Runthebank/images/jeetu.jpg" height="600" width="600" alt="">-->
            <ul>
            <button class="btn btn-yellow" id="startbutton"><i class="fas fa-camera fa-lg  " aria-hidden="true"></i>      Take photo</button>
-           <button type="button" class="btn btn-yellow">Next</button>
          </ul>
          </div>
       </div>
       <div class="col-lg-6 mt-lg-0 mt-4">
-          <canvas id="canvas" width=800 height=600></canvas>
+        <canvas id="canvas" width=480 height=320></canvas>
+          <p>Your Picture</p>
+        <!--<img src="/Runthebank/images/john.jpg" height="600" width="600" alt="">-->
+        <button class="btn btn-yellow" id="nextbutton"><i class="far fa-grin fa-lg" aria-hidden="true"></i>      Next    </button>
+        <img id="img" src="/Runthebank/placeholder-face.jpeg" style="display:none;"/>
       </div>
 
 	</div>

@@ -107,114 +107,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <script>
       $(document).ready(function() {
-        var addId;
-        var idId;
-        var payslipId;
-
-        $('#kyc').on('submit', (function(ev) {
-          $("#signbutton").hide();
-          $("#loader").show();
-          ev.preventDefault();
-
-          var settings = {
-            "async": true,
-            "crossDomain": true,
-            //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
-            "url": "https://api.box.com/2.0/folders/78810593163/items?type=folder&fields=id,name,metadata.enterprise.kycClient",
-            "method": "GET",
-            "headers": {
-
-              "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
-
-            }
-          };
-          $.ajax(settings).done(function(response) {
-            var hasIdValidated = "No";
-            var folderId;
-            $.each(response.entries, function(k, data) {
-              console.log(data.name);
-              if (data.name == $("#name").val()) {
-                console.log("Found name:" + data.name + ":validated?" + data.metadata.enterprise.kycClient.idValidated);
-                hasIdValidated = data.metadata.enterprise.kycClient.idValidated;
-                folderId = data.id;
-              }
-            });
-            if (hasIdValidated == "Yes") {
-              //Metdata found
-              window.location.replace('/Runthebank/product.html?type=' + $("type").val);
-            } else {
-              //Get folder ID of address verification folders
-              //apply metadata from form
-              var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "https://api.box.com/2.0/folders/" + folderId + "/items?type=folder&fields=id,name",
-                "method": "GET",
-                "headers": {
-                  "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
-                }
-              };
-              $.ajax(settings).done(function(response) {
-                $.each(response.entries, function(k, data) {
-                  if (data.name == 'Address Verification Documents') {
-                    addId = data.id;
-                    sessionStorage.setItem("addressFolderId", addId);
-                  }
-                  if (data.name == 'ID Documents') {
-                    idId = data.id;
-                    sessionStorage.setItem("idFolderId", idId);
-                  }
-                  if (data.name == 'Payslips') {
-                    payslipId = data.id;
-                    sessionStorage.setItem("payslipsFolderId", payslipId);
-
-                  }
-                });
-                //Apply metadata
-                var data = "{\"firstName\":\"" + $("#name").val() + "\",";
-                data = data + "\"addressLine1\":\"" + $("#address1").val() + "\",";
-                data = data + "\"addressLine2\":\"" + $("#address2").val() + "\",";
-                data = data + "\"postCode\":\"" + $("#postcode").val() + "\"}";
-                var settings = {
-                  "async": true,
-                  "crossDomain": true,
-                  "url": "https://api.box.com/2.0/folders/" + addId + "/metadata/enterprise_206908859/kycAddressVerification",
-                  "method": "POST",
-                  "headers": {
-                    "Authorization": "Bearer " + sessionStorage.getItem("accessToken"),
-                    "Content-Type": "application/json"
-                  },
-                  "data": data
-                };
-                $.ajax(settings).done(function(response) {
-                  var cdata = "{\"folder_id\":\"" + addId+ "\",";
-                  cdata = cdata + "\"scope\":\"enterprise_206908859\",";
-                  cdata = cdata + "\"templateKey\":\"kycAddressVerification\"}";
-                  var settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "https://api.box.com/2.0/metadata_cascade_policies",
-                    "method": "POST",
-                    "headers": {
-                      "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
-                    },
-                    "data":cdata
-                  };
-                  $.ajax(settings).done(function(response) {
-                    window.location.replace('/Runthebank/newphoto.html?folderId=' + folderId);
-                  });
-                });
-              });
-            }
-          });
-        }));
+        let searchParams = new URLSearchParams(window.location.search)
+        var type=searchParams.get("type");
+        if(type=='cc') {
+          $("#cc").show();
+        }
+        else {
+          $("#loan").show();
+        }
       });
     </script>
 
     <body>
 
-<div>
-      <form id="credit" class="border border-light p-5" action="#ß" method="get">
+<div id="cc" style="display:none;">
+      <form id="credit" class="border border-light p-5" action="#" method="get" >
 
         <p class="h4 mb-4 text-left">Credit Card Application</p>
 
@@ -243,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </form>
 	</div>
 
-  <div>
+  <div id="loan" style="display:none;">
         <form id="credit" class="border border-light p-5" action="#ß" method="get">
 
           <p class="h4 mb-4 text-left">Loan Application</p>
