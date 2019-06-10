@@ -11,7 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- for-mobile-apps -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+  <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/elements/10.0.0/en-US/explorer.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/mdb.min.css" rel="stylesheet">
 <!-- Your custom styles (optional) -->
 <link href="css/style.css" rel="stylesheet">
+<script src="https://cdn01.boxcdn.net/platform/elements/10.0.0/en-US/explorer.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -39,7 +40,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     let searchParams = new URLSearchParams(window.location.search)
     var folderId=searchParams.get("folderId");
-
+    $(document).ready(function() {
+      var folderId = '78935268385';
+      var accessToken = sessionStorage.getItem("accessToken"); //'ERtaeEtF6SAIf6yBAwFeqKaHBCAAzcox';
+      var contentExplorer = new Box.ContentExplorer();
+      contentExplorer.show(folderId, accessToken, {
+        container: '.pcontainer',
+        logoUrl: 'logo-small.png',
+        canDownload: false,
+        canDelete: false,
+        canRename: false,
+        canShare: false,
+        canCreateNewFolder: false
+      });
+    });
 </script>
 
 	<!-- css files -->
@@ -109,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container pb-lg-5">
 		<div class="row advantages_grids">
 			<div class="col-lg-6 mt-lg-0 mt-4">
-
+<div class="pcontainer" style="height:90vh; width:70vw;"></div>
 
 
 			</div>
