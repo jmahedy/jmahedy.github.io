@@ -39,6 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     let searchParams = new URLSearchParams(window.location.search)
     var folderId=searchParams.get("folderId");
+    var productType=searchParams.get("productType");
 
     // ** Capture a still image **
     // This block of code is contained in a self invoked function.
@@ -179,7 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
               }).done(function(msg) {
                 console.log("saved");
-                window.location.replace('/Runthebank/newfiles.html');
+                window.location.replace('/Runthebank/newfiles.html?productType=' + productType);
               });
         }
         // Set up our event listener to run the startup process
