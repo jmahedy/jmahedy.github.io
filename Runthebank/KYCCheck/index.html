@@ -27,13 +27,12 @@
  var preview = null;// new Box.Preview();
 	var lamdbaURL = 'https://bl2vhdoqzh.execute-api.eu-west-2.amazonaws.com/default/box-tokengenerator';
  	var params = new URLSearchParams(window.location.search);
- 	var clientId='nzzwt39ghflr0v3nae78fnnxhzwgl8nc';
-  	var clientSecret='B3TdeFlDaIPvncEz3RQBFNBOSMjjeIFw';
+ 	var clientId='nwpdo2jrz69oi939xna0zuow4pug5gde';
    	$(document).ready(function(){
 		$.ajax({
          	method : 'get',
           	url: lamdbaURL,
-       	 	data: {authCode:params.get('authCode'),fileId:params.get('fileId'),clientId:clientId,clientSecret:clientSecret},
+       	 	data: {authCode:params.get('authCode'),fileId:params.get('fileId'),clientId:clientId},
           	crossDomain: true,
          	timeout:120000,
           	dataType:'jsonp',
@@ -48,7 +47,7 @@
           	success : function(response){
             	console.log("success:" + JSON.stringify(response));
             	preview = new Box.Preview();
-            	preview.show(params.get('fileID'),response.token, {
+            	preview.show(params.get('fileId'),response.token, {
             	container:'.preview-container',
             	showDownload:true
             });
