@@ -38,6 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <script>
   $(document).ready(function() {
+    let searchParams = new URLSearchParams(window.location.search)
+    var productType=searchParams.get("productType");
       var contentUploader = new Box.ContentUploader();
       contentUploader.show(sessionStorage.getItem("idFolderId"), sessionStorage.getItem("accessToken"), {
         container: '.pcontainer'
@@ -65,6 +67,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       contentUploader1.addListener('complete',function(file) {
         $("#u3").hide();
 					$("#u4").show();
+			});
+      contentUploader1.addListener('complete',function(file) {
+        window.location.replace('/Runthebank/product.html?productType=' + productType);
+
 			});
     });
 </script>

@@ -14,16 +14,63 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Bank Card Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <script>
-    addEventListener("load", function() {
-      setTimeout(hideURLbar, 0);
-    }, false);
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="css/mdb.min.css" rel="stylesheet">
+<!-- Your custom styles (optional) -->
+<link href="css/style.css" rel="stylesheet">
 
-    function hideURLbar() {
-      window.scrollTo(0, 1);
+
+
+<script>
+  $(document).ready(function() {
+    let searchParams = new URLSearchParams(window.location.search)
+    var productType=searchParams.get("productType");
+    $('#credit').on('submit', (function(ev) {
+      console.log("submitted");
+      ev.preventDefault();
+
+      if(productType=='cc') {
+        $("#cc").html("We have received your documents and we are pleased to say your card application has been approved.<br/><br/> Your card will be with you within seven working days");
+      }
+      else {
+        $("#loan").html("We have received your documents and we are pleased to say your loan application has been approved. <br/><br/>The funds will appear in your account within 24 hours");
+      }
+    }));
+    if(productType=='cc') {
+      $("#cc").show();
     }
-  </script>
+    else {
+      $("#loan").show();
+    }
+    $(function()
+    {
+      $('#customRange3').on('input change', function(){
+        $(this).next($('.slider_label')).html("£ " + this.value);
+      });
+      $('#customRange1').on('input change', function(){
+        $(this).next($('.slider_label')).html("£ " + this.value);
+      });
+      $('#customRangeY').on('input change', function(){
+        $(this).next($('.slider_label')).html(this.value + " years");
+      });
+    $('.slider_label').each(function(){
+        var value = $(this).prev().attr('value');
+        $(this).html("£ " + value );
+    } );
+    $('.slider_label_year').each(function(){
+        var value = $(this).prev().attr('value');
+        $(this).html( value +" years");
+    } );
+
+
+})
+  });
+</script>
 
   <!-- css files -->
   <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -95,126 +142,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- contact -->
 
   <div class="container py-lg-5">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <script>
-      $(document).ready(function() {
-        var addId;
-        var idId;
-        var payslipId;
-
-        $('#kyc').on('submit', (function(ev) {
-          $("#signbutton").hide();
-          $("#loader").show();
-          ev.preventDefault();
-
-          var settings = {
-            "async": true,
-            "crossDomain": true,
-            //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
-            "url": "https://api.box.com/2.0/folders/78810593163/items?type=folder&fields=id,name,metadata.enterprise.kycClient",
-            "method": "GET",
-            "headers": {
-
-              "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
-
-            }
-          };
-          $.ajax(settings).done(function(response) {
-            var hasIdValidated = "No";
-            var folderId;
-            $.each(response.entries, function(k, data) {
-              console.log(data.name);
-              if (data.name == $("#name").val()) {
-                console.log("Found name:" + data.name + ":validated?" + data.metadata.enterprise.kycClient.idValidated);
-                hasIdValidated = data.metadata.enterprise.kycClient.idValidated;
-                folderId = data.id;
-              }
-            });
-            if (hasIdValidated == "Yes") {
-              //Metdata found
-              window.location.replace('/Runthebank/product.html?type=' + $("type").val);
-            } else {
-              //Get folder ID of address verification folders
-              //apply metadata from form
-              var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "https://api.box.com/2.0/folders/" + folderId + "/items?type=folder&fields=id,name",
-                "method": "GET",
-                "headers": {
-                  "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
-                }
-              };
-              $.ajax(settings).done(function(response) {
-                $.each(response.entries, function(k, data) {
-                  if (data.name == 'Address Verification Documents') {
-                    addId = data.id;
-                    sessionStorage.setItem("addressFolderId", addId);
-                  }
-                  if (data.name == 'ID Documents') {
-                    idId = data.id;
-                    sessionStorage.setItem("idFolderId", idId);
-                  }
-                  if (data.name == 'Payslips') {
-                    payslipId = data.id;
-                    sessionStorage.setItem("payslipsFolderId", payslipId);
-
-                  }
-                });
-                //Apply metadata
-                var data = "{\"firstName\":\"" + $("#name").val() + "\",";
-                data = data + "\"addressLine1\":\"" + $("#address1").val() + "\",";
-                data = data + "\"addressLine2\":\"" + $("#address2").val() + "\",";
-                data = data + "\"postCode\":\"" + $("#postcode").val() + "\"}";
-                var settings = {
-                  "async": true,
-                  "crossDomain": true,
-                  "url": "https://api.box.com/2.0/folders/" + addId + "/metadata/enterprise_206908859/kycAddressVerification",
-                  "method": "POST",
-                  "headers": {
-                    "Authorization": "Bearer " + sessionStorage.getItem("accessToken"),
-                    "Content-Type": "application/json"
-                  },
-                  "data": data
-                };
-                $.ajax(settings).done(function(response) {
-                  var cdata = "{\"folder_id\":\"" + addId+ "\",";
-                  cdata = cdata + "\"scope\":\"enterprise_206908859\",";
-                  cdata = cdata + "\"templateKey\":\"kycAddressVerification\"}";
-                  var settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "https://api.box.com/2.0/metadata_cascade_policies",
-                    "method": "POST",
-                    "headers": {
-                      "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
-                    },
-                    "data":cdata
-                  };
-                  $.ajax(settings).done(function(response) {
-                    window.location.replace('/Runthebank/newphoto.html?folderId=' + folderId);
-                  });
-                });
-              });
-            }
-          });
-        }));
-      });
-    </script>
-
-    <body>
-
-<div>
-      <form id="credit" class="border border-light p-5" action="#ß" method="get">
+<div id="cc" style="display:none;">
+      <form id="credit" class="border border-light p-5" action="#" method="get" >
 
         <p class="h4 mb-4 text-left">Credit Card Application</p>
 
@@ -228,11 +158,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <option value="Box Basics">Box Basic Card</option>
           <option value="Box Platinum">Box Platinum Card</option>
           <option value="Box Black">Box Black Card</option>
-
-          <label for="customRange2">Credit Limit</label>
-          <input type="range" class="custom-range" min="0" max="100" step="10" id="customRange3">
 </select>
-
+<label for="customRange3">Credit Limit</label>
+<input type="range" value="500" class="custom-range" min="500" max="5000" step="500" id="customRange3"></input>
+ <span  class="slider_label"></span>
             <ul>
             <img   id="loader" src="ajax-loader_t.gif" style="display:none;">
               <button id="signbutton" class="btn btn-yellow" type="submit" name="submit"><i class="fab fa-cc-mastercard fa-lg"></i> Apply</button>
@@ -243,8 +172,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </form>
 	</div>
 
-  <div>
-        <form id="credit" class="border border-light p-5" action="#ß" method="get">
+  <div id="loan" style="display:none;">
+        <form id="credit" class="border border-light p-5" action="#" method="get">
 
           <p class="h4 mb-4 text-left">Loan Application</p>
 
@@ -261,10 +190,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </select>
 
             <label for="customRange1">Loan amount</label>
-            <input type="range" class="custom-range" id="customRange1">
+            <input type="range" value="500" class="custom-range" id="customRange1" min="1000" max="10000" step="1000">
+            <span  class="slider_label"></span><br/><br/>
+            <label for="customRangeY">Loan Duration</label>
+            <input type="range" value="3"  id="customRangeY" class="custom-range"  id="loanDuration" min="1" max="10" step="1">
+            <span  class="slider_label_year"></span>
 
-            <input type="range" class="custom-range" min="0" max="100" step="10" id="loanDuration">
-            </select>
               <ul>
               <img   id="loader" src="ajax-loader_t.gif" style="display:none;">
               <button id="signbutton" class="btn btn-yellow" type="submit" name="submit"><i class="fas fa-money-bill fa-2"></i> Apply</button>

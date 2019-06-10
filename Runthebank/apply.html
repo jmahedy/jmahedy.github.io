@@ -134,14 +134,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $.each(response.entries, function(k, data) {
               console.log(data.name);
               if (data.name == $("#name").val()) {
-                console.log("Found name:" + data.name + ":validated?" + data.metadata.enterprise.kycClient.idValidated);
-                hasIdValidated = data.metadata.enterprise.kycClient.idValidated;
+                console.log("Found name:" + data.name + ":validated?" + data.metadata.enterprise.kycClient.idVerified);
+                hasIdValidated = data.metadata.enterprise.kycClient.idVerified;
                 folderId = data.id;
               }
             });
             if (hasIdValidated == "Yes") {
               //Metdata found
-              window.location.replace('/Runthebank/product.html?type=' + $("type").val);
+              window.location.replace('/Runthebank/product.html?productType=' + $("type").val);
             } else {
               //Get folder ID of address verification folders
               //apply metadata from form
@@ -202,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     "data":cdata
                   };
                   $.ajax(settings).done(function(response) {
-                    window.location.replace('/Runthebank/newphoto.html?folderId=' + folderId);
+                    window.location.replace('/Runthebank/newphoto.html?productType=' + $("#type").val() + '&folderId=' + folderId);
                   });
                 });
               });
