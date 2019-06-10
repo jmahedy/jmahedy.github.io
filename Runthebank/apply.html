@@ -134,8 +134,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $.each(response.entries, function(k, data) {
               console.log(data.name);
               if (data.name == $("#name").val()) {
-                console.log("Found name:" + data.name + ":validated?" + data.metadata.enterprise.kycClient.idValidated);
-                hasIdValidated = data.metadata.enterprise.kycClient.idValidated;
+                console.log("Found name:" + data.name + ":validated?" + data.metadata.enterprise.kycClient.idVerified);
+                hasIdValidated = data.metadata.enterprise.kycClient.idVerified;
                 folderId = data.id;
               }
             });
