@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-  <title>Box Bank - Apply for credit.</title>
+  <title>Box Bank - Apply for product.</title>
   <!-- for-mobile-apps -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -213,47 +213,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <body>
 
+<div>
+      <form id="credit" class="border border-light p-5" action="#ß" method="get">
 
-      <form id="kyc" class="border border-light p-5" action="#ß" method="get">
-
-        <p class="h4 mb-4 text-left">Credit Application</p>
+        <p class="h4 mb-4 text-left">Credit Card Application</p>
 
         <label for="textInput">Full name</label>
         <input type="text" id="name" class="form-control mb-4" value="John Mahedy">
 
-        <label for="email">Email Address</label>
-        <input type="email" id="email" class="form-control mb-4" value="jmahedy@box.com">
+        <select class="browser-default custom-select mb-4" id="cardtype">
 
-        <label for="email">Address Line 1</label>
-        <input type="text" id="address1" class="form-control mb-4" value="Flat 4 Hapstead House">
+          <label for <option value="Choose a card that suits you"></option>
+          <option value="" disabled="" selected="">Type of credit card</option>
+          <option value="Box Basics">Box Basic Card</option>
+          <option value="Box Platinum">Box Platinum Card</option>
+          <option value="Box Black">Box Black Card</option>
 
-        <label for="email">Address Line 2</label>
-        <input type="text" id="address2" class="form-control mb-4" value="Hett Close">
-
-        <label for="email">Town</label>
-        <input type="text" id="address2" class="form-control mb-4" value="Ardingly">
-
-        <label for="email">Postal Code</label>
-        <input type="text" id="postcode" class="form-control mb-4" value="RH17 6TE">
-
-        <label for="type">What service are you applying for?</label>
-
-
-        <select class="browser-default custom-select mb-4" id="type">
-
-          <option value="" disabled="" selected="">Type of credit</option>
-          <option value="cc">Credit Card</option>
-          <option value="pl">Personal Loan</option>
-          <option value="mg">Mortgage</option>
+          <label for="customRange2">Credit Limit</label>
+          <input type="range" class="custom-range" min="0" max="100" step="10" id="customRange3">
 </select>
 
             <ul>
-<img  id="loader" src="ajax-loader_t.gif" style="display:none;">
-            <button id="signbutton" class="btn btn-yellow" type="submit" name="submit">Next</button>
+            <img   id="loader" src="ajax-loader_t.gif" style="display:none;">
+              <button id="signbutton" class="btn btn-yellow" type="submit" name="submit"><i class="fab fa-cc-mastercard fa-lg"></i> Apply</button>
+
+
             </ul>
 
           </form>
 	</div>
+
+  <div>
+        <form id="credit" class="border border-light p-5" action="#ß" method="get">
+
+          <p class="h4 mb-4 text-left">Loan Application</p>
+
+          <label for="textInput">Full name</label>
+          <input type="text" id="name" class="form-control mb-4" value="John Mahedy">
+
+          <select class="browser-default custom-select mb-4" id="loantype">
+
+            <label for <option value="Loan Purpose"></option>
+            <option value="" disabled="" selected="">Loan purpose</option>
+            <option value="Car">Car</option>
+            <option value="Holiday">Holiday</option>
+            <option value="Home Improvement">Home Improvement</option>
+
+            <label for="customRange2">Loan Amount</label>
+            <input type="range" class="custom-range" min="0" max="100" step="10" id="loanAmount">
+            </select>
+            <input type="range" class="custom-range" min="0" max="100" step="10" id="loanDuration">
+            </select>
+              <ul>
+              <img   id="loader" src="ajax-loader_t.gif" style="display:none;">
+              <button id="signbutton" class="btn btn-yellow" type="submit" name="submit"><i class="fas fa-money-bill fa-2"></i> Apply</button>
+
+
+              </ul>
+
+            </form>
+  	</div>
 
   <footer class="footer py-5">
   	<div class="container pt-lg-4">

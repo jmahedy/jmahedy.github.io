@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-  <title>Box Bank - Apply for credit.</title>
+  <title>Box Bank - Apply for product.</title>
   <!-- for-mobile-apps -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -214,9 +214,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <body>
 
 
-      <form id="kyc" class="border border-light p-5" action="#ß" method="get">
+      <form id="credit" class="border border-light p-5" action="#ß" method="get">
 
-        <p class="h4 mb-4 text-left">Credit Application</p>
+        <p class="h4 mb-4 text-left">Credit Card Application</p>
 
         <label for="textInput">Full name</label>
         <input type="text" id="name" class="form-control mb-4" value="John Mahedy">
@@ -248,12 +248,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </select>
 
             <ul>
-<img  id="loader" src="ajax-loader_t.gif" style="display:none;">
+<img   id="loader" src="ajax-loader_t.gif" style="display:none;">
             <button id="signbutton" class="btn btn-yellow" type="submit" name="submit">Next</button>
+
+
             </ul>
 
           </form>
 	</div>
+
+  <form id="loan" class="border border-light p-5" action="#ß" method="get">
+
+    <p class="h4 mb-4 text-left">Loan Application</p>
+
+    <label for="textInput">Full name</label>
+    <input type="text" id="name" class="form-control mb-4" value="John Mahedy">
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" class="form-control mb-4" value="jmahedy@box.com">
+
+    <label for="email">Address Line 1</label>
+    <input type="text" id="address1" class="form-control mb-4" value="Flat 4 Hapstead House">
+
+    <label for="email">Address Line 2</label>
+    <input type="text" id="address2" class="form-control mb-4" value="Hett Close">
+
+    <label for="email">Town</label>
+    <input type="text" id="address2" class="form-control mb-4" value="Ardingly">
+
+    <label for="email">Postal Code</label>
+    <input type="text" id="postcode" class="form-control mb-4" value="RH17 6TE">
+
+    <label for="type">What service are you applying for?</label>
+
+
+    <select class="browser-default custom-select mb-4" id="type">
+
+      <option value="" disabled="" selected="">Type of credit</option>
+      <option value="cc">Credit Card</option>
+      <option value="pl">Personal Loan</option>
+      <option value="mg">Mortgage</option>
+</select>
+
+        <ul>
+<img   id="loader" src="ajax-loader_t.gif" style="display:none;">
+        <button id="signbutton" class="btn btn-yellow" type="submit" name="submit">Next</button>
+
+
+        </ul>
+
+      </form>
+</div>
 
   <footer class="footer py-5">
   	<div class="container pt-lg-4">
