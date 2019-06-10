@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     let searchParams = new URLSearchParams(window.location.search)
     var folderId=searchParams.get("folderId");
     $(document).ready(function() {
-      var folderId = '78935268385';
+      var folderId = sessionStorage.getItem("dv");
       var accessToken = sessionStorage.getItem("accessToken"); //'ERtaeEtF6SAIf6yBAwFeqKaHBCAAzcox';
       var contentExplorer = new Box.ContentExplorer();
       contentExplorer.show(folderId, accessToken, {
