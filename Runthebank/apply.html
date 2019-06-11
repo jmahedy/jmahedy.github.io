@@ -110,6 +110,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var addId;
         var idId;
         var payslipId;
+        //read address into form values
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "https://api.box.com/2.0/folders/" + sessionStorage.getItem("mainFolderId") + "?fields=id,name,metadata.enterprise.kycAddress",
+          "method": "GET",
+          "headers": {"Authorization": "Bearer " + sessionStorage.getItem("accessToken")}
+        };
+        $.ajax(settings).done(function(response) {
+          if(response.metadata) {
+            $("#name").attr("value",response.metadata.enterprise.kycAddress.name);
+            $("#email").attr("value",response.metadata.enterprise.kycAddress.emailAddress);
+            $("#town").attr("value",response.metadata.enterprise.kycAddress.town);
+            $("#address1").attr("value",response.metadata.enterprise.kycAddress.addressLine1);
+            $("#address2").attr("value",response.metadata.enterprise.kycAddress.addressLine2);
+            $("#postcode").attr("value",response.metadata.enterprise.kycAddress.postCode);
+          }
+        });
 
         $('#kyc').on('submit', (function(ev) {
           $("#signbutton").hide();
@@ -120,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             "async": true,
             "crossDomain": true,
             //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
-            "url": "https://api.box.com/2.0/folders/78810593163/items?type=folder&fields=id,name,metadata.enterprise.kycClient",
+            "url": "https://api.box.com/2.0/folders/" + sessionStorage.getItem("mainFolderId") + "?fields=id,name,metadata.enterprise.kycClient",
             "method": "GET",
             "headers": {
 
@@ -131,14 +149,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           $.ajax(settings).done(function(response) {
             var hasIdValidated = "No";
             var folderId;
-            $.each(response.entries, function(k, data) {
-              console.log(data.name);
-              if (data.name == $("#name").val()) {
-                console.log("Found name:" + data.name + ":validated?" + data.metadata.enterprise.kycClient.idVerified);
-                hasIdValidated = data.metadata.enterprise.kycClient.idVerified;
-                folderId = data.id;
-              }
-            });
+            console.log(response.name);
+            console.log("Found name:" + response.name + ":validated?" + response.metadata.enterprise.kycClient.idVerified);
+            hasIdValidated = response.metadata.enterprise.kycClient.idVerified;
+            folderId = response.id;
+
             if (hasIdValidated == "Yes") {
               //Metdata found
               window.location.replace('/Runthebank/product.html?productType=' + $("type").val);
@@ -188,7 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   "data": data
                 };
                 $.ajax(settings).done(function(response) {
-                  var cdata = "{\"folder_id\":\"" + addId+ "\",";
+                  var cdata = "{\"folder_id\":\"" + addId + "\",";
                   cdata = cdata + "\"scope\":\"enterprise_206908859\",";
                   cdata = cdata + "\"templateKey\":\"kycAddressVerification\"}";
                   var settings = {
@@ -199,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     "headers": {
                       "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
                     },
-                    "data":cdata
+                    "data": cdata
                   };
                   $.ajax(settings).done(function(response) {
                     window.location.replace('/Runthebank/newphoto.html?productType=' + $("#type").val() + '&folderId=' + folderId);
@@ -246,18 +261,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <option value="cc">Credit Card</option>
           <option value="pl">Personal Loan</option>
           <option value="mg">Mortgage</option>
-</select>
+      </select>
 
-            <ul>
-<img  id="loader" src="ajax-loader_t.gif" style="display:none;">
-            <button id="signbutton" class="btn btn-yellow" type="submit" name="submit">Next</button>
-            </ul>
+        <ul>
+          <img id="loader" src="ajax-loader_t.gif" style="display:none;">
+          <button id="signbutton" class="btn btn-yellow" type="submit" name="submit">Next</button>
+        </ul>
 
-          </form>
-	</div>
+      </form>
+  </div>
 
   <footer class="footer py-5">
-  	<div class="container pt-lg-4">
+    <div class="container pt-lg-4">
       <div class="row">
         <div class="col-lg-3 col-sm-6 footer-top">
           <h4 class="mb-4 w3f_title">Contact Info</h4>
@@ -268,43 +283,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <li class=""><span class="fa mr-1 fa-envelope"></span><a href="mailto:info@box.com">info@box.com</a></li>
           </ul>
         </div>
-  			<div class="col-lg-3 col-sm-6 footv3-left mt-sm-0 mt-4">
-  				<h4 class="mb-4 w3f_title"> Share Holders</h4>
-  				<ul class="list-w3">
-  					<li class="my-2">
-  						<a href="#">
+        <div class="col-lg-3 col-sm-6 footv3-left mt-sm-0 mt-4">
+          <h4 class="mb-4 w3f_title"> Share Holders</h4>
+          <ul class="list-w3">
+            <li class="my-2">
+              <a href="#">
   							Shareholders Information
   						</a>
-  					</li>
-  					<li class="mb-2">
-  						<a href="#">
+            </li>
+            <li class="mb-2">
+              <a href="#">
   							Stock Information
   						</a>
-  					</li>
-  					<li class="my-2">
-  						<a href="#">
+            </li>
+            <li class="my-2">
+              <a href="#">
   							Financial Results
   						</a>
-  					</li>
-  					<li class="my-2">
-  						<a href="#">
+            </li>
+            <li class="my-2">
+              <a href="#">
   							Investors faq's
   						</a>
-  					</li>
-  					<li>
-  						<a href="#">
+            </li>
+            <li>
+              <a href="#">
   							Regulatory Section
   						</a>
-  					</li>
-  				</ul>
-  			</div>
-<!-- move top -->
-<div class="move-top text-right">
-	<a href="#home" class="move-top">
+            </li>
+          </ul>
+        </div>
+        <!-- move top -->
+        <div class="move-top text-right">
+          <a href="#home" class="move-top">
 		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
 	</a>
-</div>
-<!-- move top -->
+        </div>
+        <!-- move top -->
 
-</body>
+        </body>
+
 </html>
