@@ -661,12 +661,13 @@ p.para-text-w3ls{
     -o-background-size: cover;
     -ms-background-size: cover;
     background-size: cover;
-	min-height: 250px;
+	min-height: 100px;
+  max-height: 100px;
 }
 
 .inner-layer {
     background: rgba(0, 0, 0, 0.3);
-	min-height: 250px;
+	min-height: 150px;
 }
 .breadcrumb-w3pvt{
 	background: #f8f9fa;
@@ -1677,7 +1678,8 @@ a.move-top span{
 		padding: 2em;
 	}
 	.inner-banner,.inner-layer {
-		min-height: 200px;
+		min-height: 150px;
+    max-height: 150px;
 	}
 	.services .grid {
 		padding: 0 15px;
@@ -1761,7 +1763,8 @@ a.move-top span{
 		font-size: 14px;
 	}
 	.inner-banner, .inner-layer {
-		min-height: 180px;
+		min-height: 150px;
+    max-height: 150px;
 	}
 }
 @media(max-width:568px) {
@@ -1794,6 +1797,7 @@ a.move-top span{
 	}
 	.inner-banner, .inner-layer {
 		min-height: 150px;
+    max-height: 150px;
 	}
 	.w3-w3pvt-team-img {
 		padding: 0 .5em;
@@ -1886,7 +1890,8 @@ a.move-top span{
 		padding: 0 0em;
 	}
 	.inner-banner, .inner-layer {
-		min-height: 120px;
+		min-height: 150px;
+    max-height: 150px;
 	}
 	.c-left img {
 		max-width: 25%;
