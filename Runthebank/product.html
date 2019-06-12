@@ -27,19 +27,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <script>
+  function setLoader(productType) {
+    if(productType=='cc') {
+
+      $("#cc").html('<img src="/Runthebank/loanspinner.gif"/> Processing Credit Card Application');
+    }
+    else {
+      $("#loan").html('<img src="/Runthebank/loanspinner.gif"/>Processing Loan Application');
+    }
+
+  }
+  function showResult(productType,idVerified) {
+    if(productType=='cc') {
+      if(idVerified=='Yes') {
+        $("#cc").html("We have received your documents and we are pleased to say your card application has been approved.<br/><br/> Your card will be with you within seven working days<br/><br/>");
+      }
+      else {
+        $("#cc").html("We have received your documents and we have found an issue.<br/><br/> An advisor from the bank will contact you shortly<br/><br/>");
+      }
+    }
+    else {
+      if(idVerified=='Yes') {
+        $("#loan").html("We have received your documents and we are pleased to say your loan application has been approved. <br/><br/>The funds will appear in your account within 24 hours<br/>");
+      }
+      else {
+        $("#loan").html("We have received your documents and we have found an issue.<br/><br/> An advisor from the bank will contact you shortly<br/>");
+
+      }
+    }
+  }
   $(document).ready(function() {
     let searchParams = new URLSearchParams(window.location.search)
     var productType=searchParams.get("productType");
-    $('#credit').on('submit', (function(ev) {
-      console.log("submitted");
-      ev.preventDefault();
 
-      if(productType=='cc') {
-        $("#cc").html("We have received your documents and we are pleased to say your card application has been approved.<br/><br/> Your card will be with you within seven working days");
-      }
-      else {
-        $("#loan").html("We have received your documents and we are pleased to say your loan application has been approved. <br/><br/>The funds will appear in your account within 24 hours");
-      }
+    $('#credit').on('submit', (function(ev) {
+      ev.preventDefault();
+      console.log("submitted");
+      setLoader(productType);
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+        "url": "https://api.box.com/2.0/folders/" + sessionStorage.getItem("mainFolderId") + "?fields=id,name,metadata.enterprise.kycClient",
+        "method": "GET",
+        "headers": {"Authorization": "Bearer " + sessionStorage.getItem("accessToken")}
+      };
+      var idVerified = "No";
+      $.ajax(settings).done(function(response) {
+          idVerified=response.metadata.enterprise.kycClient.idVerified;
+          window.setInterval(function() {
+            showResult(productType,idVerified);
+          }, 5000);
+      });
     }));
     if(productType=='cc') {
       $("#cc").show();
