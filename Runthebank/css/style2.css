@@ -661,8 +661,8 @@ p.para-text-w3ls{
     -o-background-size: cover;
     -ms-background-size: cover;
     background-size: cover;
-	min-height: 100px;
-  max-height: 100px;
+	min-height: 150px;
+  max-height: 150px;
 }
 
 .inner-layer {
