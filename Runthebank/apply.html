@@ -103,10 +103,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             console.log("showing modal");
             $("#confirmModal").show();
             $("#confirmModal").modal()
+            $(".good").show();
 
             window.setInterval(function() {
               window.location.replace('/Runthebank/product.html?productType=' + $("type").val);
-            }, 5000);
+            }, 10000);
           } else {
             //Get folder ID of address verification folders
             //apply metadata from form
@@ -170,10 +171,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   console.log("showing modal");
                   $("#confirmModal").show();
                   $("#confirmModal").modal();
+                  $(".bad").show();
 
                   window.setInterval(function() {
                     window.location.replace('/Runthebank/newphoto.html?productType=' + $("#type").val() + '&folderId=' + folderId);
-                  }, 5000);
+                  }, 10000);
 
                 });
               });
@@ -430,19 +432,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="modal-body bad" style="display:none;">
           <p>
+<<<<<<< HEAD
             We are checking to see if we have the necessary documents for your application. If you have not provided documents for a previous product, you will need to upload documents to support this application.</p>
           <img src="/Runthebank/loanspinner.gif" </img>
+=======
+            We are checking to see if we have the necessary documents for your application. We won't be long. If we don't find anything you will need to provide documents to support your application.</p>
+          <img src="/Runthebank/find-docs.gif" </img>
+>>>>>>> a48a88387179a412f7a08a3d40867d3cab0a5712
 
         </div>
         <div class="modal-body good"  style="display:none;">
           <p>
             That was quick. We've found documents from your previous application. Let's now proceed to the application.</p>
-          <img src="/Runthebank/loanspinner.gif" </img>
+          <img src="/Runthebank/find-docs.gif" </img>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+
         </div>
 
     </div>
