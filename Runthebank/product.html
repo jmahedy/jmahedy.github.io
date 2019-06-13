@@ -56,7 +56,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $(document).ready(function() {
       let searchParams = new URLSearchParams(window.location.search)
       var productType = searchParams.get("productType");
-
+      $('#creditloan').on('submit', (function(ev) {
+        ev.preventDefault();
+        console.log("submitted");
+        setLoader(productType);
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+          "url": "https://api.box.com/2.0/folders/" + sessionStorage.getItem("mainFolderId") + "?fields=id,name,metadata.enterprise.kycClient",
+          "method": "GET",
+          "headers": {
+            "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
+          }
+        };
+        var idVerified = "No";
+        $.ajax(settings).done(function(response) {
+          idVerified = response.metadata.enterprise.kycClient.idVerified;
+          window.setInterval(function() {
+            showResult(productType, idVerified);
+          }, 5000);
+        });
+      }));
       $('#credit').on('submit', (function(ev) {
         ev.preventDefault();
         console.log("submitted");
@@ -209,7 +230,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
     <div id="loan" style="display:none;">
-      <form id="credit" class="border border-light p-5" action="#" method="get">
+      <form id="creditloan" class="border border-light p-5" action="#" method="get">
 
         <p class="h4 mb-4 text-left">Loan Application</p>
 
