@@ -24,38 +24,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Your custom styles (optional) -->
   <link href="css/style.css" rel="stylesheet">
 
-<script>
-  function setLoader(productType) {
-    if(productType=='cc') {
 
-      $("#cc").html('<img src="/Runthebank/loanspinner.gif"/> Processing Credit Card Application');
-    }
-    else {
-      $("#loan").html('<img src="/Runthebank/loanspinner.gif"/> Processing Loan Application');
-    }
-
-  }
-  function showResult(productType,idVerified) {
-    if(productType=='cc') {
-      if(idVerified=='Yes') {
-        $("#cc").html("We have received your documents and we are pleased to say your card application has been approved.<br/><br/> Your card will be with you within seven working days<br/><br/>");
-      }
-      else {
-        $("#cc").html("We have received your documents and we have found an issue.<br/><br/> An advisor from the bank will contact you shortly<br/><br/>");
-=======
 
   <script>
     function setLoader(productType) {
       if (productType == 'cc') {
-
         $("#cc").html('<img src="/Runthebank/loanspinner.gif"/> Processing Credit Card Application');
       } else {
         $("#loan").html('<img src="/Runthebank/loanspinner.gif"/>Processing Loan Application');
->>>>>>> ba7dfd5ddc7b7289e7130e2bb4181eccbcb014f2
       }
-
     }
-
     function showResult(productType, idVerified) {
       if (productType == 'cc') {
         if (idVerified == 'Yes') {
@@ -68,7 +46,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           $("#loan").html("We have received your documents and we are pleased to say your loan application has been approved. <br/><br/>The funds will appear in your account within 24 hours<br/>");
         } else {
           $("#loan").html("We have received your documents and we have found an issue.<br/><br/> An advisor from the bank will contact you shortly<br/>");
-
         }
       }
     }
@@ -142,8 +119,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           var value = $(this).prev().attr('value');
           $(this).html(value + " years");
         });
-
-
       })
     });
   </script>
@@ -415,42 +390,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
 
         </div>
-  			<div class="col-lg-3 col-sm-6 footv3-left mt-sm-0 mt-4">
-  				<h4 class="mb-4 w3f_title"> Share Holders</h4>
-  				<ul class="list-w3">
-  					<li class="my-2">
-  						<a href="#">
-  							Shareholders Information
-  						</a>
-  					</li>
-  					<li class="mb-2">
-  						<a href="#">
-  							Stock Information
-  						</a>
-  					</li>
-  					<li class="my-2">
-  						<a href="#">
-  							Financial Results
-  						</a>
-  					</li>
-  					<li class="my-2">
-  						<a href="#">
-  							Investors faq's
-  						</a>
-  					</li>
-  					<li>
-  						<a href="#">
-  							Regulatory Section
-  						</a>
-  					</li>
-  				</ul>
-  			</div>
-<!-- move top -->
-<div class="move-top text-right">
-	<a href="#home" class="move-top">
-		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
-	</a>
-</div>
+      </div>
+      <!-- //footer bottom -->
+    </footer>
+        <!-- move top -->
 
 </body>
 
