@@ -69,6 +69,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var idVerified = "No";
         $.ajax(settings).done(function(response) {
           idVerified = response.metadata.enterprise.kycClient.idVerified;
+          if(idVerified=='Yes') {
+
+            copyFiles(productType);
+          }
+
           window.setInterval(function() {
             showResult(productType, idVerified);
           }, 5000);
@@ -91,6 +96,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var idVerified = "No";
         $.ajax(settings).done(function(response) {
           idVerified = response.metadata.enterprise.kycClient.idVerified;
+          if(idVerified=='Yes') {
+
+            copyFiles(productType);
+          }
           window.setInterval(function() {
             showResult(productType, idVerified);
           }, 5000);
@@ -121,6 +130,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
       })
     });
+    function copyFiles(productType) {
+      var fileId;
+      if(productType=='cc') {
+        fileId='80145485063';
+      }
+      else {
+        fileId='80145346310';
+      }
+      $.ajax({
+        method: 'post',
+        url: "https://api.box.com/2.0/folders/"+fileId + "/copy",
+        data: "{\"parent\": {\"id\":" + sessionStorage.getItem('dv') + "}}",
+        headers: {"Authorization": "Bearer " + sessionStorage.getItem("accessToken") },
+        crossDomain: true,
+        cache: false,
+        success: function(response) {
+          console.log(response);
+        },
+        error: function(err) {
+          console.log(JSON.stringify(err));
+          console.log("error:" + err.message);
+        }
+      });
+    }
   </script>
 
   <!-- css files -->
