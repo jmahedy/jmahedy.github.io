@@ -1,8 +1,8 @@
 echo
 curl -X PUT \
-  https://api.box.com/2.0/files/478329195032/metadata/enterprise_210445550/policy \
+  https://api.box.com/2.0/files/485447408388/metadata/enterprise_210445550/policy \
   -H 'Accept: */*' \
-  -H 'Authorization: Bearer 5BEXb3CbQxKUNBeuxklwFWUnoR21ONCW' \
+  -H 'Authorization: Bearer nnmMtAOuXsffRbtnNLFLBVnfkTy5Kb5z' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
   -H 'Content-Type: application/json-patch+json' \
