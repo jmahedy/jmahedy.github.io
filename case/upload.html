@@ -65,8 +65,8 @@
       contentExplorer.show(folderId, accessToken, {
         container: '.ct',
         logoUrl: 'pixel.png',
-        canDelete: false,
-        canCreateNewFolder: false,
+        canDelete: true,
+        canCreateNewFolder: true,
         canRename: false,
         canSetShareAccess: false,
         responseInterceptor:testResponseInterceptor,
@@ -91,137 +91,11 @@
 
         console.log('preview');
       });
-      contentExplorer.addListener('select', (item) => {
-        selectedFolder = item[0].id;
-        sessionStorage.setItem('selectedId',selectedFolder);
-        //if video file, show transcode button
-        console.log("Showing cops?" + showCopsButton);
 
-        if(showCopsButton) {
-            fixButton();
-            objType='COPFS';
-            hackDom('COPFS');
-        } else {
-          var name = item[0].name;
-          console.log(name + " - " + name.endsWith('mp4'));
-          if(name.endsWith('mp4') || name.endsWith('avi')) {
-            fixButton();
-            objType='Video';
-            showVideoButton=true;
-            hackDom('Video');
-
-          }
-        }
-        console.log(item[0].type);
-        if(item[0].type=='file'  && 1==2) {
-          console.log("Showing sidebar");
-            contentSidebar.show(selectedFolder, sessionStorage.getItem('accessToken'), {
-              container: '.sb',
-             defaultView: 'metadata',
-              hasMetadata: true,
-            hasSkills: false,
-            hasProperties: true,
-            hasAccessStats: true,
-            hasActivityFeed: true,
-            hasClassification:true,
-            hasVersions:true,
-            hasNotices:true
-          });
-        }
-        else {
-          contentSidebar.hide();
-          contentSidebar.clearCache();
-        }
-        //check to see if video
-
-      });
-      function fixButton() {
-        var divs = document.getElementsByTagName('div');
-        console.log("fixign button");
-        for(i=0;i<divs.length;i++) {
-          if(divs[i].className=='bce-more-options' && divs[i].parentNode.parentNode.className.includes('bce-item-row-selected')) {
-            console.log("displaying more options:" + divs[i].innerHTML);
-            divs[i].style.display='block';
-            if(currentSelected && currentSelected!=divs[i]) {
-              console.log("hiding currentSelected:" + currentSelected.innerHTML);
-
-              currentSelected.style.display='none';
-            }
-            currentSelected = divs[i];
-          }
-        }
-      };
-      contentExplorer.addListener('navigate', (item) => {
-        showVideoButton=false;
-        console.log("Item:" + item.id + "=" + folderId);
-        if(item.id==folderId) {
-            console.log(item.id  + "=" + folderId + " setting to true");
-            showCopsButton=true;
-          }
-          else {
-            console.log(item.id  + "!=" + folderId + " setting to false");
-            showCopsButton=false;
-            console.log("hiding currentSelected");
-            currentSelected.style.display='none';
-
-          }
-      });
-    }
-
-    function hackDom(objType) {
-      //hack dom
-      var allSpans = document.getElementsByTagName('span');
-      var i = 0;
-      console.log("found " + allSpans.length);
-      for(i=0;i<allSpans.length;i++) {
-        var obj = allSpans[i];
-
-        if(obj.innerHTML=='Share' || obj.innerHTML=='COPFS'  || obj.innerHTML=='Video') {
-          obj.innerHTML = objType;
-          obj.parentNode.parentNode.onclick = function(event){changeEvent(event);};
-          obj.parentNode.onclick = function(event){changeEvent(event);};
-          obj.onclick = function(event){changeEvent(event);};
-          currentSpan=obj;
-        }
-      }
-    }
-    function changeEvent(ev) {
-      console.log(ev);
-      if(objType=='Video') {
-        document.getElementById('myframe').src='transcode.html?' + sessionStorage.getItem('selectedId') ;
-        document.getElementById('myModal').style.display = "block";
-        contentExplorer.clearCache();
-
-      }
-      else {
-        currentSelected.innerHTML="<img src='smallspinner.gif'/>";
-        launchNintexFlow();
-      };
-      ev.cancelBubble=true;
-    }
-  function launchNintexFlow() {
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      //"url": "https://box-162828.workflowcloud.com/api/v1/workflow/published/4de240a7-6de1-47a9-9da6-c71e9be9de7f/swagger.json?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJOV0MiLCJ3b3JrZmxvd0lkIjoiNGRlMjQwYTctNmRlMS00N2E5LTlkYTYtYzcxZTliZTlkZTdmIiwidGVuYW50SWQiOiJiYTllNDhmNS1kNjdlLTRkNjMtYmY2OS04YWRiNTBiMGRjMjMiLCJpYXQiOjE1NDIxOTc1MDF9.V0Z8scOJpS10RC-x8Dm2pa2oYwKCIUIcl9JWytIe2Ts",
-      "url": "https://box-162828.workflowcloud.com/api/v1/workflow/published/4de240a7-6de1-47a9-9da6-c71e9be9de7f/instances?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJOV0MiLCJ3b3JrZmxvd0lkIjoiNGRlMjQwYTctNmRlMS00N2E5LTlkYTYtYzcxZTliZTlkZTdmIiwidGVuYW50SWQiOiJiYTllNDhmNS1kNjdlLTRkNjMtYmY2OS04YWRiNTBiMGRjMjMiLCJpYXQiOjE1NDIyMDQyNDZ9.EpDwRhaL3ievSI23gw3l_KvcyCPwlmiGNV-G5Ll4F6g",
-      "method": "POST",
-      "headers": {
-        "Content-Type": "application/json"
-        //"cache-control": "no-cache",
-        //"Access-Control-Allow-Headers":1"*"
-       },
-    "processData": false,
-    "data": "{\"startData\": {\"se_folder_id\": \"" + selectedFolder + "\"}}"
-    }
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-      currentSelected.innerHTML="<img src='tick.png'/>";
-    });
-  }
-    function isEvidential(folderId) {
 
     }
+
+
 
 
 </script>
