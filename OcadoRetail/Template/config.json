@@ -18,7 +18,7 @@ var navigation=[
   },
 
   {
-      "page":"folder1.html",
+      "page":"folder2.html",
       "title":"Supplier Documents",
       "boxId":"81557985277"
   },
