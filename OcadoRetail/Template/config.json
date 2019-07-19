@@ -1,0 +1,60 @@
+//Client ID
+var clientId="7qtpb74ihrx6q2tf1jog5vcmcby6swxx";
+
+//Main page
+var redirectAfterLoginPage="/OcadoRetail/Template/main.html";
+
+//Navigation
+var navigation=[
+
+  {
+      "page":"/OcadoRetail/Template/landing.html",
+      "title":"Home"
+  },
+
+  {
+      "page":"https://box-162828.workflowcloud.com/forms/e47a03cd-4c68-4bf5-bb64-7c7fccfbf815",
+      "title":"Onboarding",
+  },
+
+  {
+      "page":"folder2.html",
+      "title":"Supplier Documents",
+      "boxId":"81557985277"
+  },
+  {
+      "page":"folder2.html",
+      "title":"Contracts",
+      "boxId":"81559541375"
+  },
+  {
+      "page":"preview3.html",
+      "title":"Supplier Manual",
+      "boxId":"488731499895"
+  },
+  {
+      "page":"uploader.html",
+      "title":"Upload Accreditation",
+      "boxId":"81559773346"
+  },
+
+  {
+      "page":"folder2.html",
+      "title":"Forecast",
+      "boxId":"81670740725",
+  },
+
+  {
+      "page":"help.html",
+      "title":"Help & Support",
+
+  },
+
+  {
+      "page":"login.html",
+      "title":"Logout",
+
+  },
+
+
+];
