@@ -3,6 +3,22 @@
 <title>NIDirect Navigation Menu</title>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.proto.min.js" integrity="sha256-caJ5d3++BXLzBy3MKsOiJWHlVgh8O3W61W/XxBN3u1I=" crossorigin="anonymous"></script>
 
 
 <script>
@@ -68,7 +84,6 @@ li a {
     display: block;
     color: #54698D;
     text-align: left;
-    padding: 4px 12px;
     text-decoration: none;
     border: 1px;
 }
@@ -102,12 +117,14 @@ p {
 
 <ul>
 
-  <li width="140px"><p class='activep'><a class="active" height='27px' href="myprofile.html" target="main">John Mahedy</a></p></li>
-  <li width="140px"><p><a href="activity.html" target="main">Activity</a></p></li>
-  <li width="140px"><p><a href="messages.html" target="main">Messages</a></p></li>
-  <li width="140px"><p><a href="documents.html" target="main">Documents</a></p></li>
-  <li width="140px"><p><a href="interests.html" target="main">My Interests</a></p></li>
-  <li width="140px"><p><a href="login.html" target="_main">Logout</a></p></li>
+  <li width="140px"><p class='activep'><a class="active" height='27px' href="myprofile.html" target="main">John Mahedy</a><span  class='badge badge-primary badge-pill remove'>x</span></li>
+  <li width="140px"><i class="far fa-clock indigo-text pr-3"></i><a href="activity.html" target="main">Activity</a></li>
+  <li width="140px"><a href="messages.html" target="main">Messages</a></li>
+  <li width="140px"><a href="documents.html" target="main">Documents</a></li>
+  <li width="140px"><a href="interests.html" target="main">My Interests</a></li>
+  <li width="140px"><a href="login.html" target="_main">Logout</a></li>
+
+<p><i class="fas fa-heart fa-3x indigo-text pr-3" aria-hidden="true"></i> indigo-text</p>
 
   </ul>
 
