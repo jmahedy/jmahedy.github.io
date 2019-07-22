@@ -27,15 +27,15 @@
 
 console.log(links.length);
 for(var i = 0; i < links.length; i++) {
-  console.log(links[i].innerHTML);
   links[i].addEventListener("click", function() {
     var current = document.getElementsByClassName("active");
-    var currentp = document.getElementsByClassName("activep");
-    console.log(this.innerHTML);
+    current[2].className = current[2].className.replace("active", "");
+    current[1].className = current[1].className.replace("active", "");
     current[0].className = current[0].className.replace("active", "");
-    currentp[0].className = currentp[0].className.replace("activep", "");
-    this.className = "active";
-    this.parentNode.className='activep';
+    console.log(current.length);
+    this.className = this.className + " active";
+    this.parentNode.className= this.parentNode.className + " active";
+    this.previousSibling.className=this.previousSibling.className + " active";
   });
 }
 });
@@ -78,7 +78,10 @@ li p:hover {
 }
 
 
-
+.active {
+  background-color:#F4F6F9;
+  color:#0d1e63 !important;
+}
 .person {
   font-size: 16px;
   font-style: Roboto;
@@ -113,7 +116,7 @@ li p:hover {
   <ul class="user">
     <li >
       <span>
-        <i style="padding-top: 15px;" class="fas fa-user-circle fa-3x blue-text">
+        <i style="padding-top: 15px;" class="fas fa-user-circle fa-3x blue-text ">
         </i>
       </span>
       <span class="person">
@@ -130,12 +133,12 @@ li p:hover {
 
 <ul class="subnav">
 
-  <li class="nav" ><i class="fas fa-clock fa-1x blue-text pr-3"></i><a href="activity.html" target="main">ACTIVITY</a></li>
-  <li  class="nav"><i class="fas fa-envelope fa-1x blue-text pr-3"></i><a href="messages.html" target="main">MESSAGES</a><span style="margin-left:3px;" class="badge badge-danger badge-pill">3</span></li>
-  <li  class="nav"><i class="fas fa-file-alt fa-1x blue-text pr-3" style="width:30px;"></i><a href="documents.html" target="main">DOCUMENTS</a></li>
-  <li  class="nav"><i class="fas fa-check-circle  fa-1x blue-text pr-3"></i><a href="interests.html" target="main">MY INTERESTS</a></li>
-  <li  class="nav"><i class="fab fab fa-wpforms  fa-1x blue-text pr-3"></i><a href="apply.html" target="main">APPLY</a></li>
-  <li  class="nav"><i class="fas fa-sign-out-alt fa-1x blue-text pr-3"></i><a href="login.html" target="_main">LOGOUT</a></li>
+  <li class="nav active" ><i class="fas fa-clock fa-1x blue-text pr-3 active"></i><a class="active" href="activity.html" target="main">ACTIVITY</a></li>
+  <li  class="nav"><i class="fas fa-envelope fa-1x blue-text pr-3"></i><a class="inactive" href="messages.html" target="main">MESSAGES</a><span style="margin-left:3px;" class="badge badge-danger badge-pill">3</span></li>
+  <li  class="nav"><i class="fas fa-file-alt fa-1x blue-text pr-3" style="width:30px;"></i><a class="inactive" href="documents.html" target="main">DOCUMENTS</a></li>
+  <li  class="nav"><i class="fas fa-check-circle  fa-1x blue-text pr-3"></i><a class="inactive" href="interests.html" target="main">MY INTERESTS</a></li>
+  <li  class="nav"><i class="fab fab fa-wpforms  fa-1x blue-text pr-3"></i><a class="inactive" href="apply.html" target="main">APPLY</a></li>
+  <li  class="nav"><i class="fas fa-sign-out-alt fa-1x blue-text pr-3"></i><a class="inactive" href="login.html" target="_main">LOGOUT</a></li>
   </ul>
 
   </div>

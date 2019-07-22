@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           "async": true,
           "crossDomain": true,
           //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
-          "url": "https://api.box.com/2.0/folders/" + sessionStorage.getItem("mainFolderId") + "?fields=id,name,metadata.enterprise.kycClient",
+          "url": "https://api.box.com/2.0/folders/" + sessionStorage.getItem("mainFolderId") + "?fields=id,name,metadata.enterprise.citizen",
           "method": "GET",
           "headers": {"Authorization": "Bearer " + sessionStorage.getItem("accessToken")}
         };
@@ -90,8 +90,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           var hasIdValidated = "No";
           var folderId;
           console.log(response.name);
-          console.log("Found name:" + response.name + ":validated?" + response.metadata.enterprise.kycClient.idVerified);
-          hasIdValidated = response.metadata.enterprise.kycClient.idVerified;
+          console.log("Found name:" + response.name + ":validated?" + response.metadata.enterprise.citizen.idVerified);
+          hasIdValidated = response.metadata.enterprise.citizen.idVerified;
           folderId = response.id;
 
           if (hasIdValidated == "Yes") {
