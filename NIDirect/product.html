@@ -28,16 +28,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   <script>
     function setLoader(productType) {
-      if (productType == 'cc') {
-        $("#cc").html('<img src="/Runthebank/loanspinner.gif"/> Processing Credit Card Application');
+      if (productType == 'hb') {
+        $("#cc").html('<img src="/Runthebank/loanspinner.gif"/> Processing Housing Application');
       } else {
-        $("#loan").html('<img src="/Runthebank/loanspinner.gif"/>Processing Loan Application');
+        $("#loan").html('<img src="/Runthebank/loanspinner.gif"/> Processing Loan Application');
       }
     }
     function showResult(productType, idVerified) {
-      if (productType == 'cc') {
+      if (productType == 'hb') {
         if (idVerified == 'Yes') {
-          $("#cc").html("We have received your documents and we are pleased to say your card application has been approved.<br/><br/> Your card will be with you within seven working days<br/><br/>");
+          $("#cc").html("We have received your documents and we are pleased to say your application has been submitted.<br/><br/> We will contact you within seven working days<br/><br/>");
         } else {
           $("#cc").html("We have received your documents and we have found an issue.<br/><br/> An advisor from the bank will contact you shortly<br/><br/>");
         }
@@ -227,7 +227,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <img id="loader" src="ajax-loader_t.gif" style="display:none;">
           <br/>
           <button id="signbutton" class="btn btn-blue" type="submit" name="submit"><i class="fas fa-money-bill fa-2"></i> Apply</button>
-
 
         </ul>
 
