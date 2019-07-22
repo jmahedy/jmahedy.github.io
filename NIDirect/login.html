@@ -1,31 +1,95 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)https://identity.nidirect.gov.uk/Home/Index -->
+<!-- saved from url=(0051)https://identity.nidirect.gov.uk/Registration/Index -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>NNIDirect Login</title>
+    <title>NIDA create account</title>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
 
-    <link href="./NIDA landing page_files/bootstrap.min.css" rel="stylesheet">
-<link href="./NIDA landing page_files/bootstrap-responsive.css" rel="stylesheet">
-<link href="./NIDA landing page_files/nidirect.css" rel="stylesheet">
-<link href="./NIDA landing page_files/nidirect-responsive.css" rel="stylesheet">
-<link href="./NIDA landing page_files/nida.css" rel="stylesheet">
-<link href="./NIDA landing page_files/Site.css" rel="stylesheet">
+    <link href="./NIDAAccount_files/bootstrap.min.css" rel="stylesheet">
+<link href="./NIDAAccount_files/bootstrap-responsive.css" rel="stylesheet">
+<link href="./NIDAAccount_files/nidirect.css" rel="stylesheet">
+<link href="./NIDAAccount_files/nidirect-responsive.css" rel="stylesheet">
+<link href="./NIDAAccount_files/nida.css" rel="stylesheet">
+<link href="./NIDAAccount_files/Site.css" rel="stylesheet">
+<script src="./NIDAAccount_files/jquery.min.js"></script>
+
+<script src="./NIDAAccount_files/bootstrap.js"></script>
 
 
     <link href="https://identity.nidirect.gov.uk/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link rel="icon" type="image/vnd.microsoft.icon" href="https://identity.nidirect.gov.uk/images/favicon.ico">
     <link rel="apple-touch-icon" href="https://identity.nidirect.gov.uk/images/favicon.ico">
-    <link rel="stylesheet" media="screen and (min-device-width: 1px) and (max-device-width: 449px)" href="./NIDA landing page_files/smalldevice.css">
-    <link rel="stylesheet" media="screen and (min-device-width: 450px)" href="./NIDA landing page_files/largedevice.css">
+    <link rel="stylesheet" media="screen and (min-device-width: 1px) and (max-device-width: 449px)" href="./NIDAAccount_files/smalldevice.css">
+    <link rel="stylesheet" media="screen and (min-device-width: 450px)" href="./NIDAAccount_files/largedevice.css">
 </head>
+
+<script>
+var newUserId;
+var newFolderId;
+var keepTrying=true;
+var saToken;
+$(document).ready(function() {
+    sessionStorage.clear();
+    $('#createUser').on('submit', (function(ev) {
+      $("#loader").show();
+      $("#submit").show();
+      ev.preventDefault();
+      //get values
+      var name = $("#firstName").val() + " " + $("#lastName").val()
+      var email = $("#email").val();
+      //get SA token
+      var settings = {"async": true,"crossDomain": true,"url": "https://bl2vhdoqzh.execute-api.eu-west-2.amazonaws.com/default/box-jwt-tokengenerator?clientId=l27zjgznl99zzn4tosg7ieio8gg6t1bz&requestedScopes=adminToken","method": "GET","headers": {}};
+      $.ajax(settings).done(function(response) {
+        console.log("Token:" + JSON.stringify(response));
+        saToken=response.adminAccessToken;
+        createAppUser(name,email,saToken);
+        copyTemplate(name,saToken);
+        window.setTimeout(function() {shareAppUserToFolder()},5000);
+      });
+      //create app User
+      //copy template
+      //share app User
+      //apply address MD>
+    }));
+  });
+  function createAppUser(name,email,saToken) {
+    var data = "{\"is_platform_access_only\": true, \"name\": \"" + name + "\", \"external_app_user_id\" : \"" + email + "\"}";
+    var settings = {"data":data,"async": true,"crossDomain": true,"url": "https://api.box.com/2.0/users","method": "POST","headers": {"Authorization":"Bearer " + saToken}};
+    $.ajax(settings).done(function(response) {
+      console.log("user created :" + JSON.stringify(response));
+      newUserId=response.id;
+    });
+  }
+  function copyTemplate(name,saToken) {
+    var data = "{\"parent\": {\"id\":82324859507},\"name\": \"" + name + "\"}";
+    var settings = {"data":data,"async": true,"crossDomain": true,"url": "https://api.box.com/2.0/folders/82327886814/copy","method": "POST","headers": {"Authorization":"Bearer " + saToken}};
+    $.ajax(settings).done(function(response) {
+      console.log("folder created :" + JSON.stringify(response));
+      newFolderId=response.id;
+    });
+  }
+    function shareAppUserToFolder() {
+      if(newUserId && newFolderId) {
+        keepTrying=false;
+        var data = "{\"item\": {\"id\":" + newFolderId + ",\"type\":\"folder\"},\"accessible_by\": {\"id\":\"" + newUserId + "\"},\"role\":\"editor\"}";
+        var settings = {"data":data,"async": true,"crossDomain": true,"url": "https://api.box.com/2.0/collaborations/","method": "POST","headers": {"Authorization":"Bearer " + saToken}};
+        $.ajax(settings).done(function(response) {
+          console.log("collab created :" + JSON.stringify(response));
+          window.setTimeout(function() {window.location.replace='login.html'},1000);
+        });
+      }
+      else {
+        console.log("check again");
+      }
+    }
+</script>
 
 <body class="no-js">
     <div class="page">
         <div class="skipnav">
-            <a href="https://identity.nidirect.gov.uk/Home/Index#skip-dest">Skip to content</a>
+            <a href="https://identity.nidirect.gov.uk/Registration/Index#skip-dest">Skip to content</a>
         </div>
 
         <header>
@@ -35,7 +99,7 @@
 
 
                         <a class="brand" href="http://www.nidirect.gov.uk/">
-                            <img alt="n i direct government services" src="./NIDA landing page_files/nidirect-logo-small-2x.png" width="120" height="28">
+                            <img alt="n i direct government services" src="./NIDAAccount_files/nidirect-logo-small-2x.png" width="120" height="28">
                         </a>
                         <div class="nav-collapse collapse">
                             <nav class="topnav">
@@ -53,7 +117,7 @@
             </div>
 
             <div class="branding">
-                <a href="http://www.nidirect.gov.uk/"><img class="nidirectlogo" src="./NIDA landing page_files/nidirect-logo-2x.png" alt="n i direct government services"></a>
+                <a href="http://www.nidirect.gov.uk/"><img class="nidirectlogo" src="./NIDAAccount_files/nidirect-logo-2x.png" alt="n i direct government services"></a>
                 <div class="service-name">My account</div>
             </div>
         </header>
@@ -63,7 +127,9 @@
 
 
 
-<h1>Do you have an nidirect account?</h1>
+
+
+<h1>Create an account on nidirect</h1>
 
 
 
@@ -71,44 +137,125 @@
 
 
 
-<form action="https://identity.nidirect.gov.uk/Home/Index" class="form loginform" method="post">    <fieldset id="login">
+<form action="#" class="form" id="createUser" method="get">
+   <fieldset>
 
-        <legend>I have an account</legend>
-
-        <input name="__RequestVerificationToken" type="hidden" value="aeisHlAJdMS5xl2PLh6e8tt-BUuskHErGUCFiVPgqUGAuxasCacY0V-MmiXCz6wgT68euQ-E3h-z9zaKR0HSmvWwdblSuiCWStNXJN1tZ_E1">
 
         <div>
-            <img src="./NIDA landing page_files/required.gif" alt="Required"> Indicates a required field
+            <img src="./NIDAAccount_files/required.gif" alt="Required"> Indicates a required field
         </div>
 
         <div class="control-group ">
-            <label class="form-label" for="Username"><img alt="Required information" src="./NIDA landing page_files/required.gif"> Email address </label>
+            <label class="form-label" for="FirstName"><img alt="Required information" src="./NIDAAccount_files/required.gif"> First name </label>
 
-            <input autocomplete="off" id="Username" name="Username" type="text" value="">
+            <input class="text-box single-line" id="firstName" name="FirstName" type="text" value="">
+        </div>
+
+      <!--  <div class="control-group ">
+            <label class="form-label" for="MiddleNames">Middle name(s) </label>
+            <input class="text-box single-line" id="middleName" name="MiddleNames" type="text" value="">
+        </div>-->
+
+        <div class="control-group ">
+            <label class="form-label" for="LastName"><img alt="Required information" src="./NIDAAccount_files/required.gif"> Last name </label>
+
+            <input class="text-box single-line" id="lastName" name="LastName" type="text" value="">
+        </div>
+
+        <div class="noBottomMargin control-group ">
+            <div class="form-label"><img src="./NIDAAccount_files/required.gif" alt="Required"> Date of birth</div>
+
+
+            <div class="divForDOBDay">
+                <label id="dayOfBirth" class="labelForDayDDL form-label-sm" for="DayOfBirth">Day</label>
+                <select class="dayDDL" id="DayOfBirth" name="DayOfBirth"><option selected="selected" value="0">-</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+            </div>
+
+            <div class="divForDOBMonth">
+                <label id="monthOfBirth" class="labelForMonthDDL form-label-sm" for="MonthOfBirth">Month</label>
+                <select class="monthDDL" id="MonthOfBirth" name="MonthOfBirth"><option selected="selected" value="0">-</option>
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+            </div>
+
+            <div class="divForDOBYear">
+                <label id="yearOfBirth" class="labelForYearDDL form-label-sm" for="YearOfBirth">Year</label>
+                <input id="YearOfBirth" maxlength="4" name="YearOfBirth" style="width:50px" type="text" value="">
+            </div>
         </div>
 
         <div class="control-group ">
-            <label class="form-label" for="Password"><img alt="Required information" src="./NIDA landing page_files/required.gif"> Password </label>
+            <label class="form-label" for="Username"><img alt="Required information" src="./NIDAAccount_files/required.gif"> Your email address <span class="hint">Your email address will be used when signing in</span></label>
 
-            <input autocomplete="off" id="Password" name="Password" type="password">
+            <input class="text-box single-line" id="email" name="Username" type="email" value="">
         </div>
 
-        <div class="button-div">
-            <input type="submit" value="Sign in" id="submit-login-btn" class="btn btn-primary">
+        <div class="control-group ">
+            <label class="form-label" for="ConfirmUsername"><img alt="Required information" src="./NIDAAccount_files/required.gif"> Re-type your email address </label>
+
+            <input class="text-box single-line" id="email1" name="ConfirmUsername" type="text" value="">
         </div>
 
-        <p>
-            <a href="https://identity.nidirect.gov.uk/ChangePassword/Index" id="ChangeMyPasswordButton" title="Change or forgotten password." class="">I've forgotten my password</a><br>
-            <a href="https://identity.nidirect.gov.uk/Account/Index" title="Change in circumstances (name, address)." class="">Manage my account details</a>
-        </p>
+        <div class="control-group ">
+            <label class="form-label" for="Password"><img alt="Required information" src="./NIDAAccount_files/required.gif"> Create a password <span class="hint">Your password must be at least 8 characters, contain an uppercase letter, a lowercase letter and one number</span></label>
+
+            <input autocomplete="off" id="password" name="Password" type="password">
+        </div>
+
+        <div class="control-group ">
+            <label class="form-label" for="ConfirmPassword"><img alt="Required information" src="./NIDAAccount_files/required.gif"> Re-type your password </label>
+
+            <input autocomplete="off" id="ConfirmPassword" name="ConfirmPassword" type="password">
+        </div>
     </fieldset>
-    <fieldset id="register">
-        <legend>I need an account</legend>
-        <div>
-            <a href="/NIDirect/account.html" class="btn btn-success">Create account</a>
-        </div>
-    </fieldset>
-<input type="hidden" name="as_sfid" value="AAAAAAUAEYKviuYtKup7ZLS8Pn11FAlhVpTvi0ajDNMoZaxg6AUVlvCYttjANtxruvIZBQEnnay6FfyzI-I69tYRr5GbrdUGkwbOqYjE_AnGI9N4LzrkbFUOvtA3BB3nngiFG6o="><input type="hidden" name="as_fid" value="0070b13f5efd1d1258a0a8602f7e0a8ffb368399"></form>
+    <div class="button-div">
+        <input type="submit" id="submit" class="btn btn-primary arrowr" value="Submit">
+        <img src="/NIDirect/ajax-loader_t.gif" id="loader"/>
+    </div>
+  </form>
         </div>
 
         <footer class="footer">
@@ -121,25 +268,7 @@
         </footer>
     </div>
 
-    <script async="" src="./NIDA landing page_files/analytics.js"></script><script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-66551742-1', 'none');
-        ga('send', 'pageview');
-    </script>
-    <script src="./NIDA landing page_files/jquery.min.js"></script>
-
-    <script src="./NIDA landing page_files/bootstrap.js"></script>
 
 
 
