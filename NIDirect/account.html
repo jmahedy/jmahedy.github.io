@@ -80,7 +80,7 @@ $(document).ready(function() {
         var settings = {"data":data,"async": true,"crossDomain": true,"url": "https://api.box.com/2.0/collaborations/","method": "POST","headers": {"Authorization":"Bearer " + saToken}};
         $.ajax(settings).done(function(response) {
           console.log("collab created :" + JSON.stringify(response));
-          window.setTimeout(function() {window.location.replace='login.html'},1000);
+          window.setTimeout(function() {window.location.replace='/NIDirect/login.html'},1000);
         });
       }
       else {
