@@ -25,7 +25,7 @@
   <script>
     //var folderId = '73553726252';
     let searchParams = new URLSearchParams(window.location.search)
-    var boxId=sessionStorage.getItem("mainFolderId");
+    var boxId=sessionStorage.getItem("mainFolderId"); 
     var contentExplorer = new Box.ContentExplorer();
       getAccessToken().then(function(result) {
         contentExplorer.show(boxId, result, {
@@ -33,6 +33,7 @@
         canDownload: false,
         canDelete: false,
         canRename: false,
+        logoUrl: 'ni-direct-favicon.png',
         canShare: false
       });
 
