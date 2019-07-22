@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://identity.nidirect.gov.uk/Registration/Index -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>NIDA create account</title>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link href="./NIDAAccount_files/bootstrap.min.css" rel="stylesheet">
+  <link href="./NIDAAccount_files/bootstrap-responsive.css" rel="stylesheet">
+  <link href="./NIDAAccount_files/nidirect.css" rel="stylesheet">
+  <link href="./NIDAAccount_files/nidirect-responsive.css" rel="stylesheet">
+  <link href="./NIDAAccount_files/nida.css" rel="stylesheet">
+  <link href="./NIDAAccount_files/Site.css" rel="stylesheet">
+  <script src="./NIDAAccount_files/jquery.min.js"></script>
+
+  <script src="./NIDAAccount_files/bootstrap.js"></script>
+
+
+  <link href="https://identity.nidirect.gov.uk/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="https://identity.nidirect.gov.uk/images/favicon.ico">
+  <link rel="apple-touch-icon" href="https://identity.nidirect.gov.uk/images/favicon.ico">
+  <link rel="stylesheet" media="screen and (min-device-width: 1px) and (max-device-width: 449px)" href="./NIDAAccount_files/smalldevice.css">
+  <link rel="stylesheet" media="screen and (min-device-width: 450px)" href="./NIDAAccount_files/largedevice.css">
+</head>
+<script>
+  $(document).ready(function() {
+        //get dv and statemetns
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+          "url": "https://api.box.com/2.0/users/me",
+          "method": "GET",
+          "headers": {
+            "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
+          }
+        };
+        $.ajax(settings).done(function(response) {
+
+          sessionStorage.setItem("userName", response.name);
+          //$("#resetlink").attr("href","https://box-java-sandpit.herokuapp.com/account?action=reset&name=" + response.name);
+
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+            "url": "https://api.box.com/2.0/folders/0/items?fields=name,id",
+            "method": "GET",
+            "headers": {
+              "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
+            }
+          };
+          $.ajax(settings).done(function(response) {
+            var mainFolderId;
+            $.each(response.entries, function(k, data) {
+              console.log(data.name);
+              if (data.name == sessionStorage.getItem("userName")) {
+                sessionStorage.setItem("mainFolderId", data.id);
+                mainFolderId = data.id;
+                //$("#resetlink").attr("href","http://localhost:5000/account?action=reset&name=" + sessionStorage.getItem("userName") + "&folderId=" + data.id);
+                $("#resetlink").attr("href", "https://box-java-sandpit.herokuapp.com/account?action=reset&name=" + sessionStorage.getItem("userName") + "&folderId=" + data.id);
+              }
+            });
+          });
+        });
+    });
+</script>
+<style>
+  .cards {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .cards li {
+    border: 1px solid #d0bfff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+</style>
+
+<body>
+  <div class="example">
+
+    <ul class="cards" style="width:1000px !important;">
+      <li style="width:1000px !important;">
+        <h2>My services</h2>
+
+        <ul class="cards">
+          <li>
+            <h4>Seed potatto</h4>
+            <p>These cards have been laid out using grid layout. By setting <code>display: grid</code> on the parent, all direct children become grid items.</p>
+          </li>
+          <li>
+            <h4>Personal learning</h4>
+            <p>These cards have been laid out using grid layout. By setting <code>display: grid</code> on the parent, all direct children become grid items.</p>
+          </li>
+
+
+        </ul>
+
+      </li>
+    </ul>
+    <br/>
+    <ul class="cards">
+      <li>
+        <h4>Messages</h4>
+        <p>These cards have been laid out using grid layout. By setting <code>display: grid</code> on the parent, all direct children become grid items.</p>
+      </li>
+      <li>
+        <h4>documentd</h4>
+        <p>These cards have been laid out using grid layout. By setting <code>display: grid</code> on the parent, all direct children become grid items.</p>
+      </li>
+
+
+    </ul>
+
+  </div>
+</body>
