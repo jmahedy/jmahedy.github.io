@@ -13,15 +13,15 @@
 </style>
 <script>
 $(document).ready(function() {
-  var msg = "User: " + sessionStorage.getItem("userLogin") + "<br>Citizen: John Mahedy";
-
-  $("#user").html(msg);
+  var msg = "<img src='/NIDirect/shield-ok-icon.png'/>Verified user";
+  //img src = "shield-ok-icon.png";
+    $("#user").html(msg);
 
 });
 </script>
-<body style="background-color:rgba(2,170,230)">
+<body>
   <img src="nidirect-logo-2x.png" alt="myDirect">
-<div id="user" style="float:right;margin-right:20px;color:white;">
+<div id="user" style="float:right;margin-right:20px;color:lightslategray;">
 </div>
 </body>
 </html>
