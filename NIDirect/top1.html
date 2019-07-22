@@ -1,0 +1,28 @@
+<html>
+<title>NIDirect Home</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+  body {
+    color: #000000;
+    font-family: "Lato", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+
+  }
+
+</style>
+
+<script>
+$(document).ready(function() {
+  var msg = "Verified user:" + sessionStorage.getItem("userLogin");
+  <img src="shield-ok-icon.png">
+  $("#user").html(msg);
+
+});
+</script>
+<body style="background-color:rgba(244,246,249)">
+<img src="nidirect-logo-2x.png" alt="myDirect">
+<div id="user" style="float:right;margin-right:20px;color:black;"></
+</div>
+</body>
+</html>
