@@ -48,7 +48,7 @@ $(document).ready(function() {
         saToken=response.adminAccessToken;
         createAppUser(name,email,saToken);
         copyTemplate(name,saToken);
-        window.setTimeout(function() {shareAppUserToFolder()},5000);
+        window.setTimeout(function() {shareAppUserToFolder()},6000);
 
       });
       //create app User
@@ -62,7 +62,14 @@ $(document).ready(function() {
     var settings = {"data":data,"async": true,"crossDomain": true,"url": "https://api.box.com/2.0/users","method": "POST","headers": {"Authorization":"Bearer " + saToken}};
     $.ajax(settings).done(function(response) {
       console.log("user created :" + JSON.stringify(response));
-      newUserId=response.id;
+      //set metadata template on new folder
+      var settingsMD=  {"data":"{}","async": true,"crossDomain": true,"url": "https://api.box.com/2.0/folders/" + response.id + "/metadata/enterprise_206908859/citizen","method": "POST","headers": {"Authorization":"Bearer " + saToken}};
+      $.ajax(settingsMD).done(function(response1) {
+        console.log("md applied  :" + JSON.stringify(response1));
+
+        newUserId=response.id;
+      });
+
     });
   }
   function copyTemplate(name,saToken) {
