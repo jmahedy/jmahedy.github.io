@@ -18,14 +18,14 @@
   <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/elements/10.0.0/en-US/explorer.css" />
 </head>
 
-<body>
+<body style="background-color:white;">
   <div class="container" style="height:90vh; width:100vw;"></div>
   <!-- Latest version of the explorer js for your locale -->
   <script src="https://cdn01.boxcdn.net/platform/elements/10.0.0/en-US/explorer.js"></script>
   <script>
     //var folderId = '73553726252';
     let searchParams = new URLSearchParams(window.location.search)
-    var boxId=sessionStorage.getItem("mainFolderId"); 
+    var boxId=sessionStorage.getItem("mainFolderId");
     var contentExplorer = new Box.ContentExplorer();
       getAccessToken().then(function(result) {
         contentExplorer.show(boxId, result, {
