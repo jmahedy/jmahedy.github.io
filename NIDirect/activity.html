@@ -64,6 +64,22 @@
                 mainFolderId = data.id;
                 //$("#resetlink").attr("href","http://localhost:5000/account?action=reset&name=" + sessionStorage.getItem("userName") + "&folderId=" + data.id);
                 $("#resetlink").attr("href", "https://box-java-sandpit.herokuapp.com/account?action=reset&name=" + sessionStorage.getItem("userName") + "&folderId=" + data.id);
+                var settings = {
+                  "async": true,
+                  "crossDomain": true,
+                  //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+                  "url": "https://api.box.com/2.0/folders/?parent_id=" + mainFolderId + "&path=Housing Images",
+                  "method": "GET",
+                  "headers": {"Authorization": "Bearer " + sessionStorage.getItem("accessToken")}
+                };
+                $.ajax(settings).done(function(response) {
+
+                  $.each(response.entries, function(k, data) {
+                    if (data.name == "Housing Images") {
+                      sessionStorage.setItem("hi",data.id)
+                    }
+                  });
+                });
               }
             });
           });

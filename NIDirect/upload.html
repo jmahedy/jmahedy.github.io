@@ -24,7 +24,7 @@
 
   input[type=submit] {
     width: 100%;
-    background-color: #018795;
+    background-color: #2096f3;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -40,7 +40,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    color: #0161d4;
+    color: #2096f3;
     text-align: left;
   }
 
@@ -54,7 +54,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    color: #0161d4;
+    color: #2096f3;
 
   }
 
@@ -66,19 +66,21 @@
 
 <script>
   var accessToken;
+  var contentUploader = new Box.ContentUploader();
+
   $(document).ready(function() {
     getAccessToken().then(function(result) {
       accessToken=result;
+      contentUploader.show(sessionStorage.getItem("hi"), result, {
+        container: '.pcontainer'
+      });
     });
         $("#uploadfiles").on('submit', (function(ev) {
           ev.preventDefault();
           $(".btn-primary").trigger("click");
 
         }));
-        var contentUploader = new Box.ContentUploader();
-        contentUploader.show('64064254232', accessToken, {
-          container: '.pcontainer'
-        });
+
         contentUploader.addListener('complete', function(files) {
           //window.location.replace('/Arriva/uploadedcctv.html');
 
@@ -130,7 +132,7 @@
 
   <br>
 
-  <P>Arriva CCTV Upload With Mandatory Meta-Data Capture</p>
+  <P>Housing Conditions Report</p>
 
   <br>
   <div style="width: 100%; overflow: hidden;z-index:-9999;">
@@ -154,15 +156,14 @@
         <label for="city">City</label>
         <input type="text" id="city" name="city" placeholder="City.." required>
 
-        <label for="description">City</label>
+        <label for="description">Description</label>
         <input type="text" id="description" name="description" placeholder="Description.." required>
 
 
         <label for="safetyIssue">Safety Issue</label>
-        <select id="safetyIssue" name="safetyIssue" required style="height:35px">
+        <select id="safetyIssue" name="safetyIssue" required style="height:35px;">
           <option value="Yes">Yes</option>
           <option value="No">No</option>
-
         </select>
 
         <input type="submit" id="submit" value="Upload to Portal">
