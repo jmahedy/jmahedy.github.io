@@ -25,7 +25,7 @@
 <script>
   $(document).ready(function() {
     var links = document.getElementsByTagName("a");
-
+    $("#name").text(sessionStorage.getItem("userName"));
 console.log(links.length);
 for(var i = 0; i < links.length; i++) {
   links[i].addEventListener("click", function() {
@@ -121,7 +121,7 @@ li p:hover {
         </i>
       </span>
       <span class="person">
-        <a class="person" valign="top" href="myprofile.html" target="main">John Mahedy</a>
+        <a class="person" valign="top" href="myprofile.html" target="main" id="name"></a>
       </span>
 
         <div class="smaller" style="margin-left:60px;">
@@ -134,12 +134,12 @@ li p:hover {
 
 <ul class="subnav">
 
-  <li class="nav active" ><i class="fas fa-clock fa-1x blue-text pr-3 active"></i><a class="active" href="activity.html" target="main">ACTIVITY</a></li>
-  <li  class="nav"><i class="fas fa-envelope fa-1x blue-text pr-3"></i><a class="inactive" href="messages.html" target="main">MESSAGES</a><span style="margin-left:3px;" class="badge badge-danger badge-pill">3</span></li>
-  <li  class="nav"><i class="fas fa-file-alt fa-1x blue-text pr-3" style="width:30px;"></i><a class="inactive" href="documents.html" target="main">DOCUMENTS</a></li>
-  <li  class="nav"><i class="fas fa-check-circle  fa-1x blue-text pr-3"></i><a class="inactive" href="interests.html" target="main">MY INTERESTS</a></li>
-  <li  class="nav"><i class="fab fab fa-wpforms  fa-1x blue-text pr-3"></i><a class="inactive" href="apply.html" target="main">APPLY</a></li>
-  <li  class="nav"><i class="fas fa-sign-out-alt fa-1x blue-text pr-3"></i><a class="inactive" href="login.html" target="_main">LOGOUT</a></li>
+  <li class="nav active" ><i class="fas fa-clock fa-1x blue-text pr-3 active" style="width:30px;"></i><a class="active" href="activity.html" target="main">ACTIVITY</a></li>
+  <li  class="nav"><i class="fas fa-envelope fa-1x blue-text pr-3" style="width:30px;"></i><a class="linked" href="messages.html" target="main">MESSAGES</a><span style="margin-left:3px;" class="badge badge-danger badge-pill">3</span></li>
+  <li  class="nav"><i class="fas fa-file-alt fa-1x blue-text pr-3" style="width:30px;"></i><a class="linked" href="documents.html" target="main">DOCUMENTS</a></li>
+  <li  class="nav"><i class="fas fa-check-circle  fa-1x blue-text pr-3" style="width:30px;"></i><a class="linked" href="interests.html" target="main">MY INTERESTS</a></li>
+  <li  class="nav"><i class="fab fab fa-wpforms  fa-1x blue-text pr-3" style="width:30px;"></i><a class="linked" href="apply.html" target="main">APPLY</a></li>
+  <li  class="nav"><i class="fas fa-sign-out-alt fa-1x blue-text pr-3" style="width:30px;"></i><a class="linked" href="login.html" target="_main">LOGOUT</a></li>
   </ul>
 
   </div>

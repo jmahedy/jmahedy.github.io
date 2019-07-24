@@ -34,7 +34,7 @@ $(document).ready(function() {
     sessionStorage.clear();
     $('#createUser').on('submit', (function(ev) {
       $("#loader").show();
-      $("#submit").show();
+      $("#submit").hide();
 
       ev.preventDefault();
       //get values
@@ -48,7 +48,7 @@ $(document).ready(function() {
         saToken=response.adminAccessToken;
         createAppUser(name,email,saToken);
         copyTemplate(name,saToken);
-        window.setTimeout(function() {shareAppUserToFolder()},5000);
+        window.setTimeout(function() {shareAppUserToFolder()},8000);
 
       });
       //create app User
@@ -71,6 +71,11 @@ $(document).ready(function() {
     $.ajax(settings).done(function(response) {
       console.log("folder created :" + JSON.stringify(response));
       newFolderId=response.id;
+
+      var settingsMD=  {"data":"{}","async": true,"crossDomain": true,"url": "https://api.box.com/2.0/folders/" + response.id + "/metadata/enterprise_206908859/citizen","method": "POST","headers": {"Content-Type":"application/json","Authorization":"Bearer " + saToken}};
+      $.ajax(settingsMD).done(function(response1) {
+        console.log("md applied  :" + JSON.stringify(response1));
+      });
     });
   }
     function shareAppUserToFolder() {
@@ -80,7 +85,11 @@ $(document).ready(function() {
         var settings = {"data":data,"async": true,"crossDomain": true,"url": "https://api.box.com/2.0/collaborations/","method": "POST","headers": {"Authorization":"Bearer " + saToken}};
         $.ajax(settings).done(function(response) {
           console.log("collab created :" + JSON.stringify(response));
-          window.setTimeout(function() {window.location.replace='/NIDirect/login.html'},1000);
+          window.setTimeout(function() {
+            console.log("redirecting");
+            window.location='/NIDirect/login.html';
+          },
+          3000);
         });
       }
       else {
@@ -258,7 +267,7 @@ $(document).ready(function() {
     </fieldset>
     <div class="button-div">
         <input type="submit" id="submit" class="btn btn-primary arrowr" value="Submit">
-        <img src="/NIDirect/ajax-loader_t.gif" id="loader"/>
+        <img src="/NIDirect/ajax-loader_t.gif" id="loader"style="display:none;"/>
     </div>
 <input type="hidden" name="as_sfid" value="AAAAAAWLVvqeR8D7E-csdAHdzAGgmfE3YSpUrj2ncfkdsakKe96ynn7yvgrnAgd1ELAz4MN4KNbVn54YVWwF-CjL6xA_OgIQnhBIY2jE71CTE_Es2EUCNGHS4pZNlz7NARELsv0="><input type="hidden" name="as_fid" value="74556bf48439208feb97cf31c0096d75c6839033"></form>
         </div>
