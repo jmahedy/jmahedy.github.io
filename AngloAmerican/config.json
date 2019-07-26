@@ -1,0 +1,67 @@
+//Client ID
+var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
+
+//Main page
+var redirectAfterLoginPage="/AngloAmerican/main.html";
+
+//Navigation
+var navigation=[
+
+  {
+      "page":"welcome.html",
+      "title":"WELCOME"
+  },
+
+  {
+      "page":"learning.html",
+      "title":"LEARNING",
+      "boxId":"0"
+  },
+  {
+      "page":"safety.html",
+      "title":"SAFETY",
+      "boxId":"82990953194"
+  },
+  {
+      "page":"rota.html",
+      "title":"ROTA",
+      "boxId":"497467294371"
+  },
+  {
+      "page":"policies.html",
+      "title":"POLICIES",
+      "boxId":"497322647936"
+  },
+  {
+      "page":"personal.html",
+      "title":"DOCUMENTS",
+      "boxId":"82983784235"
+  },
+  {
+      "page":"payroll.html",
+      "title":"PAY",
+      "boxId":"82980865991"
+  },
+  {
+      "page":"reporting.html",
+      "title":"SAFETY REPORTING",
+      "boxId":"82990882337"
+  },
+  {
+      "page":"engineering.html",
+      "title":"ENGINEERING",
+      "boxId":"82986445529"
+  },
+  {
+      "page":"RFID.html",
+      "title":"ASSET MANAGEMENT",
+      "boxId":"0"
+  },
+  {
+      "page":"login.html",
+      "title":"LOGOUT",
+      "boxId":"0"
+  }
+
+
+];
