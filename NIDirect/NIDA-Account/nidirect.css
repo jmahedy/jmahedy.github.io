@@ -1,13 +1,12 @@
 html {
 	font: normal 62.5% "Helvetica Neue" , Arial, Helvetica, sans-serif; /* 10px - i.e. decimal base */
-	height: 100%;
 	overflow-y: scroll; /* always show vertical scrollbar so pages do not shift horizontally */
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	font-size: 100%; 
+	font-size: 100%;
 	background: #f1f1f1;
 	color: #2e2e2e; /* To achieve sufficient contrast (3:1) with link colours */
 	height: 100%;
@@ -248,13 +247,13 @@ ul.dropdown-menu > li > a:focus {
 .branding .service-name {
 	display: block;
 	float: right;
-	max-width: 480px; 
-	margin: 0; 
-	padding: 2px 0 0 0; 
-	font-size: 28px; 
-	font-weight: normal; 
-	line-height: 1em; 
-	color: #0c1e63;  
+	max-width: 480px;
+	margin: 0;
+	padding: 2px 0 0 0;
+	font-size: 28px;
+	font-weight: normal;
+	line-height: 1em;
+	color: #0c1e63;
 	text-align: right;
 }
 
@@ -495,7 +494,6 @@ form div {
 form label {
 	color: #303030;
 	cursor: default;
-	font-size: 100%;
 	line-height: 1.5em;
 	margin-bottom: 0;
 }
@@ -547,7 +545,7 @@ form textarea {
 	line-height: 1.25em; /* 20px */
 }
 
-input.short{ 
+input.short{
 	width: 206px;
 }
 
@@ -831,7 +829,7 @@ a.btn-small {
 
 /* ### tables ### */
 
-table { 
+table {
 	margin-top:10px;
 }
 
@@ -855,7 +853,7 @@ table.standard th {
 }
 
 table.standard th p {
-	
+
 }
 
 table.standard th strong {
@@ -869,7 +867,7 @@ table.standard td {
 }
 
 table.standard td p:first-child {
-	
+
 }
 
 table.standard td ul {
@@ -880,17 +878,17 @@ table.unfixed {
 	table-layout: auto !important;
 }
 
-table.summary { 
+table.summary {
 	width:50%;
 }
 
-table.summary th, table.summary td { 
+table.summary th, table.summary td {
 	padding:10px;
 }
 
-table.summary th{ 
+table.summary th{
 	text-align:right;
-	width:50%; 
+	width:50%;
 }
 
 /* ### footer ### */
