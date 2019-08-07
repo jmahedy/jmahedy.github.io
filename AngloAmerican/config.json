@@ -43,7 +43,7 @@ var navigation=[
       "boxId":"82980865991"
   },
   {
-      "page":"reporting.html",
+      "page":"uploader.html",
       "title":"SAFETY REPORTING",
       "boxId":"82990882337"
   },
@@ -53,9 +53,8 @@ var navigation=[
       "boxId":"82986445529"
   },
   {
-      "page":"RFID.html",
-      "title":"ASSET MANAGEMENT",
-      "boxId":"0"
+      "page":"https://box-162828.workflowcloud.com/forms/abd13e39-0131-4038-9e86-bd57e0630517",
+      "title":"ONBOARDING"
   },
   {
       "page":"login.html",
