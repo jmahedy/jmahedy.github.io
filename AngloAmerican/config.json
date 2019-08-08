@@ -2,7 +2,7 @@
 var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
 
 //Main page
-var redirectAfterLoginPage="/AngloAmerican/main.html";
+var redirectAfterLoginPage="/SmithsGroup/main.html";
 
 //Navigation
 var navigation=[
@@ -43,7 +43,7 @@ var navigation=[
       "boxId":"82980865991"
   },
   {
-      "page":"uploader.html",
+      "page":"safety2.html",
       "title":"SAFETY REPORTING",
       "boxId":"82990882337"
   },
