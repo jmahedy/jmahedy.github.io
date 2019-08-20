@@ -27,7 +27,8 @@
   	var uploader = new Box.ContentUploader();
       	getAccessToken().then(function(result) {
           uploader.show(boxId, result, {
-            container: '.container'
+            container: '.container',
+            logoUrl: 'pixel.png',
           });
         });
     </script>

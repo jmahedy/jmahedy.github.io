@@ -8,21 +8,30 @@ var redirectAfterLoginPage="/DisChem/main.html";
 var navigation=[
 
   {
+      "page":"home.html",
+      "title":"HOME"
+  },
+
+  {
       "page":"uploader.html",
-      "title":"PRESCRIPTIONS",
-      "boxId":"84949742163"
+      "title":"UPLOAD PRESCRIPTION",
+      "boxId":"85029002114"
   },
   {
-      "page":"folder3.html",
+      "page":"folder2.html",
       "title":"MY PRESCRIPTIONS",
-      "boxId":"84531257079"
+      "boxId":"85029007642"
   },
 
   {
+      "page":"folder2.html",
+      "title":"PATIENT RECORDS",
+      "boxId":"85028950850"
+  },
+  {
       "page":"uploader.html",
-      "title":"UPLOADER",
-      "boxId":"0"
-  }
-
+      "title":"ID VERIFICATION",
+      "boxId":"85028678269"
+  },
 
 ];

@@ -26,19 +26,14 @@
       var contentExplorer = new Box.ContentExplorer();
       getAccessToken().then(function(result) {
             contentExplorer.show(boxId, result, {
-              logoUrl: 'logo-small.png',
+              logoUrl: 'pixel.png',
               container: '.container',
               contentPreviewProps: {
                 contentSidebarProps: {
                   detailsSidebarProps: {
-                    hasNotices: true,
-                    hasProperties: true,
                     hasAccessStats: true,
-                    hasVersions: true
                   },
-                  hasActivityFeed: true,
-                  hasSkills: true,
-                  hasMetadata: true
+                  hasActivityFeed: true
                 }
               }
             });

@@ -8,7 +8,7 @@ var redirectAfterLoginPage="/AZ/main.html";
 var navigation=[
 
   {
-      "page":"https://www.astrazeneca.com/media-centre/press-releases.html",
+      "page":"home.html",
       "title":"HOME"
   },
 
