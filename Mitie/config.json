@@ -1,0 +1,38 @@
+//Client ID
+var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
+
+//Main page
+var redirectAfterLoginPage="/Mitie/main.html";
+
+//Navigation
+var navigation=[
+
+  {
+      "page":"https://www.mitie.com/about/",
+      "title":"Home"
+  },
+
+  {
+      "page":"learning.html",
+      "title":"Learning",
+      "boxId":"0"
+  },
+  {
+      "page":"folder2.html",
+      "title":"My Documents",
+      "boxId":"86191768187"
+  },
+  {
+      "page":"folder3.html",
+      "title":"Payslips",
+      "boxId":"86191150776"
+  },
+
+  {
+      "page":"uploader.html",
+      "title":"Upload Documents",
+      "boxId":"86191768187"
+  }
+
+
+];
