@@ -37,7 +37,12 @@ var navigation=[
       "page":"folder2.html",
       "title":"Consultation Videos",
       "boxId":"86711121991"
-  }
+  },
 
+  {
+      "page":"folder2.html",
+      "title":"Invoices",
+      "boxId":"86717561085"
+  }
 
 ];
