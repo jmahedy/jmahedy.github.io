@@ -29,6 +29,12 @@ var navigation=[
   },
 
   {
+      "page":"folder3.html",
+      "title":"Operating Procedures",
+      "boxId":"86208393727"
+  },
+
+  {
       "page":"uploader.html",
       "title":"Upload Documents",
       "boxId":"86191768187"
