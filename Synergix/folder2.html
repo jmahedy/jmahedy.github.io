@@ -14,36 +14,79 @@
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="config.json"></script>
   <script type="text/javascript" src="js/box.js"></script>
-  <body>
-    <div class="container" style="height:90vh; width:100vw;"></div>
-    <script>
-      var contentExplorer = new Box.ContentExplorer();
-      //get folder id
-      let searchParams = new URLSearchParams(window.location.search)
-      var boxId = searchParams.get("boxId");
-
-      //load explorer with token
-      var contentExplorer = new Box.ContentExplorer();
-      getAccessToken().then(function(result) {
-            contentExplorer.show(boxId, result, {
-              logoUrl: 'logo-small.png',
-              container: '.container',
-              contentPreviewProps: {
-                contentSidebarProps: {
-                  detailsSidebarProps: {
-                    hasNotices: true,
-                    hasProperties: true,
-                    hasAccessStats: true,
-                    hasVersions: true
-                  },
-                  hasActivityFeed: true,
-                  hasSkills: true,
-                  hasMetadata: true
-                }
+  <script>
+  $(document).ready(function() {
+    $(".btn-success").click(function(ev) {
+      setCollab();
+    });
+    var contentExplorer = new Box.ContentExplorer();
+    getAccessToken().then(function(result) {
+          accessToken=result;
+          contentExplorer.show(boxId, result, {
+            logoUrl: 'logo-small.png',
+            container: '.container',
+            contentPreviewProps: {
+              contentSidebarProps: {
+                detailsSidebarProps: {
+                  hasNotices: true,
+                  hasProperties: true,
+                  hasAccessStats: true,
+                  hasVersions: true
+                },
+                hasActivityFeed: true,
+                hasSkills: true,
+                hasMetadata: true
               }
-            });
+            }
           });
-    </script>
+        });
+  });
+  var accessToken;
+    var contentExplorer = new Box.ContentExplorer();
+    //get folder id
+    let searchParams = new URLSearchParams(window.location.search)
+    var boxId = searchParams.get("boxId");
+
+    //load explorer with token
+
+
+
+  function setCollab() {
+      $("#loader").attr("src","ajax-loader_t.gif");
+      $("#loader").show();
+      var data = "{\"item\": {";
+      data = data + "\"id\":\"" + boxId + "\",";
+      data = data + "\"type\":\"folder\"},";
+      data = data + "\"accessible_by\":{\"id\":\"9954912327\",\"type\":\"user\"},";
+      data = data + "\"role\":\"editor\"";
+      data = data + "}";
+      console.log(data);
+      var collabsettings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.box.com/2.0/collaborations",
+        "method": "POST",
+        "headers": {
+          "Authorization": "Bearer " + accessToken,
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache"
+        },
+        "processData": false,
+        "data": data
+      };
+      $.ajax(collabsettings).done(function(response2) {
+        console.log("response2:" + response2);
+        $("#loader").attr("src","tick.png");
+      });
+
+  }
+  </script>
+  <body>
+    <button type="button" class="btn btn-success">Share with doctor</button>
+    <img id="loader" style="display:none;padding-top:10px;"></img>
+    <div class="container" style="height:90vh; width:100vw;"></div>
+
+
   </body>
 </head>
 
