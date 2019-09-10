@@ -13,7 +13,7 @@ var navigation=[
   },
   {
       "page":"folder4.html",
-      "title":"Appointments",
+      "title":"Appointment Notes",
       "boxId":"86711199547"
   },
   {
