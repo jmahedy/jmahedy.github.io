@@ -13,7 +13,7 @@ var navigation=[
   },
   {
       "page":"folder4.html",
-      "title":"Appointments",
+      "title":"Appointment Notes",
       "boxId":"86711199547"
   },
   {
@@ -37,7 +37,12 @@ var navigation=[
       "page":"folder2.html",
       "title":"Consultation Videos",
       "boxId":"86711121991"
-  }
+  },
 
+  {
+      "page":"folder2.html",
+      "title":"Invoices",
+      "boxId":"86717561085"
+  }
 
 ];
