@@ -1,343 +1,1299 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
 <html>
+	<head>
+		<title>Box Footwear</title>
 
-<title>Subject Access Request Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/SubjectAccessRequests/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!----start-alert-scroller---->
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easy-ticker.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('#demo').hide();
+			$('.vticker').easyTicker();
+		});
+		</script>
+		<!----start-alert-scroller---->
+		<!-- start menu -->
+		<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="js/megamenu.js"></script>
+		<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+		<script src="js/menu_jquery.js"></script>
+		<!-- //End menu -->
+		<!---slider---->
+		<link rel="stylesheet" href="css/slippry.css">
+		<script src="js/jquery-ui.js" type="text/javascript"></script>
+		<script src="js/scripts-f0e4e0c2.js" type="text/javascript"></script>
+		<script>
+			  jQuery('#jquery-demo').slippry({
+			  // general elements & wrapper
+			  slippryWrapper: '<div class="sy-box jquery-demo" />', // wrapper to wrap everything, including pager
+			  // options
+			  adaptiveHeight: false, // height of the sliders adapts to current slide
+			  useCSS: false, // true, false -> fallback to js if no browser support
+			  autoHover: false,
+			  transition: 'fade'
+			});
+		</script>
+		<!----start-pricerage-seletion---->
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+		<script type='text/javascript'>//<![CDATA[
+			$(window).load(function(){
+			 $( "#slider-range" ).slider({
+			            range: true,
+			            min: 0,
+			            max: 500,
+			            values: [ 100, 400 ],
+			            slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			            }
+			 });
+			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-<head>
-  <!-- css files -->
-  <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-  <!-- bootstrap css -->
-  <link href="css/style2.css" rel='stylesheet' type='text/css' />
-  <!-- custom css -->
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <!-- fontawesome css -->
-  <!-- //css files -->
+			});//]]>
+		</script>
+		<!----//End-pricerage-seletion---->
+		<!---move-top-top---->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+				});
+			});
+		</script>
+		<!---//move-top-top---->
+	</head>
+	<body>
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="top-header">
+					<div class="wrap">
+						<div class="top-header-left">
+							<ul>
+								<!---cart-tonggle-script---->
+							<script type="text/javascript">
+									$(function(){
+									    var $cart = $('#cart');
+									        $('#clickme').click(function(e) {
+									         e.stopPropagation();
+									       if ($cart.is(":hidden")) {
+									           $cart.slideDown("slow");
+									       } else {
+									           $cart.slideUp("slow");
+									       }
+									    });
+									    $(document.body).click(function () {
+									       if ($cart.not(":hidden")) {
+									           $cart.slideUp("slow");
+									       }
+									    });
+									    });
+								</script>
+								<!---//cart-tonggle-script---->
+								<li><a class="cart" href="#"><span id="clickme"> </span></a></li>
+								<!---start-cart-bag---->
+								<div id="cart">Your Cart is Empty <span>(0)</span></div>
+								<!---start-cart-bag---->
+								<li><a class="info" href="#"><span> </span></a></li>
+							</ul>
+						</div>
+						<div class="top-header-center">
+							<div class="top-header-center-alert-left">
+								<h3>FREE DELIVERY</h3>
+							</div>
+							<div class="top-header-center-alert-right">
+								<div class="vticker">
+								  <ul>
+									  <li>Applies to orders of $50 or more. <label>Returns are always free.</label></li>
+								  </ul>
+								</div>
+							</div>
+							<div class="clear"> </div>
+						</div>
+						<div class="top-header-right">
+							<ul>
+								<li><a href="login.html">Login</a><span> </span></li>
+								<li><a href="register.html">Join</a></li>
+							</ul>
+						</div>
+						<div class="clear"> </div>
+					</div>
+				</div>
 
-  <!-- google fonts -->
-  <link href="//fonts.googleapis.com/css?family=Niramit:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
-  <!-- //google fonts -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/SubjectAccessRequests/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="css/style.css" rel="stylesheet">
+				<!----start-mid-head---->
+				<!--<div class="mid-header">
+					<div class="wrap">
+						<div class="mid-grid-left">
+							<form>
+								<input type="text" placeholder="What Are You Looking for?" />
+							</form>
+						</div>
+						<div class="mid-grid-right">
+							<a class="logo" href="index.html"><span> </span></a>
+						</div>
+						<div class="clear"> </div>
+					</div>
+				</div>
+				<!----//End-mid-head---->
+				<!----start-bottom-header---->
+				<div class="header-bottom">
+					<div class="wrap">
+					<!-- start header menu -->
+							<!--<ul class="megamenu skyblue">
+								<li class="grid"><a class="color2" href="#">MEN</a>
+									<div class="megapanel">
+										<div class="row">
+											<div class="col1">
+												<div class="h_nav">
+													<h4>popular</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">login</a></li>
+													</ul>
+												</div>
+												<div class="h_nav">
+													<h4 class="top">man</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="#">accessories</a></li>
+														<li><a href="#">kids</a></li>
+														<li><a href="#">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>style zone</h4>
+													<ul>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">brands</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>style zone</h4>
+													<ul>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">brands</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1 men">
+												<div class="men-pic">
+													<img src="images/men.png" title="" />
+												</div>
+											</div>
+										</div>
+									</div>
+									</li>
+					  			<li class="active grid"><a class="color4" href="#">women</a>
+									<div class="megapanel">
+										<div class="row">
+											<div class="col1">
+												<div class="h_nav">
+													<h4>shop</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">brands</a></li>
+													</ul>
+												</div>
+												<div class="h_nav">
+													<h4>help</h4>
+													<ul>
+														<li><a href="products.html">trends</a></li>
+														<li><a href="products.html">sale</a></li>
+														<li><a href="products.html">style videos</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>my company</h4>
+													<ul>
+														<li><a href="products.html">trends</a></li>
+														<li><a href="products.html">sale</a></li>
+														<li><a href="products.html">style videos</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>account</h4>
+													<ul>
+														<li><a href="products.html">login</a></li>
+														<li><a href="products.html">create an account</a></li>
+														<li><a href="products.html">create wishlist</a></li>
+														<li><a href="products.html">my shopping bag</a></li>
+														<li><a href="products.html">brands</a></li>
+														<li><a href="products.html">create wishlist</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>my company</h4>
+													<ul>
+														<li><a href="products.html">trends</a></li>
+														<li><a href="products.html">sale</a></li>
+														<li><a href="products.html">style videos</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>popular</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1 women">
+												<div class="women-pic">
+													<img src="images/women.png" title="" />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col2"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+										</div>
+					    				</div>
+									</li>
+									<li><a class="color5" href="#">KIDS</a>
+									<div class="megapanel">
+										<div class="row">
+											<div class="col1">
+												<div class="h_nav">
+													<h4>popular</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">login</a></li>
+													</ul>
+												</div>
+												<div class="h_nav">
+													<h4 class="top">man</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>style zone</h4>
+													<ul>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">brands</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1 kids">
+												<div class="kids-pic">
+													<img src="images/kids1.png" title="" />
+												</div>
+											</div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+										</div>
+									</div>
+									</li>
+									<li><a class="color6" href="#">SPORTS</a>
+									<div class="megapanel">
+										<div class="row">
+											<div class="col1">
+												<div class="h_nav">
+													<h4>shop</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">brands</a></li>
+													</ul>
+												</div>
+												<div class="h_nav">
+													<h4 class="top">my company</h4>
+													<ul>
+														<li><a href="products.html">trends</a></li>
+														<li><a href="products.html">sale</a></li>
+														<li><a href="products.html">style videos</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>man</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>help</h4>
+													<ul>
+														<li><a href="products.html">trends</a></li>
+														<li><a href="products.html">sale</a></li>
+														<li><a href="products.html">style videos</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1 sports">
+												<div class="sports-pic">
+													<img src="images/sport.png" title="" />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col2"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+										</div>
+									</div>
+									</li>
+									<li><a class="color7" href="#">NIKE SPORTSWEAR</a>
+									<div class="megapanel">
+										<div class="row">
+											<div class="col1">
+												<div class="h_nav">
+													<h4>shop</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">brands</a></li>
+													</ul>
+												</div>
+												<div class="h_nav">
+													<h4>my company</h4>
+													<ul>
+														<li><a href="products.html">trends</a></li>
+														<li><a href="products.html">sale</a></li>
+														<li><a href="products.html">style videos</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>help</h4>
+													<ul>
+														<li><a href="products.html">trends</a></li>
+														<li><a href="products.html">sale</a></li>
+														<li><a href="products.html">style videos</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>my company</h4>
+													<ul>
+														<li><a href="products.html">trends</a></li>
+														<li><a href="products.html">sale</a></li>
+														<li><a href="products.html">style videos</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>account</h4>
+													<ul>
+														<li><a href="products.html">login</a></li>
+														<li><a href="products.html">create an account</a></li>
+														<li><a href="products.html">create wishlist</a></li>
+														<li><a href="products.html">my shopping bag</a></li>
+														<li><a href="products.html">brands</a></li>
+														<li><a href="products.html">create wishlist</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1 nike">
+												<div class="nike-pic">
+													<img src="images/nike.png" title="" />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col2"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+										</div>
+					    				</div>
+									</li>
+									<li><a class="color8" href="#">NIKEiD</a>
+									<div class="megapanel">
+										<div class="row">
+											<div class="col1">
+												<div class="h_nav">
+													<h4>style zone</h4>
+													<ul>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">women</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">brands</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="col1">
+												<div class="h_nav">
+													<h4>popular</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">men</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">login</a></li>
+													</ul>
+												</div>
+												<div class="h_nav">
+													<h4 class="top">man</h4>
+													<ul>
+														<li><a href="products.html">new arrivals</a></li>
+														<li><a href="products.html">accessories</a></li>
+														<li><a href="products.html">kids</a></li>
+														<li><a href="products.html">style videos</a></li>
+													</ul>
+												</div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+											<div class="col1"></div>
+										</div>
+									</div>
+									</li>
+							</ul>
 
-  </head>
+					</div>
+				</div>
+				</div>
+				<!----//End-bottom-header---->
+			<!---//End-header---->
+		<!----start-image-slider---->
+	<!--	<div class="img-slider">
+			<div class="wrap">
+			<ul id="jquery-demo">
+			  <li>
+			    <a href="#slide1">
+			      <img src="images/slide-1.jpg" alt="" />
+			    </a>
+			   <!-- <div class="slider-detils">
+			    	<h3>MENS FOOT BALL <label>BOOTS</label></h3>
+			    	<span>Stay true to your team all day, every day, game day.</span>
+			    	<a class="slide-btn" href="details.html"> Shop Now</a>
+			    </div>
+			  </li>
+			  <li>
+			    <a href="#slide2">
+			      <img src="images/slide-4.jpg"  alt="" />
+			    </a>
+			     <div class="slider-detils">
+			    	<h3>MENS FOOT BALL <label>BOOTS</label></h3>
+			    	<span>Stay true to your team all day, every day, game day.</span>
+			    	<a class="slide-btn" href="details.html"> Shop Now</a>
+			    </div>
+			  </li>
+			  <li>
+			    <a href="#slide3">
+			      <img src="images/slide-1.jpg" alt="" />
+			    </a>
+			     <div class="slider-detils">
+			    	<h3>MENS FOOT BALL <label>BOOTS</label></h3>
+			    	<span>Stay true to your team all day, every day, game day.</span>
+			    	<a class="slide-btn" href="details.html"> Shop Now</a>
+			    </div>
+			  </li>
+			</ul>
+			</div>
+		</div>
+		<div class="clear"> </div>
+		<!----//End-image-slider---->
+		<!----start-price-rage--->
+		<!--<div class="wrap">
+			<div class="price-rage">
+				<h3>Weekly selection:</h3>
+				<div id="slider-range">
+				</div>
+			</div>
+		</div>
+		<!----//End-price-rage--->
+		<!--- start-content---->
+		<!--<div class="content">
+			<div class="wrap">
+				<div class="content-left">
+						<div class="content-left-top-grid">
+							<div class="content-left-price-selection">
+								<h4>Select Price:</h4>
+								<div class="price-selection-tree">
+									<span class="col_checkbox">
+										<input id="10" class="css-checkbox10" type="checkbox">
+										<label class="normal"><i for="10" name="demo_lbl_10"  class="css-label10"> </i> 400</label>
+									</span>
+									<span class="col_checkbox">
+										<input id="11" class="css-checkbox11" type="checkbox">
+										<label class="active1"><i for="11" name="demo_lbl_11"  class="css-label11"> </i>350</label>
+									</span>
+									<span class="col_checkbox">
+										<input id="12" class="css-checkbox12" type="checkbox">
+										<label class="normal"><i for="12" name="demo_lbl_12"  class="css-label12"> </i> 300</label>
+									</span>
+									<span class="col_checkbox">
+										<input id="13" class="css-checkbox13" type="checkbox">
+										<label class="normal"><i for="13" name="demo_lbl_13"  class="css-label13"> </i>250</label>
+									</span>
+									<span class="col_checkbox">
+										<input id="14" class="css-checkbox14" type="checkbox">
+										<label class="normal"><i for="14" name="demo_lbl_14"  class="css-label14"> </i> 200</label>
+									</span>
+									<span class="col_checkbox">
+										<input id="15" class="css-checkbox15" type="checkbox">
+										<label class="normal"><i for="15" name="demo_lbl_15"  class="css-label15"> </i>150</label>
+									</span>
+								</div>
 
-<body>
+						</div>
+						</div>
+						<!--<div class="content-left-bottom-grid">
+							<h4>Boys Football:</h4>
+							<div class="content-left-bottom-grids">
+								<div class="content-left-bottom-grid1">
+									<img src="images/foot-ball.jpg" title="football" />
+									<h5><a href="details.html">Nike Strike PL Hi-Vis</a></h5>
+									<span> Football</span>
+									<label>&#163; 375</label>
+								</div>
+								<div class="content-left-bottom-grid1">
+									<img src="images/jarse.jpg" title="jarse" />
+									<h5><a href="details.html">Nike Strike PL Hi-Vis</a></h5>
+									<span> Football</span>
+									<label>&#163; 375</label>
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class="content-right">
+					<div class="product-grids">
+						<!--- start-rate---->
+							<script src="js/jstarbox.js"></script>
+							<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+							<script type="text/javascript">
+								jQuery(function() {
+									jQuery('.starbox').each(function() {
+										var starbox = jQuery(this);
+										starbox.starbox({
+											average: starbox.attr('data-start-value'),
+											changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+											ghosting: starbox.hasClass('ghosting'),
+											autoUpdateAverage: starbox.hasClass('autoupdate'),
+											buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+											stars: starbox.attr('data-star-count') || 5
+										}).bind('starbox-value-changed', function(event, value) {
+											if(starbox.hasClass('random')) {
+												var val = Math.random();
+												starbox.next().text(' '+val);
+												return val;
+											}
+										})
+									});
+								});
+							</script>
+							<!---//End-rate---->
+							<!---caption-script---->
+							<!---//caption-script---->
+					<!--<div onclick="location.href='details.html';" class="product-grid fade">
+							<div class="product-grid-head">
+								<ul class="grid-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+									<li><a class="googlep" href="#"><span> </span></a></li>
+									<div class="clear"> </div>
+								</ul>
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (46)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href="#"><img src="images/product2.jpg" title="product-name" /></a>
+								<p>
+								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
+								<span>Men's Firm-Ground Football Boot</span>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">&#163; 380</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div onclick="location.href='details.html';"  class="product-grid fade">
+							<div class="product-grid-head">
+								<ul class="grid-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+									<li><a class="googlep" href="#"><span> </span></a></li>
+									<div class="clear"> </div>
+								</ul>
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (46)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href="#"><img src="images/product1.jpg" title="product-name" /></a>
+								<p>
+								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
+								<span>Men's Firm-Ground Football Boot</span>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">&#163; 375</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div onclick="location.href='details.html';"  class="product-grid fade last-grid">
+							<div class="product-grid-head">
+								<ul class="grid-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+									<li><a class="googlep" href="#"><span> </span></a></li>
+									<div class="clear"> </div>
+								</ul>
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (46)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href="#"><img src="images/product3.jpg" title="product-name" /></a>
+								<p>
+								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
+								<span>Men's Firm-Ground Football Boot</span>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">&#163; 350</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div onclick="location.href='details.html';"  class="product-grid fade">
+							<div class="product-grid-head">
+								<ul class="grid-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+									<li><a class="googlep" href="#"><span> </span></a></li>
+									<div class="clear"> </div>
+								</ul>
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (46)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href="#"><img src="images/product4.jpg" title="product-name" /></a>
+								<p>
+								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
+								<span>Men's Firm-Ground Football Boot</span>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">&#163; 370</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div onclick="location.href='details.html';"  class="product-grid fade">
+							<div class="product-grid-head">
+								<ul class="grid-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+									<li><a class="googlep" href="#"><span> </span></a></li>
+									<div class="clear"> </div>
+								</ul>
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (46)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href="#"><img src="images/product5.jpg" title="product-name" /></a>
+								<p>
+								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
+								<span>Men's Firm-Ground Football Boot</span>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">&#163; 355</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div onclick="location.href='details.html';"  class="product-grid fade last-grid">
+							<div class="product-grid-head">
+								<ul class="grid-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+									<li><a class="googlep" href="#"><span> </span></a></li>
+									<div class="clear"> </div>
+								</ul>
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (46)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href="#"><img src="images/product6.jpg" title="product-name" /></a>
+								<p>
+								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
+								<span>Men's Firm-Ground Football Boot</span>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">&#163; 390</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div class="clear"> </div>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---- start-bottom-grids---->
 
-<div style="width:1000px">
+    <div style="width:1000px">
 
-<form class="border border-light p-5" action="http://0.0.0.0:8000/Box-Footwear/newphoto.html">
-    <p class="h4 mb-4 text-center">Subject Access Request Form</p>
+    <form class="border border-light p-5" action="http://0.0.0.0:8000/Box-Footwear/newphoto.html">
+        <p class="h4 mb-4 text-center">Subject Access Request Form</p>
 
-    <label for="defaultContactFormName">Name</label>
+        <label for="defaultContactFormName">Name</label>
 
-    <input type="text" id="defaultContactFormName" class="form-control mb-4">
+        <input type="text" id="defaultContactFormName" class="form-control mb-4">
 
-    <label for="defaultContactFormEmail">E-mail</label>
+        <label for="defaultContactFormEmail">E-mail</label>
 
-    <input type="email" id="defaultContactFormEmail" class="form-control mb-4">
+        <input type="email" id="defaultContactFormEmail" class="form-control mb-4">
 
-    <label for="defaultContactFormAccount">Account Number</label>
+        <label for="defaultContactFormAccount">Account Number</label>
 
-    <input type="email" id="defaultContactFormAccount" class="form-control mb-4">
+        <input type="email" id="defaultContactFormAccount" class="form-control mb-4">
 
-    <label for="defaultSelect">Brand</label>
+        <label for="defaultSelect">Brand</label>
 
-    <select id="defaultSelect" class="browser-default custom-select mb-4">
-        <option value="Choose Option"selected="">Choose option</option>
-        <option value="EE">EE</option>
-     	  <option value="Three">Three</option>
-        <option value="O2">O2</option>
-      	<option value="Vodafone">Vodafone</option>
-        <option value="Virgin">Virgin</option>
-        <option value="ID Mobile">ID Mobile</option>
-    </select>
+        <select id="defaultSelect" class="browser-default custom-select mb-4">
+            <option value="Choose Option"selected="">Choose option</option>
+            <option value="EE">EE</option>
+         	  <option value="Three">Three</option>
+            <option value="O2">O2</option>
+          	<option value="Vodafone">Vodafone</option>
+            <option value="Virgin">Virgin</option>
+            <option value="ID Mobile">ID Mobile</option>
+        </select>
 
-    <label for="textArea">Phone Number</label>
-    <input type="text" id="phone" class="form-control mb-4" placeholder="">
+        <label for="textArea">Phone Number</label>
+        <input type="text" id="phone" class="form-control mb-4" placeholder="">
 
-    <label for="textArea">Address Line 1</label>
-    <input type="text" id="addr1" class="form-control mb-4" placeholder="">
+        <label for="textArea">Address Line 1</label>
+        <input type="text" id="addr1" class="form-control mb-4" placeholder="">
 
-    <label for="textArea">Address Line 2</label>
-    <input type="text" id="addr2" class="form-control mb-4" placeholder="">
+        <label for="textArea">Address Line 2</label>
+        <input type="text" id="addr2" class="form-control mb-4" placeholder="">
 
-    <label for="textArea">Address Line 3</label>
-    <input type="text" id="addr2" class="form-control mb-4" placeholder="">
+        <label for="textArea">Address Line 3</label>
+        <input type="text" id="addr2" class="form-control mb-4" placeholder="">
 
-    <label for="textArea">Postal Code</label>
-    <input type="text" id="pcode" class="form-control mb-4" placeholder="">
+        <label for="textArea">Postal Code</label>
+        <input type="text" id="pcode" class="form-control mb-4" placeholder="">
 
-    <label for="defaultSelect">Country</label>
-    <select id="defaultSelect" class="browser-default custom-select mb-4">
-        <option value="" disabled="">Choose option</option>
-        <option value="1" selected="">United Kingdom</option>
-        <option value="ISO 3166-2:AF">Afghanistan</option>
-        <option value="ISO 3166-2:AX">Åland Islands</option>
-        <option value="ISO 3166-2:AL">Albania</option>
-        <option value="ISO 3166-2:DZ">Algeria</option>
-        <option value="ISO 3166-2:AS">American Samoa</option>
-        <option value="ISO 3166-2:AD">Andorra</option>
-        <option value="ISO 3166-2:AO">Angola</option>
-        <option value="ISO 3166-2:AI">Anguilla</option>
-        <option value="ISO 3166-2:AQ">Antarctica</option>
-        <option value="ISO 3166-2:AG">Antigua and Barbuda</option>
-        <option value="ISO 3166-2:AR">Argentina</option>
-        <option value="ISO 3166-2:AM">Armenia</option>
-        <option value="ISO 3166-2:AW">Aruba</option>
-        <option value="ISO 3166-2:AU">Australia</option>
-        <option value="ISO 3166-2:AT">Austria</option>
-        <option value="ISO 3166-2:AZ">Azerbaijan</option>
-        <option value="ISO 3166-2:BS">Bahamas</option>
-        <option value="ISO 3166-2:BH">Bahrain</option>
-        <option value="ISO 3166-2:BD">Bangladesh</option>
-        <option value="ISO 3166-2:BB">Barbados</option>
-        <option value="ISO 3166-2:BY">Belarus</option>
-        <option value="ISO 3166-2:BZ">Belize</option>
-        <option value="ISO 3166-2:BJ">Benin</option>
-        <option value="ISO 3166-2:BM">Bermuda</option>
-        <option value="ISO 3166-2:BT">Bhutan</option>
-        <option value="ISO 3166-2:BO">Bolivia, Plurinational State of</option>
-        <option value="ISO 3166-2:BQ">Bonaire, Sint Eustatius and Saba</option>
-        <option value="ISO 3166-2:BA">Bosnia and Herzegovina</option>
-        <option value="ISO 3166-2:BW">Botswana</option>
-        <option value="ISO 3166-2:BV">Bouvet Island</option>
-        <option value="ISO 3166-2:BR">Brazil</option>
-        <option value="ISO 3166-2:IO">British Indian Ocean Territory</option>
-        <option value="ISO 3166-2:BN">Brunei Darussalam</option>
-        <option value="ISO 3166-2:BG">Bulgaria</option>
-        <option value="ISO 3166-2:BF">Burkina Faso</option>
-        <option value="ISO 3166-2:BI">Burundi</option>
-        <option value="ISO 3166-2:KH">Cambodia</option>
-        <option value="ISO 3166-2:CM">Cameroon</option>
-        <option value="ISO 3166-2:CA">Canada</option>
-        <option value="ISO 3166-2:CV">Cape Verde</option>
-        <option value="ISO 3166-2:KY">Cayman Islands</option>
-        <option value="ISO 3166-2:CF">Central African Republic</option>
-        <option value="ISO 3166-2:TD">Chad</option>
-        <option value="ISO 3166-2:CL">Chile</option>
-        <option value="ISO 3166-2:CN">China</option>
-        <option value="ISO 3166-2:CX">Christmas Island</option>
-        <option value="ISO 3166-2:CC">Cocos (Keeling) Islands</option>
-        <option value="ISO 3166-2:CO">Colombia</option>
-        <option value="ISO 3166-2:KM">Comoros</option>
-        <option value="ISO 3166-2:CG">Congo</option>
-        <option value="ISO 3166-2:CD">Congo, the Democratic Republic of the</option>
-        <option value="ISO 3166-2:CK">Cook Islands</option>
-        <option value="ISO 3166-2:CR">Costa Rica</option>
-        <option value="ISO 3166-2:CI">Côte d'Ivoire</option>
-        <option value="ISO 3166-2:HR">Croatia</option>
-        <option value="ISO 3166-2:CU">Cuba</option>
-        <option value="ISO 3166-2:CW">Curaçao</option>
-        <option value="ISO 3166-2:CY">Cyprus</option>
-        <option value="ISO 3166-2:CZ">Czech Republic</option>
-        <option value="ISO 3166-2:DK">Denmark</option>
-        <option value="ISO 3166-2:DJ">Djibouti</option>
-        <option value="ISO 3166-2:DM">Dominica</option>
-        <option value="ISO 3166-2:DO">Dominican Republic</option>
-        <option value="ISO 3166-2:EC">Ecuador</option>
-        <option value="ISO 3166-2:EG">Egypt</option>
-        <option value="ISO 3166-2:SV">El Salvador</option>
-        <option value="ISO 3166-2:GQ">Equatorial Guinea</option>
-        <option value="ISO 3166-2:ER">Eritrea</option>
-        <option value="ISO 3166-2:EE">Estonia</option>
-        <option value="ISO 3166-2:ET">Ethiopia</option>
-        <option value="ISO 3166-2:FK">Falkland Islands (Malvinas)</option>
-        <option value="ISO 3166-2:FO">Faroe Islands</option>
-        <option value="ISO 3166-2:FJ">Fiji</option>
-        <option value="ISO 3166-2:FI">Finland</option>
-        <option value="ISO 3166-2:FR">France</option>
-        <option value="ISO 3166-2:GF">French Guiana</option>
-        <option value="ISO 3166-2:PF">French Polynesia</option>
-        <option value="ISO 3166-2:TF">French Southern Territories</option>
-        <option value="ISO 3166-2:GA">Gabon</option>
-        <option value="ISO 3166-2:GM">Gambia</option>
-        <option value="ISO 3166-2:GE">Georgia</option>
-        <option value="ISO 3166-2:DE">Germany</option>
-        <option value="ISO 3166-2:GH">Ghana</option>
-        <option value="ISO 3166-2:GI">Gibraltar</option>
-        <option value="ISO 3166-2:GR">Greece</option>
-        <option value="ISO 3166-2:GL">Greenland</option>
-        <option value="ISO 3166-2:GD">Grenada</option>
-        <option value="ISO 3166-2:GP">Guadeloupe</option>
-        <option value="ISO 3166-2:GU">Guam</option>
-        <option value="ISO 3166-2:GT">Guatemala</option>
-        <option value="ISO 3166-2:GG">Guernsey</option>
-        <option value="ISO 3166-2:GN">Guinea</option>
-        <option value="ISO 3166-2:GW">Guinea-Bissau</option>
-        <option value="ISO 3166-2:GY">Guyana</option>
-        <option value="ISO 3166-2:HT">Haiti</option>
-        <option value="ISO 3166-2:HM">Heard Island and McDonald Islands</option>
-        <option value="ISO 3166-2:VA">Holy See (Vatican City State)</option>
-        <option value="ISO 3166-2:HN">Honduras</option>
-        <option value="ISO 3166-2:HK">Hong Kong</option>
-        <option value="ISO 3166-2:HU">Hungary</option>
-        <option value="ISO 3166-2:IS">Iceland</option>
-        <option value="ISO 3166-2:IN">India</option>
-        <option value="ISO 3166-2:ID">Indonesia</option>
-        <option value="ISO 3166-2:IR">Iran, Islamic Republic of</option>
-        <option value="ISO 3166-2:IQ">Iraq</option>
-        <option value="ISO 3166-2:IE">Ireland</option>
-        <option value="ISO 3166-2:IM">Isle of Man</option>
-        <option value="ISO 3166-2:IL">Israel</option>
-        <option value="ISO 3166-2:IT">Italy</option>
-        <option value="ISO 3166-2:JM">Jamaica</option>
-        <option value="ISO 3166-2:JP">Japan</option>
-        <option value="ISO 3166-2:JE">Jersey</option>
-        <option value="ISO 3166-2:JO">Jordan</option>
-        <option value="ISO 3166-2:KZ">Kazakhstan</option>
-        <option value="ISO 3166-2:KE">Kenya</option>
-        <option value="ISO 3166-2:KI">Kiribati</option>
-        <option value="ISO 3166-2:KP">Korea, Democratic People's Republic of</option>
-        <option value="ISO 3166-2:KR">Korea, Republic of</option>
-        <option value="ISO 3166-2:KW">Kuwait</option>
-        <option value="ISO 3166-2:KG">Kyrgyzstan</option>
-        <option value="ISO 3166-2:LA">Lao People's Democratic Republic</option>
-        <option value="ISO 3166-2:LV">Latvia</option>
-        <option value="ISO 3166-2:LB">Lebanon</option>
-        <option value="ISO 3166-2:LS">Lesotho</option>
-        <option value="ISO 3166-2:LR">Liberia</option>
-        <option value="ISO 3166-2:LY">Libya</option>
-        <option value="ISO 3166-2:LI">Liechtenstein</option>
-        <option value="ISO 3166-2:LT">Lithuania</option>
-        <option value="ISO 3166-2:LU">Luxembourg</option>
-        <option value="ISO 3166-2:MO">Macao</option>
-        <option value="ISO 3166-2:MK">Macedonia, the former Yugoslav Republic of</option>
-        <option value="ISO 3166-2:MG">Madagascar</option>
-        <option value="ISO 3166-2:MW">Malawi</option>
-        <option value="ISO 3166-2:MY">Malaysia</option>
-        <option value="ISO 3166-2:MV">Maldives</option>
-        <option value="ISO 3166-2:ML">Mali</option>
-        <option value="ISO 3166-2:MT">Malta</option>
-        <option value="ISO 3166-2:MH">Marshall Islands</option>
-        <option value="ISO 3166-2:MQ">Martinique</option>
-        <option value="ISO 3166-2:MR">Mauritania</option>
-        <option value="ISO 3166-2:MU">Mauritius</option>
-        <option value="ISO 3166-2:YT">Mayotte</option>
-        <option value="ISO 3166-2:MX">Mexico</option>
-        <option value="ISO 3166-2:FM">Micronesia, Federated States of</option>
-        <option value="ISO 3166-2:MD">Moldova, Republic of</option>
-        <option value="ISO 3166-2:MC">Monaco</option>
-        <option value="ISO 3166-2:MN">Mongolia</option>
-        <option value="ISO 3166-2:ME">Montenegro</option>
-        <option value="ISO 3166-2:MS">Montserrat</option>
-        <option value="ISO 3166-2:MA">Morocco</option>
-        <option value="ISO 3166-2:MZ">Mozambique</option>
-        <option value="ISO 3166-2:MM">Myanmar</option>
-        <option value="ISO 3166-2:NA">Namibia</option>
-        <option value="ISO 3166-2:NR">Nauru</option>
-        <option value="ISO 3166-2:NP">Nepal</option>
-        <option value="ISO 3166-2:NL">Netherlands</option>
-        <option value="ISO 3166-2:NC">New Caledonia</option>
-        <option value="ISO 3166-2:NZ">New Zealand</option>
-        <option value="ISO 3166-2:NI">Nicaragua</option>
-        <option value="ISO 3166-2:NE">Niger</option>
-        <option value="ISO 3166-2:NG">Nigeria</option>
-        <option value="ISO 3166-2:NU">Niue</option>
-        <option value="ISO 3166-2:NF">Norfolk Island</option>
-        <option value="ISO 3166-2:MP">Northern Mariana Islands</option>
-        <option value="ISO 3166-2:NO">Norway</option>
-        <option value="ISO 3166-2:OM">Oman</option>
-        <option value="ISO 3166-2:PK">Pakistan</option>
-        <option value="ISO 3166-2:PW">Palau</option>
-        <option value="ISO 3166-2:PS">Palestinian Territory, Occupied</option>
-        <option value="ISO 3166-2:PA">Panama</option>
-        <option value="ISO 3166-2:PG">Papua New Guinea</option>
-        <option value="ISO 3166-2:PY">Paraguay</option>
-        <option value="ISO 3166-2:PE">Peru</option>
-        <option value="ISO 3166-2:PH">Philippines</option>
-        <option value="ISO 3166-2:PN">Pitcairn</option>
-        <option value="ISO 3166-2:PL">Poland</option>
-        <option value="ISO 3166-2:PT">Portugal</option>
-        <option value="ISO 3166-2:PR">Puerto Rico</option>
-        <option value="ISO 3166-2:QA">Qatar</option>
-        <option value="ISO 3166-2:RE">Réunion</option>
-        <option value="ISO 3166-2:RO">Romania</option>
-        <option value="ISO 3166-2:RU">Russian Federation</option>
-        <option value="ISO 3166-2:RW">Rwanda</option>
-        <option value="ISO 3166-2:BL">Saint Barthélemy</option>
-        <option value="ISO 3166-2:SH">Saint Helena, Ascension and Tristan da Cunha</option>
-        <option value="ISO 3166-2:KN">Saint Kitts and Nevis</option>
-        <option value="ISO 3166-2:LC">Saint Lucia</option>
-        <option value="ISO 3166-2:MF">Saint Martin (French part)</option>
-        <option value="ISO 3166-2:PM">Saint Pierre and Miquelon</option>
-        <option value="ISO 3166-2:VC">Saint Vincent and the Grenadines</option>
-        <option value="ISO 3166-2:WS">Samoa</option>
-        <option value="ISO 3166-2:SM">San Marino</option>
-        <option value="ISO 3166-2:ST">Sao Tome and Principe</option>
-        <option value="ISO 3166-2:SA">Saudi Arabia</option>
-        <option value="ISO 3166-2:SN">Senegal</option>
-        <option value="ISO 3166-2:RS">Serbia</option>
-        <option value="ISO 3166-2:SC">Seychelles</option>
-        <option value="ISO 3166-2:SL">Sierra Leone</option>
-        <option value="ISO 3166-2:SG">Singapore</option>
-        <option value="ISO 3166-2:SX">Sint Maarten (Dutch part)</option>
-        <option value="ISO 3166-2:SK">Slovakia</option>
-        <option value="ISO 3166-2:SI">Slovenia</option>
-        <option value="ISO 3166-2:SB">Solomon Islands</option>
-        <option value="ISO 3166-2:SO">Somalia</option>
-        <option value="ISO 3166-2:ZA">South Africa</option>
-        <option value="ISO 3166-2:GS">South Georgia and the South Sandwich Islands</option>
-        <option value="ISO 3166-2:SS">South Sudan</option>
-        <option value="ISO 3166-2:ES">Spain</option>
-        <option value="ISO 3166-2:LK">Sri Lanka</option>
-        <option value="ISO 3166-2:SD">Sudan</option>
-        <option value="ISO 3166-2:SR">Suriname</option>
-        <option value="ISO 3166-2:SJ">Svalbard and Jan Mayen</option>
-        <option value="ISO 3166-2:SZ">Swaziland</option>
-        <option value="ISO 3166-2:SE">Sweden</option>
-        <option value="ISO 3166-2:CH">Switzerland</option>
-        <option value="ISO 3166-2:SY">Syrian Arab Republic</option>
-        <option value="ISO 3166-2:TW">Taiwan, Province of China</option>
-        <option value="ISO 3166-2:TJ">Tajikistan</option>
-        <option value="ISO 3166-2:TZ">Tanzania, United Republic of</option>
-        <option value="ISO 3166-2:TH">Thailand</option>
-        <option value="ISO 3166-2:TL">Timor-Leste</option>
-        <option value="ISO 3166-2:TG">Togo</option>
-        <option value="ISO 3166-2:TK">Tokelau</option>
-        <option value="ISO 3166-2:TO">Tonga</option>
-        <option value="ISO 3166-2:TT">Trinidad and Tobago</option>
-        <option value="ISO 3166-2:TN">Tunisia</option>
-        <option value="ISO 3166-2:TR">Turkey</option>
-        <option value="ISO 3166-2:TM">Turkmenistan</option>
-        <option value="ISO 3166-2:TC">Turks and Caicos Islands</option>
-        <option value="ISO 3166-2:TV">Tuvalu</option>
-        <option value="ISO 3166-2:UG">Uganda</option>
-        <option value="ISO 3166-2:UA">Ukraine</option>
-        <option value="ISO 3166-2:AE">United Arab Emirates</option>
-        <option value="ISO 3166-2:GB">United Kingdom</option>
-        <option value="ISO 3166-2:US">United States</option>
-        <option value="ISO 3166-2:UM">United States Minor Outlying Islands</option>
-        <option value="ISO 3166-2:UY">Uruguay</option>
-        <option value="ISO 3166-2:UZ">Uzbekistan</option>
-        <option value="ISO 3166-2:VU">Vanuatu</option>
-        <option value="ISO 3166-2:VE">Venezuela, Bolivarian Republic of</option>
-        <option value="ISO 3166-2:VN">Viet Nam</option>
-        <option value="ISO 3166-2:VG">Virgin Islands, British</option>
-        <option value="ISO 3166-2:VI">Virgin Islands, U.S.</option>
-        <option value="ISO 3166-2:WF">Wallis and Futuna</option>
-        <option value="ISO 3166-2:EH">Western Sahara</option>
-        <option value="ISO 3166-2:YE">Yemen</option>
-        <option value="ISO 3166-2:ZM">Zambia</option>
-        <option value="ISO 3166-2:ZW">Zimbabwe</option>
+        <label for="defaultSelect">Country</label>
+        <select id="defaultSelect" class="browser-default custom-select mb-4">
+            <option value="" disabled="">Choose option</option>
+            <option value="1" selected="">United Kingdom</option>
+            <option value="ISO 3166-2:AF">Afghanistan</option>
+            <option value="ISO 3166-2:AX">Åland Islands</option>
+            <option value="ISO 3166-2:AL">Albania</option>
+            <option value="ISO 3166-2:DZ">Algeria</option>
+            <option value="ISO 3166-2:AS">American Samoa</option>
+            <option value="ISO 3166-2:AD">Andorra</option>
+            <option value="ISO 3166-2:AO">Angola</option>
+            <option value="ISO 3166-2:AI">Anguilla</option>
+            <option value="ISO 3166-2:AQ">Antarctica</option>
+            <option value="ISO 3166-2:AG">Antigua and Barbuda</option>
+            <option value="ISO 3166-2:AR">Argentina</option>
+            <option value="ISO 3166-2:AM">Armenia</option>
+            <option value="ISO 3166-2:AW">Aruba</option>
+            <option value="ISO 3166-2:AU">Australia</option>
+            <option value="ISO 3166-2:AT">Austria</option>
+            <option value="ISO 3166-2:AZ">Azerbaijan</option>
+            <option value="ISO 3166-2:BS">Bahamas</option>
+            <option value="ISO 3166-2:BH">Bahrain</option>
+            <option value="ISO 3166-2:BD">Bangladesh</option>
+            <option value="ISO 3166-2:BB">Barbados</option>
+            <option value="ISO 3166-2:BY">Belarus</option>
+            <option value="ISO 3166-2:BZ">Belize</option>
+            <option value="ISO 3166-2:BJ">Benin</option>
+            <option value="ISO 3166-2:BM">Bermuda</option>
+            <option value="ISO 3166-2:BT">Bhutan</option>
+            <option value="ISO 3166-2:BO">Bolivia, Plurinational State of</option>
+            <option value="ISO 3166-2:BQ">Bonaire, Sint Eustatius and Saba</option>
+            <option value="ISO 3166-2:BA">Bosnia and Herzegovina</option>
+            <option value="ISO 3166-2:BW">Botswana</option>
+            <option value="ISO 3166-2:BV">Bouvet Island</option>
+            <option value="ISO 3166-2:BR">Brazil</option>
+            <option value="ISO 3166-2:IO">British Indian Ocean Territory</option>
+            <option value="ISO 3166-2:BN">Brunei Darussalam</option>
+            <option value="ISO 3166-2:BG">Bulgaria</option>
+            <option value="ISO 3166-2:BF">Burkina Faso</option>
+            <option value="ISO 3166-2:BI">Burundi</option>
+            <option value="ISO 3166-2:KH">Cambodia</option>
+            <option value="ISO 3166-2:CM">Cameroon</option>
+            <option value="ISO 3166-2:CA">Canada</option>
+            <option value="ISO 3166-2:CV">Cape Verde</option>
+            <option value="ISO 3166-2:KY">Cayman Islands</option>
+            <option value="ISO 3166-2:CF">Central African Republic</option>
+            <option value="ISO 3166-2:TD">Chad</option>
+            <option value="ISO 3166-2:CL">Chile</option>
+            <option value="ISO 3166-2:CN">China</option>
+            <option value="ISO 3166-2:CX">Christmas Island</option>
+            <option value="ISO 3166-2:CC">Cocos (Keeling) Islands</option>
+            <option value="ISO 3166-2:CO">Colombia</option>
+            <option value="ISO 3166-2:KM">Comoros</option>
+            <option value="ISO 3166-2:CG">Congo</option>
+            <option value="ISO 3166-2:CD">Congo, the Democratic Republic of the</option>
+            <option value="ISO 3166-2:CK">Cook Islands</option>
+            <option value="ISO 3166-2:CR">Costa Rica</option>
+            <option value="ISO 3166-2:CI">Côte d'Ivoire</option>
+            <option value="ISO 3166-2:HR">Croatia</option>
+            <option value="ISO 3166-2:CU">Cuba</option>
+            <option value="ISO 3166-2:CW">Curaçao</option>
+            <option value="ISO 3166-2:CY">Cyprus</option>
+            <option value="ISO 3166-2:CZ">Czech Republic</option>
+            <option value="ISO 3166-2:DK">Denmark</option>
+            <option value="ISO 3166-2:DJ">Djibouti</option>
+            <option value="ISO 3166-2:DM">Dominica</option>
+            <option value="ISO 3166-2:DO">Dominican Republic</option>
+            <option value="ISO 3166-2:EC">Ecuador</option>
+            <option value="ISO 3166-2:EG">Egypt</option>
+            <option value="ISO 3166-2:SV">El Salvador</option>
+            <option value="ISO 3166-2:GQ">Equatorial Guinea</option>
+            <option value="ISO 3166-2:ER">Eritrea</option>
+            <option value="ISO 3166-2:EE">Estonia</option>
+            <option value="ISO 3166-2:ET">Ethiopia</option>
+            <option value="ISO 3166-2:FK">Falkland Islands (Malvinas)</option>
+            <option value="ISO 3166-2:FO">Faroe Islands</option>
+            <option value="ISO 3166-2:FJ">Fiji</option>
+            <option value="ISO 3166-2:FI">Finland</option>
+            <option value="ISO 3166-2:FR">France</option>
+            <option value="ISO 3166-2:GF">French Guiana</option>
+            <option value="ISO 3166-2:PF">French Polynesia</option>
+            <option value="ISO 3166-2:TF">French Southern Territories</option>
+            <option value="ISO 3166-2:GA">Gabon</option>
+            <option value="ISO 3166-2:GM">Gambia</option>
+            <option value="ISO 3166-2:GE">Georgia</option>
+            <option value="ISO 3166-2:DE">Germany</option>
+            <option value="ISO 3166-2:GH">Ghana</option>
+            <option value="ISO 3166-2:GI">Gibraltar</option>
+            <option value="ISO 3166-2:GR">Greece</option>
+            <option value="ISO 3166-2:GL">Greenland</option>
+            <option value="ISO 3166-2:GD">Grenada</option>
+            <option value="ISO 3166-2:GP">Guadeloupe</option>
+            <option value="ISO 3166-2:GU">Guam</option>
+            <option value="ISO 3166-2:GT">Guatemala</option>
+            <option value="ISO 3166-2:GG">Guernsey</option>
+            <option value="ISO 3166-2:GN">Guinea</option>
+            <option value="ISO 3166-2:GW">Guinea-Bissau</option>
+            <option value="ISO 3166-2:GY">Guyana</option>
+            <option value="ISO 3166-2:HT">Haiti</option>
+            <option value="ISO 3166-2:HM">Heard Island and McDonald Islands</option>
+            <option value="ISO 3166-2:VA">Holy See (Vatican City State)</option>
+            <option value="ISO 3166-2:HN">Honduras</option>
+            <option value="ISO 3166-2:HK">Hong Kong</option>
+            <option value="ISO 3166-2:HU">Hungary</option>
+            <option value="ISO 3166-2:IS">Iceland</option>
+            <option value="ISO 3166-2:IN">India</option>
+            <option value="ISO 3166-2:ID">Indonesia</option>
+            <option value="ISO 3166-2:IR">Iran, Islamic Republic of</option>
+            <option value="ISO 3166-2:IQ">Iraq</option>
+            <option value="ISO 3166-2:IE">Ireland</option>
+            <option value="ISO 3166-2:IM">Isle of Man</option>
+            <option value="ISO 3166-2:IL">Israel</option>
+            <option value="ISO 3166-2:IT">Italy</option>
+            <option value="ISO 3166-2:JM">Jamaica</option>
+            <option value="ISO 3166-2:JP">Japan</option>
+            <option value="ISO 3166-2:JE">Jersey</option>
+            <option value="ISO 3166-2:JO">Jordan</option>
+            <option value="ISO 3166-2:KZ">Kazakhstan</option>
+            <option value="ISO 3166-2:KE">Kenya</option>
+            <option value="ISO 3166-2:KI">Kiribati</option>
+            <option value="ISO 3166-2:KP">Korea, Democratic People's Republic of</option>
+            <option value="ISO 3166-2:KR">Korea, Republic of</option>
+            <option value="ISO 3166-2:KW">Kuwait</option>
+            <option value="ISO 3166-2:KG">Kyrgyzstan</option>
+            <option value="ISO 3166-2:LA">Lao People's Democratic Republic</option>
+            <option value="ISO 3166-2:LV">Latvia</option>
+            <option value="ISO 3166-2:LB">Lebanon</option>
+            <option value="ISO 3166-2:LS">Lesotho</option>
+            <option value="ISO 3166-2:LR">Liberia</option>
+            <option value="ISO 3166-2:LY">Libya</option>
+            <option value="ISO 3166-2:LI">Liechtenstein</option>
+            <option value="ISO 3166-2:LT">Lithuania</option>
+            <option value="ISO 3166-2:LU">Luxembourg</option>
+            <option value="ISO 3166-2:MO">Macao</option>
+            <option value="ISO 3166-2:MK">Macedonia, the former Yugoslav Republic of</option>
+            <option value="ISO 3166-2:MG">Madagascar</option>
+            <option value="ISO 3166-2:MW">Malawi</option>
+            <option value="ISO 3166-2:MY">Malaysia</option>
+            <option value="ISO 3166-2:MV">Maldives</option>
+            <option value="ISO 3166-2:ML">Mali</option>
+            <option value="ISO 3166-2:MT">Malta</option>
+            <option value="ISO 3166-2:MH">Marshall Islands</option>
+            <option value="ISO 3166-2:MQ">Martinique</option>
+            <option value="ISO 3166-2:MR">Mauritania</option>
+            <option value="ISO 3166-2:MU">Mauritius</option>
+            <option value="ISO 3166-2:YT">Mayotte</option>
+            <option value="ISO 3166-2:MX">Mexico</option>
+            <option value="ISO 3166-2:FM">Micronesia, Federated States of</option>
+            <option value="ISO 3166-2:MD">Moldova, Republic of</option>
+            <option value="ISO 3166-2:MC">Monaco</option>
+            <option value="ISO 3166-2:MN">Mongolia</option>
+            <option value="ISO 3166-2:ME">Montenegro</option>
+            <option value="ISO 3166-2:MS">Montserrat</option>
+            <option value="ISO 3166-2:MA">Morocco</option>
+            <option value="ISO 3166-2:MZ">Mozambique</option>
+            <option value="ISO 3166-2:MM">Myanmar</option>
+            <option value="ISO 3166-2:NA">Namibia</option>
+            <option value="ISO 3166-2:NR">Nauru</option>
+            <option value="ISO 3166-2:NP">Nepal</option>
+            <option value="ISO 3166-2:NL">Netherlands</option>
+            <option value="ISO 3166-2:NC">New Caledonia</option>
+            <option value="ISO 3166-2:NZ">New Zealand</option>
+            <option value="ISO 3166-2:NI">Nicaragua</option>
+            <option value="ISO 3166-2:NE">Niger</option>
+            <option value="ISO 3166-2:NG">Nigeria</option>
+            <option value="ISO 3166-2:NU">Niue</option>
+            <option value="ISO 3166-2:NF">Norfolk Island</option>
+            <option value="ISO 3166-2:MP">Northern Mariana Islands</option>
+            <option value="ISO 3166-2:NO">Norway</option>
+            <option value="ISO 3166-2:OM">Oman</option>
+            <option value="ISO 3166-2:PK">Pakistan</option>
+            <option value="ISO 3166-2:PW">Palau</option>
+            <option value="ISO 3166-2:PS">Palestinian Territory, Occupied</option>
+            <option value="ISO 3166-2:PA">Panama</option>
+            <option value="ISO 3166-2:PG">Papua New Guinea</option>
+            <option value="ISO 3166-2:PY">Paraguay</option>
+            <option value="ISO 3166-2:PE">Peru</option>
+            <option value="ISO 3166-2:PH">Philippines</option>
+            <option value="ISO 3166-2:PN">Pitcairn</option>
+            <option value="ISO 3166-2:PL">Poland</option>
+            <option value="ISO 3166-2:PT">Portugal</option>
+            <option value="ISO 3166-2:PR">Puerto Rico</option>
+            <option value="ISO 3166-2:QA">Qatar</option>
+            <option value="ISO 3166-2:RE">Réunion</option>
+            <option value="ISO 3166-2:RO">Romania</option>
+            <option value="ISO 3166-2:RU">Russian Federation</option>
+            <option value="ISO 3166-2:RW">Rwanda</option>
+            <option value="ISO 3166-2:BL">Saint Barthélemy</option>
+            <option value="ISO 3166-2:SH">Saint Helena, Ascension and Tristan da Cunha</option>
+            <option value="ISO 3166-2:KN">Saint Kitts and Nevis</option>
+            <option value="ISO 3166-2:LC">Saint Lucia</option>
+            <option value="ISO 3166-2:MF">Saint Martin (French part)</option>
+            <option value="ISO 3166-2:PM">Saint Pierre and Miquelon</option>
+            <option value="ISO 3166-2:VC">Saint Vincent and the Grenadines</option>
+            <option value="ISO 3166-2:WS">Samoa</option>
+            <option value="ISO 3166-2:SM">San Marino</option>
+            <option value="ISO 3166-2:ST">Sao Tome and Principe</option>
+            <option value="ISO 3166-2:SA">Saudi Arabia</option>
+            <option value="ISO 3166-2:SN">Senegal</option>
+            <option value="ISO 3166-2:RS">Serbia</option>
+            <option value="ISO 3166-2:SC">Seychelles</option>
+            <option value="ISO 3166-2:SL">Sierra Leone</option>
+            <option value="ISO 3166-2:SG">Singapore</option>
+            <option value="ISO 3166-2:SX">Sint Maarten (Dutch part)</option>
+            <option value="ISO 3166-2:SK">Slovakia</option>
+            <option value="ISO 3166-2:SI">Slovenia</option>
+            <option value="ISO 3166-2:SB">Solomon Islands</option>
+            <option value="ISO 3166-2:SO">Somalia</option>
+            <option value="ISO 3166-2:ZA">South Africa</option>
+            <option value="ISO 3166-2:GS">South Georgia and the South Sandwich Islands</option>
+            <option value="ISO 3166-2:SS">South Sudan</option>
+            <option value="ISO 3166-2:ES">Spain</option>
+            <option value="ISO 3166-2:LK">Sri Lanka</option>
+            <option value="ISO 3166-2:SD">Sudan</option>
+            <option value="ISO 3166-2:SR">Suriname</option>
+            <option value="ISO 3166-2:SJ">Svalbard and Jan Mayen</option>
+            <option value="ISO 3166-2:SZ">Swaziland</option>
+            <option value="ISO 3166-2:SE">Sweden</option>
+            <option value="ISO 3166-2:CH">Switzerland</option>
+            <option value="ISO 3166-2:SY">Syrian Arab Republic</option>
+            <option value="ISO 3166-2:TW">Taiwan, Province of China</option>
+            <option value="ISO 3166-2:TJ">Tajikistan</option>
+            <option value="ISO 3166-2:TZ">Tanzania, United Republic of</option>
+            <option value="ISO 3166-2:TH">Thailand</option>
+            <option value="ISO 3166-2:TL">Timor-Leste</option>
+            <option value="ISO 3166-2:TG">Togo</option>
+            <option value="ISO 3166-2:TK">Tokelau</option>
+            <option value="ISO 3166-2:TO">Tonga</option>
+            <option value="ISO 3166-2:TT">Trinidad and Tobago</option>
+            <option value="ISO 3166-2:TN">Tunisia</option>
+            <option value="ISO 3166-2:TR">Turkey</option>
+            <option value="ISO 3166-2:TM">Turkmenistan</option>
+            <option value="ISO 3166-2:TC">Turks and Caicos Islands</option>
+            <option value="ISO 3166-2:TV">Tuvalu</option>
+            <option value="ISO 3166-2:UG">Uganda</option>
+            <option value="ISO 3166-2:UA">Ukraine</option>
+            <option value="ISO 3166-2:AE">United Arab Emirates</option>
+            <option value="ISO 3166-2:GB">United Kingdom</option>
+            <option value="ISO 3166-2:US">United States</option>
+            <option value="ISO 3166-2:UM">United States Minor Outlying Islands</option>
+            <option value="ISO 3166-2:UY">Uruguay</option>
+            <option value="ISO 3166-2:UZ">Uzbekistan</option>
+            <option value="ISO 3166-2:VU">Vanuatu</option>
+            <option value="ISO 3166-2:VE">Venezuela, Bolivarian Republic of</option>
+            <option value="ISO 3166-2:VN">Viet Nam</option>
+            <option value="ISO 3166-2:VG">Virgin Islands, British</option>
+            <option value="ISO 3166-2:VI">Virgin Islands, U.S.</option>
+            <option value="ISO 3166-2:WF">Wallis and Futuna</option>
+            <option value="ISO 3166-2:EH">Western Sahara</option>
+            <option value="ISO 3166-2:YE">Yemen</option>
+            <option value="ISO 3166-2:ZM">Zambia</option>
+            <option value="ISO 3166-2:ZW">Zimbabwe</option>
 
-  </select>
+      </select>
 
-    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Request details"></textarea>
+        <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Request details"></textarea>
 
-    <div class="custom-control custom-checkbox mb-4">
-        <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+        <div class="custom-control custom-checkbox mb-4">
+            <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+        </div>
+        <button type="submit" class="btn btn-dark">Send Request</button>
+    </form>
+
     </div>
-    <button type="submit" class="btn btn-dark">Send Request</button>
-</form>
+		<div class="bottom-grids">
+			<div class="bottom-top-grids">
+				<div class="wrap">
+					<div class="bottom-top-grid">
+						<h4>GET HELP</h4>
+						<ul>
+							<li><a href="contact.html">Contact us</a></li>
+							<li><a href="#">Shopping</a></li>
+							<li><a href="#">NIKEiD</a></li>
+							<li><a href="#">Nike+</a></li>
+						</ul>
+					</div>
+					<div class="bottom-top-grid">
+						<h4>ORDERS</h4>
+						<ul>
+							<li><a href="#">Payment options</a></li>
+							<li><a href="#">Shipping and delivery</a></li>
+							<li><a href="#">Returns</a></li>
+						</ul>
+					</div>
+					<div class="bottom-top-grid last-bottom-top-grid">
+						<h4>REGISTER</h4>
+						<p>Create one account to manage everything you do with Nike, from your shopping preferences to your Nike+ activity.</p>
+						<a class="learn-more" href="#">Learn more</a>
+					</div>
+					<div class="clear"> </div>
+				</div>
+			</div>
+			<div class="bottom-bottom-grids">
+				<div class="wrap">
+					<div class="bottom-bottom-grid">
+						<h6>EMAIL SIGN UP</h6>
+						<p>Be the first to know about new products and special offers.</p>
+						<a class="learn-more" href="#">Sign up now</a>
+					</div>
+					<div class="bottom-bottom-grid">
+						<h6>GIFT CARDS</h6>
+						<p>Give the gift that always fits.</p>
+						<a class="learn-more" href="#">View cards</a>
+					</div>
+					<div class="bottom-bottom-grid last-bottom-bottom-grid">
+						<h6>STORES NEAR YOU</h6>
+						<p>Locate a Nike retail store or authorized retailer.</p>
+						<a class="learn-more" href="#">Search</a>
+					</div>
+					<div class="clear"> </div>
+				</div>
+			</div>
+		</div>
+		<!---- //End-bottom-grids---->
+		<!--- //End-content---->
+		<!---start-footer---->
+		<div class="footer">
+			<div class="wrap">
+				<div class="footer-left">
+					<ul>
+						<li><a href="#">United Kingdom</a> <span> </span></li>
+						<li><a href="#">Terms of Use</a> <span> </span></li>
+						<li><a href="#">Nike Inc.</a> <span> </span></li>
+						<li><a href="#">Launch Calendar</a> <span> </span></li>
+						<li><a href="#">Privacy & Cookie Policy</a> <span> </span></li>
+						<li><a href="#">Cookie Settings</a></li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="footer-right">
+					<p>Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear'
+					 		};
+							*/
 
-</div>
+							$().UItoTop({ easingType: 'easeOutQuart' });
 
-</body>
-
+						});
+					</script>
+			    <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-footer---->
+		<!---//End-wrap---->
+	</body>
 </html>
