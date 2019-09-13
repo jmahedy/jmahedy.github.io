@@ -82,11 +82,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 $("#photorow").hide();
                 $("#uploadrow").show();
                 var contentUploader = new Box.ContentUploader();
-                contentUploader.show(sessionStorage.getItem("mainFolderId"), sessionStorage.getItem("accessToken"), {
+                contentUploader.show(sessionStorage.getItem("accountFolderID"), sessionStorage.getItem("accessToken"), {
                     container: '.ucontainer'
                 });
                 contentUploader.addListener('complete',function(file) {
-                    window.location.replace('/Runthebank/newfiles.html?productType=' + productType);
+                    window.location.replace('/Box-Footwear/newfiles.html');
                 });
                 //Show a normal box uploader for picture
                 return;
@@ -191,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
               }).done(function(msg) {
                 console.log("saved");
-                window.location.replace('/Runthebank/newfiles.html?productType=' + productType);
+                window.location.replace('/Box-Footwear/newfiles.html');
               });
         }
         // Set up our event listener to run the startup process

@@ -57,11 +57,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		      processData: false,
 		      success: function(data, status, xhr) {
 		        console.log("good:" + data + ":" + status);
-						sessionStorage.setItem("accountFolderID",accountFolderID);
-						sessionStorage.setItem("addrFolderID",addrFolderID);
-						sessionStorage.setItem("addrFolderID",addrFolderID);
-
-						window.location.replace('/Box-Footwear/newphoto.html?id=' + data.idFolderID);
+						var jdata = JSON.parse(data);
+						console.log(jdata.idFolderID);
+						sessionStorage.setItem("accountFolderID",jdata.accountFolderID);
+						sessionStorage.setItem("idFolderID",jdata.idFolderID);
+						sessionStorage.setItem("addrFolderID",jdata.addrFolderID);
+						sessionStorage.setItem("accessToken",jdata.accessToken);
+						window.location.replace('/Box-Footwear/newphoto.html?folderId=' + jdata.idFolderID);
 		      },
 		      error: function(xhr, status, error) {
 		        console.log(JSON.stringify(error));
@@ -121,15 +123,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         <label for="defaultContactFormName">Name</label>
 
-        <input type="text" id="defaultContactFormName" class="form-control mb-4">
+        <input name="name" type="text" id="defaultContactFormName" class="form-control mb-4">
 
         <label for="defaultContactFormEmail">E-mail</label>
 
-        <input type="email" id="defaultContactFormEmail" class="form-control mb-4">
+        <input name="email" type="email" id="defaultContactFormEmail" class="form-control mb-4">
 
         <label for="defaultContactFormAccount">Account Number</label>
 
-        <input type="text" id="defaultContactFormAccount" class="form-control mb-4">
+        <input name="accountNumber" type="text" id="defaultContactFormAccount" class="form-control mb-4">
 
         <!--<label for="defaultSelect">Brand</label>
 
@@ -149,19 +151,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <input type="text" id="phone" class="form-control mb-4" placeholder="">
 
         <label for="textArea">Address Line 1</label>
-        <input type="text" id="addr1" class="form-control mb-4" placeholder="">
+        <input name="addressLine1" type="text" id="addr1" class="form-control mb-4" placeholder="">
 
         <label for="textArea">Address Line 2</label>
-        <input type="text" id="addr2" class="form-control mb-4" placeholder="">
+        <input name="addressLine2" type="text" id="addr2" class="form-control mb-4" placeholder="">
 
         <label for="textArea">Address Line 3</label>
-        <input type="text" id="addr2" class="form-control mb-4" placeholder="">
+        <input name="addressLine3" type="text" id="addr3" class="form-control mb-4" placeholder="">
 
         <label for="textArea">Postal Code</label>
-        <input type="text" id="pcode" class="form-control mb-4" placeholder="">
+        <input name="postCode" type="text" id="pcode" class="form-control mb-4" placeholder="">
 
         <label for="defaultSelect">Country</label>
-        <select id="defaultSelect" class="browser-default custom-select mb-4">
+        <select name="country" id="defaultSelect" class="browser-default custom-select mb-4">
             <option value="" disabled="">Choose option</option>
             <option value="1" selected="">United Kingdom</option>
             <option value="ISO 3166-2:AF">Afghanistan</option>
@@ -415,7 +417,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
       </select>
 
-        <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Request details"></textarea>
+        <textarea name="requestDetails" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Request details"></textarea>
 
         <div class="custom-control custom-checkbox mb-4">
             <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
@@ -491,21 +493,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="footer-right">
 					<p>Template by <a href="http://w3layouts.com/">W3layouts</a></p>
-					<script type="text/javascript">
-						$(document).ready(function() {
-							/*
-							var defaults = {
-					  			containerID: 'toTop', // fading element id
-								containerHoverID: 'toTopHover', // fading element hover id
-								scrollSpeed: 1200,
-								easingType: 'linear'
-					 		};
-							*/
 
-							$().UItoTop({ easingType: 'easeOutQuart' });
-
-						});
-					</script>
 			    <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 				</div>
 				<div class="clear"> </div>

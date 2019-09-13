@@ -40,23 +40,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   $(document).ready(function() {
     let searchParams = new URLSearchParams(window.location.search)
     var productType=searchParams.get("productType");
-      var contentUploader = new Box.ContentUploader();
-      contentUploader.show(sessionStorage.getItem("idFolderId"), sessionStorage.getItem("accessToken"), {
+      var contentUploader1 = new Box.ContentUploader();
+      contentUploader1.show(sessionStorage.getItem("idFolderID"), sessionStorage.getItem("accessToken"), {
         container: '.pcontainer'
       });
-      var contentUploader1 = new Box.ContentUploader();
-      contentUploader1.show(sessionStorage.getItem("addressFolderId"), sessionStorage.getItem("accessToken"), {
+      var contentUploader2 = new Box.ContentUploader();
+      contentUploader2.show(sessionStorage.getItem("idFolderID"), sessionStorage.getItem("accessToken"), {
         container: '.bcontainer'
       });
-      var contentUploader2 = new Box.ContentUploader();
-      contentUploader2.show(sessionStorage.getItem("idFolderId"), sessionStorage.getItem("accessToken"), {
+      var contentUploader3 = new Box.ContentUploader();
+      contentUploader3.show(sessionStorage.getItem("addrFolderID"), sessionStorage.getItem("accessToken"), {
         container: '.dcontainer'
       });
-      var contentUploader3 = new Box.ContentUploader();
-      contentUploader3.show(sessionStorage.getItem("payslipsFolderId"), sessionStorage.getItem("accessToken"), {
-        container: '.scontainer'
-      });
-      contentUploader.addListener('complete',function(file) {
+      //var contentUploader3 = new Box.ContentUploader();
+      //contentUploader3.show(sessionStorage.getItem("payslipsFolderId"), sessionStorage.getItem("accessToken"), {
+      //  container: '.scontainer'
+    //  });
+      contentUploader1.addListener('complete',function(file) {
         $("#u1").hide();
 					$("#u2").show();
 			});
@@ -64,10 +64,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $("#u2").hide();
 					$("#u3").show();
 			});
-      contentUploader1.addListener('complete',function(file) {
-        $("#u3").hide();
-					$("#u4").show();
-			});
+      //contentUploader1.addListener('complete',function(file) {
+      //  $("#u3").hide();
+			//		$("#u4").show();
+			//});
       contentUploader3.addListener('complete',function(file) {
         window.location.replace('/Runthebank/product.html?productType=' + productType);
 
