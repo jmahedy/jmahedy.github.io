@@ -1,0 +1,45 @@
+//Client ID
+var clientId="8t4x14glqiyx8hlqlawi3ux1xbnbmpfy";
+
+//Main page
+var redirectAfterLoginPage="/WilliamHill/main.html";
+
+//Navigation
+var navigation=[
+
+  {
+      "page":"readme.html",
+      "title":"README"
+  },
+  {
+      "page":"http://www.williamhillplc.com/about/,
+      "title":"ABOUT"
+  },
+  {
+      "page":"folder1.html",
+      "title":"PROCEDURES",
+      "boxId":"87376742828"
+  },
+  {
+      "page":"folder2.html",
+      "title":"MY DOCUMENTS",
+      "boxId":"87375425956"
+  },
+  {
+      "page":"folder3.html",
+      "title":"PAYSLIPS",
+      "boxId":"87374549028"
+  },
+  {
+      "page":"preview1.html",
+      "title":"STAFF ROTA",
+      "boxId":"524954828326"
+  },
+  {
+      "page":"uploader.html",
+      "title":"UPLOADER",
+      "boxId":"87376854941"
+  }
+
+
+];
