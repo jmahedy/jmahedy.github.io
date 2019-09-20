@@ -1,5 +1,5 @@
 //Client ID
-var clientId="8t4x14glqiyx8hlqlawi3ux1xbnbmpfy";
+var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
 
 //Main page
 var redirectAfterLoginPage="/WilliamHill/main.html";
@@ -8,18 +8,17 @@ var redirectAfterLoginPage="/WilliamHill/main.html";
 var navigation=[
 
   {
-      "page":"readme.html",
-      "title":"README"
-  },
-  {
-      "page":"http://www.williamhillplc.com/about/,
-      "title":"ABOUT"
+      "page":"preview4.html",
+      "title":"WELCOME",
+      "boxId":"525051950948"
   },
   {
       "page":"folder1.html",
       "title":"PROCEDURES",
       "boxId":"87376742828"
   },
+
+
   {
       "page":"folder2.html",
       "title":"MY DOCUMENTS",
