@@ -48,7 +48,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				ev.preventDefault();
 				//Post form to servlet? as form?
 				$.ajax({
-		      url: 'http://localhost:5000/sar',
+		      url: 'https://box-java-sandpit.herokuapp.com/sar',
 		      type: 'POST',
 		      data: new FormData(this),
 		      crossDomain: true,
@@ -422,15 +422,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="custom-control custom-checkbox mb-4">
             <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
         </div>
-<<<<<<< HEAD
         <button type="submit" class="btn btn-dark btn-rounded">Send Request</button>
-=======
-        <button id="submit" type="submit" class="btn btn-dark">Send Request</button>
-<<<<<<< HEAD
->>>>>>> ffd6deb8590beb0c1f1135c7f6fcc3e94670f9ba
-=======
 				<img src="ajax-loader.gif" style="display:none;" id="loader"/>
->>>>>>> 07b66d4f4435a1d0bc504e40d5cc1ad8d5ad72e9
     </form>
 
     </div>

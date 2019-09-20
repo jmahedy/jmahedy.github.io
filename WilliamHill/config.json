@@ -8,9 +8,12 @@ var redirectAfterLoginPage="/WilliamHill/main.html";
 var navigation=[
 
   {
-      "page":"preview4.html",
-      "title":"WELCOME",
-      "boxId":"525051950948"
+      "page":"readme.html",
+      "title":"README"
+  },
+  {
+      "page":"http://www.williamhillplc.com/about/",
+      "title":"ABOUT"
   },
   {
       "page":"folder1.html",
