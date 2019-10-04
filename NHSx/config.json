@@ -1,0 +1,48 @@
+//Client ID
+var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
+
+//Main page
+var redirectAfterLoginPage="/NHSx/main.html";
+
+//Navigation
+var navigation=[
+
+  {
+      "page":"landing.html",
+      "title":"Home"
+  },
+  {
+      "page":"folder4.html",
+      "title":"Appointment Notes",
+      "boxId":"86711199547"
+  },
+  {
+      "page":"folder1.html",
+      "title":"My Prescriptions",
+      "boxId":"86710873985"
+  },
+  {
+      "page":"folder2.html",
+      "title":"Medical Records",
+      "boxId":"86710894374"
+  },
+
+  {
+      "page":"uploader.html",
+      "title":"Upload Documents",
+      "boxId":"86710779656"
+  },
+
+  {
+      "page":"folder2.html",
+      "title":"My Consultations",
+      "boxId":"86711121991"
+  },
+
+  {
+      "page":"folder2.html",
+      "title":"Invoices",
+      "boxId":"86717561085"
+  }
+
+];
