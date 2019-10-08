@@ -2,7 +2,7 @@
 var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
 
 //Main page
-var redirectAfterLoginPage="/NHSx/main.html";
+var redirectAfterLoginPage="/BabylonHealth/main.html";
 
 //Navigation
 var navigation=[
@@ -13,38 +13,49 @@ var navigation=[
   },
   {
       "page":"folder4.html",
+      "title":"Your Health Advice",
+      "boxId":"89462720896"
+  },
+  {
+      "page":"folder4.html",
       "title":"Appointment Notes",
-      "boxId":"89097430372"
+      "boxId":"89319240106"
   },
   {
       "page":"folder2.html",
       "title":"My Prescriptions",
-      "boxId":"89097436372"
+      "boxId":"89319244906"
   },
   {
       "page":"folder2.html",
       "title":"My Medical Records",
-      "boxId":"89097433972"
+      "boxId":"89319243706"
   },
 
   {     "page":"folder2.html",
         "title":"My Consultations",
-        "boxId":"89097431572"
+        "boxId":"89319241306"
 
+  },
+
+  {
+      "page":"folder2.html",
+      "title":"My Results",
+      "boxId":"89462735134"
   },
 
   {
 
     "page":"uploader.html",
     "title":"Upload Documents",
-    "boxId":"89100384949"
+    "boxId":"89319246106"
 
   },
 
   {
       "page":"folder2.html",
       "title":"Invoices",
-      "boxId":"89097432772"
+      "boxId":"89319242506"
   }
 
 ];
