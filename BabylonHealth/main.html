@@ -6,13 +6,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script>
-  $(document).ready(function() {
-    $.each(navigation, function(k, data) {
-       $("#main").attr("src",data.page + "?boxId=" + data.boxId);
-       return false;
-    });
-  });
+let searchParams = new URLSearchParams(window.location.search)
+var page=searchParams.get("page");
 
+  $(document).ready(function() {
+    if(page!=null) {
+      $.each(navigation, function(k, data) {
+        if(data.page==page) {
+           $("#main").attr("src",data.page + "?boxId=" + data.boxId);
+           return false;
+         }
+      })
+    }
+    else {
+      $.each(navigation, function(k, data) {
+         $("#main").attr("src",data.page + "?boxId=" + data.boxId);
+         return false;
+      })
+    };
+  });
 
 </script>
 <body style="background-color:#f0f4f5;">

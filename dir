@@ -1,0 +1,58 @@
+total 4912
+drwxr-xr-x  37 pchristensen  1221986466          1258  9 Sep 10:59 AZ
+drwxr-xr-x  36 pchristensen  1221986466          1224 24 Jun 09:21 AfricaBank
+drwxr-xr-x  49 pchristensen  1221986466          1666 13 Sep 16:38 AngloAmerican
+drwxr-xr-x  52 pchristensen  AD\Domain Users     1768  9 Sep 10:59 Aviva2
+drwxr-xr-x  53 pchristensen  AD\Domain Users     1802  9 Sep 10:59 Aviva_
+drwxr-xr-x   5 pchristensen  AD\Domain Users      170  9 Jun 21:05 Bankweb
+drwxr-xr-x  13 pchristensen  AD\Domain Users      442  9 Jun 21:05 Bankweb2
+drwxr-xr-x  92 pchristensen  AD\Domain Users     3128 13 Sep 16:38 Box-Footwear
+drwxr-xr-x  35 pchristensen  AD\Domain Users     1190  4 Jun 09:16 CRC
+drwxr-xr-x  41 pchristensen  AD\Domain Users     1394 24 Jun 09:21 CapitaHR
+drwxr-xr-x  41 pchristensen  AD\Domain Users     1394  5 Jul 16:39 CapitaHR copy
+drwxr-xr-x   8 pchristensen  AD\Domain Users      272 24 Jun 09:21 ClearLogin
+drwxr-xr-x   7 pchristensen  AD\Domain Users      238  9 Jun 21:05 CreditApplication
+drwxr-xr-x  42 pchristensen  AD\Domain Users     1428  9 Sep 10:59 DisChem
+drwxr-xr-x  35 pchristensen  AD\Domain Users     1190  9 Sep 10:59 DisChemViewer_
+drwxr-xr-x  12 pchristensen  AD\Domain Users      408  9 Sep 10:59 Exploration
+drwxr-xr-x  26 pchristensen  AD\Domain Users      884  5 Jul 16:39 GoAhead
+drwxr-xr-x   5 pchristensen  AD\Domain Users      170  5 Jul 16:39 Hiscox
+drwxr-xr-x   8 pchristensen  AD\Domain Users      272  9 Sep 10:59 InsuranceClaim
+drwxr-xr-x  36 pchristensen  AD\Domain Users     1224  4 Jun 09:16 JDW
+drwxr-xr-x   3 pchristensen  AD\Domain Users      102  4 Jun 09:16 KYC
+drwxr-xr-x   9 pchristensen  AD\Domain Users      306  9 Jun 21:05 Login
+drwxr-xr-x  40 pchristensen  AD\Domain Users     1360  9 Sep 10:59 Mitie
+drwxr-xr-x  38 pchristensen  AD\Domain Users     1292 12 Sep 10:26 NIDirect
+-rw-r--r--   1 pchristensen  AD\Domain Users  1982081  9 Sep 10:59 NIDirect.zip
+drwxr-xr-x  52 pchristensen  AD\Domain Users     1768  9 Sep 10:59 NWR
+drwxr-xr-x  40 pchristensen  AD\Domain Users     1360 19 Jul 09:00 NWR-old
+drwxr-xr-x   4 pchristensen  AD\Domain Users      136  9 Sep 10:59 NWRCapture
+drwxr-xr-x  52 pchristensen  AD\Domain Users     1768 19 Jul 09:00 OCS
+drwxr-xr-x  38 pchristensen  AD\Domain Users     1292  5 Jul 16:39 OCS_old
+drwxr-xr-x  38 pchristensen  AD\Domain Users     1292  5 Jul 16:39 OCS_older
+drwxr-xr-x  38 pchristensen  AD\Domain Users     1292 19 Jul 09:00 Ocado
+drwxr-xr-x  16 pchristensen  AD\Domain Users      544 19 Jul 09:00 OcadoRetail
+drwxr-xr-x   8 pchristensen  AD\Domain Users      272  5 Jul 16:39 Onboarding
+drwxr-xr-x  40 pchristensen  AD\Domain Users     1360  4 Jun 09:16 Openbanking
+drwxr-xr-x  15 pchristensen  AD\Domain Users      510 12 Sep 13:56 Retailer1
+drwxr-xr-x  44 pchristensen  AD\Domain Users     1496  4 Jun 09:16 RiverIsland
+drwxr-xr-x  80 pchristensen  AD\Domain Users     2720 12 Sep 13:56 Runthebank
+drwxr-xr-x   4 pchristensen  AD\Domain Users      136  9 Sep 10:59 Scripts
+drwxr-xr-x  45 pchristensen  AD\Domain Users     1530  9 Sep 10:59 SmithsGroup
+-rw-r--r--   1 pchristensen  AD\Domain Users       91  5 Jul 16:39 StartPythonHTTPServer.sh
+drwxr-xr-x  50 pchristensen  AD\Domain Users     1700 12 Sep 13:56 SubjectAccessRequests
+drwxr-xr-x  44 pchristensen  AD\Domain Users     1496 12 Sep 10:26 Synergix
+drwxr-xr-x  55 pchristensen  AD\Domain Users     1870  4 Jun 09:16 WPP
+drwxr-xr-x  13 pchristensen  AD\Domain Users      442  9 Sep 10:59 Wealth
+drwxr-xr-x  36 pchristensen  AD\Domain Users     1224 17 Sep 10:15 WilliamHill
+drwxr-xr-x  11 pchristensen  AD\Domain Users      374  9 Sep 10:59 box-ios-sdk-master
+drwxr-xr-x  58 pchristensen  AD\Domain Users     1972 15 May 11:39 case
+drwxr-xr-x  38 pchristensen  AD\Domain Users     1292 15 May 09:43 copfs-case
+-rw-r--r--   1 pchristensen  AD\Domain Users        0 26 Sep 09:13 dir
+-rw-r--r--   1 pchristensen  AD\Domain Users     1150  9 Sep 10:59 favicon.ico
+-rw-r--r--   1 pchristensen  AD\Domain Users   489108 23 Jul 08:12 find-docs.gif
+-rw-r--r--   1 pchristensen  AD\Domain Users       17 30 Apr 10:24 index.html
+-rw-r--r--   1 pchristensen  AD\Domain Users     3331 13 Sep 16:38 login.html
+-rw-r--r--   1 pchristensen  AD\Domain Users      161  6 Jun 16:38 ok.html
+-rw-r--r--   1 pchristensen  AD\Domain Users    12748 24 Jun 09:21 product.html
+-rw-r--r--   1 pchristensen  AD\Domain Users     2012 12 Jun 15:32 sample-text.txt
