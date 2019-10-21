@@ -8,24 +8,14 @@ var redirectAfterLoginPage="/Mitie/main.html";
 var navigation=[
 
   {
-      "page":"https://www.mitie.com/about/",
+      "page":"landing.html",
       "title":"Home"
   },
 
   {
-      "page":"learning.html",
-      "title":"Learning",
-      "boxId":"0"
-  },
-  {
       "page":"folder2.html",
-      "title":"My Documents",
-      "boxId":"86191768187"
-  },
-  {
-      "page":"folder3.html",
-      "title":"Payslips",
-      "boxId":"86191150776"
+      "title":"Supplier Procedures",
+      "boxId":"90392187433"
   },
 
   {
@@ -34,11 +24,18 @@ var navigation=[
       "boxId":"86208393727"
   },
 
+
   {
       "page":"uploader.html",
       "title":"Upload Documents",
-      "boxId":"86191768187"
-  }
+      "boxId":"90374164093"
+  },
+
+  {
+      "page":"folder2.html",
+      "title":"Uploaded Documents",
+      "boxId":"90374164093"
+  },
 
 
 ];

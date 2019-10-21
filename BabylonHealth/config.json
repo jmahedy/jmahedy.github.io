@@ -14,6 +14,13 @@ var navigation=[
 
 
   {
+      "page":"folder4.html",
+      "title":"My Health Advice",
+      "boxId":"89462720896"
+  },
+
+
+  {
       "page":"folder2.html",
       "title":"My Medical Records",
       "boxId":"89319243706"
@@ -30,7 +37,7 @@ var navigation=[
       "title":"Appointment Notes",
       "boxId":"89319240106"
   },
-  
+
   {
       "page":"results.html",
       "title":"My Results",
@@ -54,11 +61,7 @@ var navigation=[
       "page":"folder2.html",
       "title":"Invoices",
       "boxId":"89319242506"
-  },
-  {
-      "page":"folder4.html",
-      "title":"Help Videos",
-      "boxId":"89462720896"
   }
+
 
 ];
