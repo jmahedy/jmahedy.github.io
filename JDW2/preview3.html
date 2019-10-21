@@ -25,6 +25,7 @@
       var preview = new Box.ContentPreview();
       getAccessToken().then(function(result) {
         preview.show(boxId, result, {
+          logoUrl: 'logo-small.jpg',
           container: '.preview-container',
           contentSidebarProps: {
             detailsSidebarProps: {

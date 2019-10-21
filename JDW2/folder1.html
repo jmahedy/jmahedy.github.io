@@ -28,8 +28,8 @@
     var contentExplorer = new Box.ContentExplorer();
       getAccessToken().then(function(result) {
         contentExplorer.show(boxId, result, {
-        container: '.container',
-        logoUrl: 'logo-small.jpg',
+          logoUrl: 'logo-small.jpg',
+          container: '.container',
         canDownload: false,
         canDelete: false,
         canRename: false,
