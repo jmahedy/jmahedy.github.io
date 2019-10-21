@@ -35,10 +35,12 @@ var navigation=[
       "boxId":"543574609196"
   },
   {
-      "page":"preview3.html",
-      "title":"LOGOUT",
-      "boxId":"0"
+      "page":"uploader.html",
+      "title":"UPLOAD DOCUMENTS",
+      "boxId":"90764580246"
   },
+
+
 
 
 
