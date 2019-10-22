@@ -8,6 +8,11 @@ var redirectAfterLoginPage="/JDW2/main.html";
 var navigation=[
 
   {
+
+    "page":"landing.html",
+    "title":"HOME"
+},
+{
       "page":"preview1.html",
       "title":"JOHNS LETTER",
       "boxId":"543628336345"
