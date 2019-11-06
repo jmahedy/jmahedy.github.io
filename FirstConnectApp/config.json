@@ -18,6 +18,13 @@ var navigation=[
       "title":"SAFETY",
       "boxId":"91804286188"
   },
+
+{
+  "page":"folder1.html",
+  "title":"POLICIES",
+  "boxId":"91804286188"
+},
+
   {
       "page":"folder3.html",
       "title":"LEARNING",
