@@ -1,8 +1,8 @@
 //Client ID
-var clientId="bn2iyg37p78jkowrp0io0nc2ln0be3wt";
+var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
 
 //Main page
-var redirectAfterLoginPage="/Template/main.html";
+var redirectAfterLoginPage="/FirstConnectApp/main.html";
 
 //Navigation
 var navigation=[
