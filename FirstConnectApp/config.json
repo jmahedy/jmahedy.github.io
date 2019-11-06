@@ -8,18 +8,15 @@ var redirectAfterLoginPage="/FirstConnectApp/main.html";
 var navigation=[
 
   {
-      "page":"readme.html",
-      "title":"README"
+      "page":"folder1.html",
+      "title":"INTRANET",
+      "boxId":"91804286188"
   },
-  {
-      "page":"https://developer.box.com",
-      "title":"DEVELOPER",
-      "boxId":"0"
-  },
+
   {
       "page":"folder1.html",
-      "title":"FOLD1",
-      "boxId":"0"
+      "title":"SAFETY",
+      "boxId":"91804286188"
   },
   {
       "page":"folder2.html",
