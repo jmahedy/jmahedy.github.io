@@ -1,0 +1,54 @@
+//Client ID
+var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
+
+//Main page
+var redirectAfterLoginPage="/RR2/main.html";
+
+//Navigation
+var navigation=[
+
+  {
+      "page":"landing.html",
+      "title":"HOME"
+  },
+  {
+      "page":"https://www.rolls-royce.com/innovation.aspx",
+      "title":"INNOVATION",
+  },
+  {
+      "page":"folder3.html",
+      "title":"ASSETS",
+      "boxId":"92592663689"
+  },
+  {
+      "page":"https://www.rolls-royce.com/about.aspx",
+      "title":"ABOUT"
+  },
+  {
+      "page":"folder2.html",
+      "title":"INVESTORS",
+      "boxId":"92591534786"
+  },
+  {
+      "page":"folder2.html",
+      "title":"BRAND",
+      "boxId":"92593095327"
+  },
+  {
+      "page":"https://www.rolls-royce.com/sustainability.aspx",
+      "title":"SUSTAINABILITY"
+  },
+  {
+      "page":"https://www.rolls-royce.com/media.aspx",
+      "title":"MEDIA"
+  },
+  {
+      "page":"uploader.html",
+      "title":"UPLOAD",
+      "boxId":"92595483292"
+  }
+
+
+
+
+];
