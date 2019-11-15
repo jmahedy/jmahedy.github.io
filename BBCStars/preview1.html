@@ -19,16 +19,17 @@
   <script type="text/javascript" src="js/box.js"></script>
 </head>
 
-<body style="background-color:#00ac4e">
-<img src="logo.png" alt="Site Logio" align="top">
+<body style="background-color:#772d85">
+<img src="new-bbc-logo.png" alt="Site Logio" align="top">
   <div class="preview-container" style="height:90vh; width:100vw; align=center" ;></div>
   <script>
     var preview = new Box.Preview();
     preview.show('558806888506', sessionStorage.getItem("accessToken"), {
         container: '.preview-container',
-        logoUrl: 'pixel.png',
+        logoUrl: 'logo-small.jpg',
         showDownload: 'true',
-        collection: ['558806888506','558890571393','558889098033','558885945028','558806888506','558806888506']
+        collection: ['558806888506','558890571393','558889098033','558885945028','558806888506','558806888506'],
+        header: 'dark'
       });
 
     var counter=0;
@@ -41,8 +42,18 @@
 
   }
 
+
+
       </script>
 
 </body>
+
+<div text-align=center>
+
+
+<button type="button" class="btn btn-success">Yes</button>
+<button type="button" class="btn btn-warning">No</button>
+
+</div>
 
 </html>
