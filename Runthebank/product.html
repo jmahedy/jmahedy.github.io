@@ -50,6 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       }
     }
     $(document).ready(function() {
+      $(".username").val(sessionStorage.getItem("userName"));
       let searchParams = new URLSearchParams(window.location.search)
       var productType = searchParams.get("productType");
       $('#creditloan').on('submit', (function(ev) {
@@ -234,7 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <p class="h4 mb-4 text-left">Credit Card Application</p>
 
         <label for="textInput">Full name</label>
-        <input type="text" id="name" class="form-control mb-4" value="John Mahedy">
+        <input type="text" id="name" class="form-control mb-4 username" value="">
 
         <select class="browser-default custom-select mb-4" id="cardtype">
 
@@ -263,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <p class="h4 mb-4 text-left">Loan Application</p>
 
         <label for="textInput">Full name</label>
-        <input type="text" id="name" class="form-control mb-4" value="John Mahedy">
+        <input type="text" id="name" class="form-control mb-4 username" value="">
 
         <select class="browser-default custom-select mb-4" id="loantype">
 
