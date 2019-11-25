@@ -32,6 +32,11 @@ var navigation=[
       "boxId":"83949289595"
   },
   {
+      "page":"campaigns.html",
+      "title":"VIDEO",
+      "boxId":"83949289595"
+  },
+  {
       "page":"invoices.html",
       "title":"INVOICE US",
   },
