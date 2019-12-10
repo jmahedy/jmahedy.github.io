@@ -12,8 +12,8 @@ var navigation=[
       "title":"HOME"
   },
   {
-      "page":"https://developer.box.com",
-      "title":"DEVELOPER",
+      "page":"safety.html",
+      "title":"SAFETY",
       "boxId":"0"
   },
   {
