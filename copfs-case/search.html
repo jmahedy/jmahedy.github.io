@@ -46,10 +46,10 @@ form.example button {
     float: left;
     width: 20%;
     padding: 10px;
-    background: #ccb7ca;
+    background: #b58a49;
     color: white;
     font-size: 17px;
-    border: 1px solid #ccb7ca;
+    border: 1px solid #b58a49;
     border-left: none;
     cursor: pointer;
 }
@@ -294,7 +294,7 @@ form.example::after {
     return ( size / Math.pow(1024, i) ).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
 };
 /* function loadItems() {
-	
+
 			var spSearch = "http://descspweb1.westeurope.cloudapp.azure.com/_api/search/query?querytext=" + "'" + $("#searchText").val() + "'" + "&selectproperties=%27Title,OriginalPath,DocId,FileType,Size,Created,ModifiedBy%27&QueryTemplatePropertiesUrl='spfile://webroot/queryparametertemplate.xml'";
 			var jsonSP;
             var title;
@@ -305,9 +305,9 @@ form.example::after {
             var size;
             var created;
             var modBy;
-						
+
             var t = $('#spcontentlist').DataTable();
-            $.getJSON(spSearch, function (json) 
+            $.getJSON(spSearch, function (json)
 			{
                 jsonSP = json;
 			    var arr = jsonPath(jsonSP, '$..Cells');
@@ -323,12 +323,12 @@ form.example::after {
 					{
 					var docURL = "No Valid URL Available"
 					}
-					
+
 					docID = (jsonPath(jsonSP, '$.PrimaryQueryResult.RelevantResults.Table.Rows[' + i + '].Cells[?(@.Key=="DocId")].Value'));
 					fileType = (jsonPath(jsonSP, '$.PrimaryQueryResult.RelevantResults.Table.Rows[' + i + '].Cells[?(@.Key=="FileType")].Value'));
 					size = (jsonPath(jsonSP, '$.PrimaryQueryResult.RelevantResults.Table.Rows[' + i + '].Cells[?(@.Key=="Size")].Value'));
 					created = (jsonPath(jsonSP, '$.PrimaryQueryResult.RelevantResults.Table.Rows[' + i + '].Cells[?(@.Key=="Created")].Value'));
-					
+
 					if (created != "")
 					{
 					var date = new Date(Date.parse(created));
@@ -339,8 +339,8 @@ form.example::after {
 					var date = new Date();
 					var createdDate = date.toLocaleString('en-GB', { timeZone: 'UTC' });
 					}
-					
-					
+
+
 					modBy = (jsonPath(jsonSP, '$.PrimaryQueryResult.RelevantResults.Table.Rows[' + i + '].Cells[?(@.Key=="ModifiedBy")].Value'));
                     var rowNode = t
                     .row.add([title, docURL, docID, fileType, size, createdDate, modBy])
@@ -348,9 +348,9 @@ form.example::after {
                     .node();
                 }
 
-        }); 
-		
-    }*/    
+        });
+
+    }*/
 </script>
 
 </head>
@@ -397,7 +397,7 @@ form.example::after {
       </thead>
       <tbody>
       </tbody>
-	  
+
 </table-->
 </div>
 <div id="myModal" class="modal">
