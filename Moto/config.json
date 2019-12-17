@@ -33,6 +33,11 @@ var navigation=[
       "boxId":"578594704887"
   },
   {
+      "page":"folder2.html",
+      "title":"PROCEDURES",
+      "boxId":"96758605626"
+  },
+  {
       "page":"folder3.html",
       "title":"REPORTS",
       "boxId":"96744101029"
