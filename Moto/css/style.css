@@ -1,13 +1,20 @@
 .active a{
-    color: black !important;
+    color: #e82293 !important;
 }
 
 .selected a{
-    color: black !important;
+    color: #e82293 !important;
 }
 
 .navheight {
    max-height:37px;
+}
+
+.nav-link  {
+    font-size: 22px;
+    color: #e82293 !important;
+      font-weight: bold;
+      font-weight: 700;
 }
 
 .navfont {
