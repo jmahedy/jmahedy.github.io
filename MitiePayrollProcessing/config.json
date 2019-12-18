@@ -1,8 +1,8 @@
 //Client ID
-var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
+var clientId="k81eyyziya2z6os44rtwwsdzgzwwq6qm";
 
 //Main page
-var redirectAfterLoginPage="/MitiePayroll/main.html";
+var redirectAfterLoginPage="/MitiePayrollProcessing/main.html";
 
 //Navigation
 var navigation=[
@@ -15,7 +15,7 @@ var navigation=[
   {
       "page":"folder1.html",
       "title":"PAYSLIPS",
-      "boxId":"86191150776"
+      "boxId":"0"
   }
 
 ];
