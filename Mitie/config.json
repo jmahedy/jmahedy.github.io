@@ -28,13 +28,13 @@ var navigation=[
   {
       "page":"uploader.html",
       "title":"Upload Documents",
-      "boxId":"90374164093"
+      "boxId":"98993345141"
   },
 
   {
       "page":"folder2.html",
       "title":"Uploaded Documents",
-      "boxId":"90374164093"
+      "boxId":"98993345141"
   },
 
 
