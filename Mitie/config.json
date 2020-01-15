@@ -24,11 +24,4 @@ var navigation=[
       "boxId":"98993345141"
   },
 
-  {
-      "page":"folder2.html",
-      "title":"Uploaded Documents",
-      "boxId":"98993345141"
-  },
-
-
 ];
