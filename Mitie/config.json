@@ -15,15 +15,8 @@ var navigation=[
   {
       "page":"folder2.html",
       "title":"Supplier Procedures",
-      "boxId":"90392187433"
+      "boxId":"100204030156"
   },
-
-  {
-      "page":"folder3.html",
-      "title":"Operating Procedures",
-      "boxId":"86208393727"
-  },
-
 
   {
       "page":"uploader.html",
