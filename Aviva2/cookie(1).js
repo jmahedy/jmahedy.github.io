@@ -1,1 +1,0 @@
-define([],function(){"use strict";return function(){return{getCookie:function(t){var e=("; "+document.cookie).split("; "+t+"=");return 2!==e.length?null:e.pop().split(";").shift()},setCookie:function(t,e,n,o,i){var r,u=new Date,c="",s="";n&&(u.setDate(u.getDate()+n),c="expires="+u.toUTCString()),o&&(s="domain="+o),r=[t+"="+e,c,"path="+(i||"/"),s],document.cookie=r.join(";")}}}});
