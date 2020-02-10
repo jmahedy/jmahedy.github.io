@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Box Platform - Template Application</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    var links = document.getElementsByTagName("a");
+
+  console.log(links.length);
+  for(var i = 0; i < links.length; i++) {
+  console.log(links[i].innerHTML);
+  links[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    //var currentp = document.getElementsByClassName("activep");
+    current[0].className = current[0].className.replace("active", "");
+    //currentp[0].className = currentp[0].className.replace("activep", "");
+    this.parentNode.className = this.parentNode.className +" active";
+    //this.parentNode.className='activep';
+  });
+  }
+  });
+  </script>
+</head>
+
+<body style="background-color:#F4F6F9;">
+
+  <nav class="navbar navbar-expand-lg sticky-top grey lighten-2 navheight">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul style="margin-left:160px" class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link waves-effect waves-light text-black-50 navfont " href="upload.html" target="main">MY EVIDENCE</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link waves-effect waves-light text-black-50 navfont" href="https://box-162828.workflowcloud.com/forms/59aed697-984d-45de-8238-46b48d94da02" target="main">CREATE WORKSPACE</a>
+                </li>
+
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light text-black-50 navfont" href="https://box-162828.workflowcloud.com/forms/83b90de6-07da-423b-998d-c3f144babd5d" target="main">CREATE CASE<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light text-black-50 navfont" href="associate.html" target="main">ASSOCIATE EVIDENCE</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light text-black-50 navfont" href="cases.html" target="main">MY CASES</a>
+        </li>
+
+
+        <!--
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">FOLDERS</a>
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="folder2.html">FOLDER2</a>
+            <a class="dropdown-item" href="folder3.html">FOLDER3</a>
+            <a class="dropdown-item" href="folder4.html">FOLDER4</a>
+          </div>
+        </li>        -->
+
+        <!-- Dropdown -->
+
+
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light text-black-50 navfont" href="evidence-map-beta.html" target="main">SUGGESTED EVIDENCE</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light text-black-50 navfont" href="public.html" target="main">PUBLIC UPLOADS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light text-black-50 navfont" href="search.html" target="main">SEARCH EVIDENCE</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light text-black-50 navfont" href="events.html" target="main">EVENTS</a>
+        </li>
+        <!--
+      <li class="nav-item">
+          <a class="nav-link waves-effect waves-light" href="filepicker.html" target="main">PICKER</a>
+        </li>      -->
+
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light text-black-50 navfont" href="login.html" target="_top">LOGOUT</a>
+        </li>
+
+      </ul>
+  </nav>
+
+
+</body>
+
+</html>
