@@ -139,12 +139,19 @@
       var counter = 0;
       var target = file.length;
       console.log(target);
+      var fileId;
+      var folderTarget;
+      var folderTargetId;
       file.forEach(function(f) {
         //call metadata with fil
         var id = f.id;
+        fileId=id;
         var formdata = "{";
         var delim = "";
         $.each(fields, function(k, data) {
+          if(data.boxKey=='zendeskTicketId') {
+            folderTarget=$("#" + data.elementId).val();
+          }
           if (data.dataType == 'String' || data.dataType == 'Enum') {
             console.log("string or enum check " + data.boxKey);
             formdata += delim + "\"" + data.boxKey + "\":\"" + $("#" + data.elementId).val() + "\"";
@@ -175,12 +182,54 @@
         };
 
         $.ajax(settings).done(function(response) {
-          console.log("response:" + response);
-          $("#main").html("<p>Document uploaded and metadata applied succesfully</p>");
+          $.ajax({
+            method: 'get',
+            url: "https://api.box.com/2.0/folders/" + boxId + "/items?fields=id,name",
+            crossDomain: true,
+            headers: {
+              "Authorization": "Bearer " + accessToken
+            },
+            cache: false,
+            async:false,
+            success: function(response) {
+              $.each(response.entries, function(k, data) {
+                console.log("data:" + JSON.stringify(data));
+
+                if(data.name==folderTarget) {
+                  console.log("moving to :" + folderTarget);
+                  folderTargetId=data.id;
+                }
+              });
+            }
+          });
+          if(folderTargetId) {
+            var data = "{\"parent\": {\"id\" :\"" +  folderTargetId + "\"}}";
+            $.ajax({
+                method: 'put',
+                url: "https://api.box.com/2.0/files/" + fileId,
+                crossDomain: true,
+                async:false,
+                headers: {
+                  "Authorization": "Bearer " + accessToken
+                },
+                data:data,
+                cache: false,
+                success: function(response) {
+                  console.log("moved OK");
+                }
+      
+              });
+            console.log("response:" + response);
+            $("#main").html("<p>Document uploaded and moved to ticket " + folderTarget + "</p>");
+            }
+            else {
+              $("#main").html("<p>Ticket " + folderTarget + " not found. An administrator will contact you</p>");
+            }
         });
       });
     });
   });
+  
 </script>
 
 <body>

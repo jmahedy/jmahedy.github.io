@@ -20,7 +20,7 @@ var navigation=[
   {
       "page":"metadataform.html",
       "title":"CCTV UPLOAD",
-      "boxId":"103079081181",
+      "boxId":"103074030136",
       "templateKey":"storeCctv",
       "eid":"206908859"
   },
