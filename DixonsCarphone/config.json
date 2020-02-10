@@ -1,0 +1,34 @@
+//Client ID
+var clientId="l27zjgznl99zzn4tosg7ieio8gg6t1bz";
+
+//Main page
+var redirectAfterLoginPage="/DixonsCarphone/main.html";
+
+//Navigation
+var navigation=[
+
+
+  {
+      "page":"landing.html",
+      "title":"HOME"
+  },
+  {
+      "page":"folder1.html",
+      "title":"BRANCH PROCEDURES",
+      "boxId":"103076755817"
+  },
+  {
+      "page":"metadataform.html",
+      "title":"CCTV UPLOAD",
+      "boxId":"103079081181",
+      "templateKey":"storeCctv",
+      "eid":"47757585"
+  },
+
+  {
+      "page":"folder3.html",
+      "title":"DIGITAL PAYSLIPS",
+      "boxId":"0"
+  }
+
+];
