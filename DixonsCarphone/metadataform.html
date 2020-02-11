@@ -217,19 +217,19 @@
                 success: function(response) {
                   console.log("moved OK");
                 }
-      
+
               });
             console.log("response:" + response);
             $("#main").html("<p>Document uploaded and moved to ticket " + folderTarget + "</p>");
             }
             else {
-              $("#main").html("<p>Ticket " + folderTarget + " not found. An administrator will contact you</p>");
+              $("#main").html("<p>The ticket number you entered " + folderTarget + " was not found. An Dixons Carphone Administrator will contact you</p>");
             }
         });
       });
     });
   });
-  
+
 </script>
 
 <body>
@@ -245,7 +245,7 @@
     <br>
     <br>
       <form id="uploadfiles" action="#" method="get">
-        <input type="button" id="submit" value="Upload to Box">
+        <input type="button" id="submit" value="Upload CCTV">
 
       </form>
     </div>
