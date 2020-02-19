@@ -24,4 +24,13 @@ var navigation=[
       "boxId":"98993345141"
   },
 
+  {
+      "page":"metadataform.html",
+      "title":"Help",
+      "templateKey":"workOrders",
+      "eid":"284349379",
+      "boxId":"103861207039",
+      "hideFields":"confidenceScore,status"
+  }
+
 ];
