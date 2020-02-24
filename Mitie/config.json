@@ -31,6 +31,16 @@ var navigation=[
       "eid":"284349379",
       "boxId":"103861207039",
       "hideFields":"confidenceScore,status"
-  }
+  },
+
+
+    {
+          "page":"map_folder.html",
+          "title":"Mapped",
+          "boxId":"104516352862",
+          "latitude":51.525177,
+          "longitude":-0.0899452,
+          "zoomLevel":10
+      }
 
 ];
