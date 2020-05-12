@@ -400,11 +400,10 @@ h3.b-w3ltxt span {
 h2.b-w3ltxt,h3.b-w3ltxt {
     font-size: 4em;
     color: #fff;
-    text-shadow: 1px 1px 0px #333;
     font-weight: 600;
 }
 h2.b-w3ltxt span,h3.b-w3ltxt span {
-    color: #ffc168;
+    color: #db0012;
 }
 h4.b-w3ltxt {
     font-size: 3em;
