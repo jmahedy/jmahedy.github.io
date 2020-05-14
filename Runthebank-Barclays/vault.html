@@ -51,7 +51,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         canDelete: true,
         canRename: true,
         canShare: true,
-        canCreateNewFolder: true
+		canCreateNewFolder: true,
+		contentPreviewProps: {
+                contentSidebarProps: {
+                  detailsSidebarProps: {
+                    hasNotices: true,
+                    hasProperties: true,
+                    hasAccessStats: true,
+                    hasVersions: true
+                  },
+                  hasActivityFeed: true,
+                  hasSkills: true,
+                  hasMetadata: true
+                }
+              }
       });
     });
 </script>
