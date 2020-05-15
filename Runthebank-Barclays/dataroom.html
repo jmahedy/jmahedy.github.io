@@ -37,12 +37,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 
     <script>
+    var folderId = '101146179695';
 
     $(document).ready(function() {
       var folderId = sessionStorage.getItem("st");
       var accessToken = sessionStorage.getItem("accessToken"); //'ERtaeEtF6SAIf6yBAwFeqKaHBCAAzcox';
       var contentExplorer = new Box.ContentExplorer();
-      contentExplorer.show(folderId, accessToken, {
+      contentExplorer.show('101146179695', accessToken, {
         container: '.pcontainer',
         logoUrl: '/Runthebank-Barclays/favicon-16x16.png',
         canDownload: false,
@@ -94,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="active"><a href="index.html">Home</a></li>
         <li class=""><a href="onboarding.html">Onboarding</a></li>
         <li class=""><a href="vault.html">Secure Vault</a></li>
-        <li class=""><a href="folder2.html">My Data Room</a></li>
+        <li class=""><a href="dataroom.html">My Data Room</a></li>
         <li class=""><a href="preview4.html">Advisor</a></li>
         <li class=""><a href="login.html">Logout</a></li>
 			</ul>
