@@ -382,7 +382,7 @@ li > a:only-child:after { content: ''; }
     text-transform: capitalize;
 }
 .banner-text-w3pvt {
-    padding: 16vw 0 11vw;
+    padding: 4vw 0 11vw;
     box-sizing: border-box;
     width: 70%;
 }
@@ -395,7 +395,7 @@ h3.b-w3ltxt span {
     color: #fff;
 }
 h2.b-w3ltxt,h3.b-w3ltxt {
-    font-size: 4em;
+    font-size: 2.5em !important;
     color: #00aeef;
     font-weight: 600;
 }
