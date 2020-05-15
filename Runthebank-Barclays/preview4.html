@@ -19,22 +19,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/mdb.min.css" rel="stylesheet">
 <!-- Your custom styles (optional) -->
 <link href="css/style.css" rel="stylesheet">
-<link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/explorer.css" rel="stylesheet" type="text/css"></link>
-<link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/picker.css" rel="stylesheet" type="text/css"></link>
-<link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/uploader.css" rel="stylesheet" type="text/css"></link>
-<link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/openwith.css" rel="stylesheet" type="text/css"></link>
-<link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/preview.css" rel="stylesheet" type="text/css"></link>
-<link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/sidebar.css" rel="stylesheet" type="text/css"></link>
+
 
 
 <script src="https://cdn01.boxcdn.net/polyfills/core-js/2.5.3/core.min.js"></script>
-<script src="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/explorer.js"></script>
-<script src="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/picker.js"></script>
-<script src="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/uploader.js"></script>
-<script src="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/preview.js"></script>
-<script src="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/openwith.js"></script>
-<script src="https://cdn01.boxcdn.net/platform/preview/2.5.1/en-US/preview.js"></script>
-<script src="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/sidebar.js"></script>
+<script src="https://cdn01.boxcdn.net/platform/preview/2.6.1/en-US/preview.js"></script>
+<link rel="stylesheet” href="https://cdn01.boxcdn.net/platform/preview/2.6.1/en-US/preview.css"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -58,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $(document).ready(function() {
       var folderId = sessionStorage.getItem("dv");
       var accessToken = sessionStorage.getItem("accessToken"); //'ERtaeEtF6SAIf6yBAwFeqKaHBCAAzcox';
-          var preview = new Box.ContentPreview();
+          var preview = new Box.Preview();
           preview.show('665267906759', sessionStorage.getItem("accessToken"), {
               container: '.pcontainer',
               logoUrl: '/Runthebank-Barclays/favicon-16x16.png',
