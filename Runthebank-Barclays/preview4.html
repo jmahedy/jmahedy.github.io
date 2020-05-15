@@ -2,25 +2,58 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8" />
-    <title>Box Platform - Template Application - Preview</title>
 
-    <!-- polyfill.io only loads the polyfills your browser needs -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
-    <!-- Alternatively, use polyfills hosted on the Box CDN
-    <script src="https://cdn01.boxcdn.net/polyfills/bluebird/3.5.1/bluebird.min.js"></script>
-    -->
+    <title>Barclays Bank - Advisor</title>
+    <!-- for-mobile-apps -->
 
-    <!-- Latest version of Box Content Preview for en-US locale -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Bank Card Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+  Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
     <script src="https://cdn01.boxcdn.net/platform/preview/1.58.2/en-US/preview.js"></script>
     <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/preview/1.58.2/en-US/preview.css" />
+
+    <header>
+      <div class="container">
+        <!-- nav -->
+        <nav class="py-3 d-lg-flex">
+          <div id="logo">
+    				<img src="/Runthebank-Barclays/BL_logo_final.png" alt="">
+    			</div>
+          <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+          <input type="checkbox" id="drop" />
+          <ul class="menu ml-auto mt-1">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li class=""><a href="apply.html">Apply</a></li>
+            <li class=""><a href="onboarding.html">Onboarding</a></li>
+            <li class=""><a href="vault.html">Digital Vault</a></li>
+            <li class=""><a href="preview4.html">Advisor</a></li>
+            <li class=""><a href="login.html">Logout</a></li>
+          </ul>
+        </nav>
+        <!-- //nav -->
+      </div>
+    </header>
+
 </head>
 <body>
     <div class="preview-container" style="height:90vh; width:100vw; align="center";></div>
     <script>
         var preview = new Box.Preview();
-      	preview.show('442575738207', sessionStorage.getItem("accessToken"), {
+      	preview.show('665267906759', sessionStorage.getItem("accessToken"), {
             container: '.preview-container',
-            logoUrl: 'logo-small.png',
+            logoUrl: '/Runthebank-Barclays/favicon-16x16.png',
             showDownload: false
         });
     </script>
