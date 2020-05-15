@@ -1,0 +1,447 @@
+body {
+    width: 100%;
+    max-width: none;
+    overflow-x: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
+
+.container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C3C3C3;
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+    margin: 0 auto;
+    padding: 1%;
+    width: 100%;
+	max-width:980px;
+}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+  .container { top:-40px;position:relative;}
+  h1.page-header{margin:20px 0px 15px 0px !important;}
+  input {margin-bottom: 10px !important;}
+  #blterms{top:0px!important;position:relative;}
+}
+.label2 {
+    display: none;
+}
+
+.chkbox div input:focus,
+#remember input:focus {
+    border: 0;
+    outline: 0;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.grid_2.sub_5 img {
+    width: 100%;
+}
+
+.container .sub_5.grid_2 {
+    width: 38%;
+}
+
+b {
+    font-weight: bold;
+}
+
+
+
+.container .sub_5.grid_3 {
+    width: 58%;
+}
+
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5 {
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+    display: inline;
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    position: relative;
+}
+
+.grid_3 {
+    width: 64% !important;
+}
+.grid_2.sub_5 {
+    float: right;
+    border-left: 1px solid #e5e5e5;
+    width: 32% !important;
+}
+
+.container .sub_5.grid_5 {
+    width: 98%;
+}
+
+#submitBtn {
+   width: 100%;
+   height: 40px;
+}
+
+#notes {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 10px;
+    margin: 5px 0;
+    font-size: 10px;
+}
+
+#ad_blurb {
+    padding: 20px 0 0 20px;
+}
+.grid_5.sub_5 {
+    display: none;
+}
+
+/* form styles */
+form, fieldset {
+   /* margin-bottom: 50px;*/
+   margin:  0px;
+   padding:  0px;
+}
+
+form {
+     margin-bottom: 20px; 
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+.chkbox input{
+    margin: 0;
+}
+
+.chkbox, .txtbox {
+    border:  0 none;
+}
+
+h2 {
+    font: 17px/1.2 "Expert-Sans-Regular";
+    letter-spacing: 0.5px;
+}
+
+.txtbox label {
+    display: block;
+    font: 17px/1.2 "Expert-Sans-Regular", verdana, sans-serif;
+    font-weight: normal;
+    margin: 0 0 7px 0;
+    padding: 0;
+    color: #003366;
+    letter-spacing: 0;
+}
+
+.txtbox input {
+    width: 99%;
+    height: 20px;
+    border: 1px #d0d2d3 solid;
+    font-size: inherit;
+}
+
+#domain {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+select {
+    border-bottom: 1px solid #C3C3C3;
+    margin-right: 16px;
+    color : #888888;
+}
+
+table {
+    width: 100%;
+    margin-top : 0px;
+}
+
+.remember{
+    text-align: left;
+}
+
+#frgt {
+    text-align: right;
+    }
+/*table#remember tr td {
+    text-align: right;
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+table#remember tr td:first-child {
+    text-align: left;
+    background: none repeat scroll 0 0 #FFFFFF;
+}*/
+
+table tr:hover {
+  color: #5F5F5F;
+  background-color: #FFFFFF;
+}
+
+/*.table1strow a:hover {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.table2ndrow a:hover {
+  color: #017EB6;
+  text-decoration: underline;
+}*/
+
+#submit {
+    float: right;
+    height: 30px;
+    color: #fff;
+    border: none;
+    background: url(/BC_S/bl_rebrand/images/icon-block.gif) center;
+    width: 23%;
+}
+
+.hasPlaceholder {
+    color: #888;
+}
+
+.chkbox div {
+    display: inline-block;
+    padding-right: 5%;
+}
+
+/* header */
+/*div.header {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    background: url("img/nav-shadow-btm.gif") repeat-x scroll center bottom #FFFFFF
+}*/
+
+.img_wrap {
+    padding-left: 1%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.img_wrap span {
+    height: 100px;
+    width: 100%;
+}
+
+.mobile_help{
+	display: none;
+}
+
+/* media queries */
+@media only screen and (max-width: 480px) {
+
+    form {
+        margin-bottom: 0px !important;
+    }
+
+    .mobile-header {
+        text-align: center;
+        margin-top: 40px !important;
+        font-size: 28px !important;
+    }
+
+    .mobileSpecification {
+        max-width: 50%;
+    }
+
+    .not_mobile_help {
+        display: none;
+    }
+
+    .mobile_help {
+        margin-top: 150px;
+        display: inline-block;
+    }
+
+    input {
+        margin-bottom: 10px;
+    }
+
+    .grid_2 {
+        display: none;
+    }
+
+    .grid_3 {
+        width: 98% !important;
+    }
+
+    #submit {
+        color: #fff;
+        background-color: #000;
+        width: 100%;
+    }
+
+    .header {
+        margin-bottom: 0 !important;
+        height: 63px;
+    }
+
+    .header span {
+        display: none;
+    }
+
+    .chkbox div {
+        display: block;
+        padding-bottom: 3px;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .img_wrap {
+        padding-left: 3%;
+        padding-top: 12px;
+    }
+
+    .wrapper {
+        margin: 2%;
+        margin-top: 1% !important;
+    }
+
+    .txtbox input {
+        width: 96%;
+    }
+
+    .page-header {
+        display: none;
+    }
+
+    .txtbox label,
+    h2 {
+        display: none !important;
+    }
+
+    .txtbox input {
+        height: 30px;
+        padding-left: 10px;
+    }
+
+    .hasPlaceholder {
+        color: #888;
+    }
+
+    .txtbox input {
+        font-size: 12px;
+    }
+
+    .label1 {
+        display: none;
+    }
+
+    .label2 {
+        display: block;
+    }
+
+    select#domain {
+        -webkit-appearance: button;
+        border-radius: 0;
+        border: 1px solid #c3c3c3;
+        /* background-image: url(/BC_S/bl_rebrand/images/drop-arrow.png);*/
+        background-position: 98% 55%;
+    -webkit-linear-gradient(#FAFAFA, #F4F4F4 40 %, #E5E5E5);
+        background-repeat: no-repeat;
+        padding-left: 10px;
+        color: #888;
+        font-size: 12px;
+        height: 34px;
+    }
+
+    select#domain:active {
+        background-image: url(/BC_S/bl_rebrand/images/arrow-top.gif);
+        background-position: 98% 45%;
+    }
+
+    /* SEGMENTED BUTTONS */
+    fieldset.chkbox {
+        margin: 0 auto;
+        font-size: 13px;
+        line-height: 1;
+        text-align: center;
+        padding: 20px;
+        margin-left: -6px;
+    }
+
+    fieldset.chkbox .button {
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, .35)), color-stop(.5, rgba(255, 255, 255, .1)), color-stop(.5, transparent), to(transparent));
+        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, .35), rgba(255, 255, 255, .1) 50%, transparent 50%, transparent);
+        -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, .35), 0 1px 1px #fff;
+        -moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, .35), 0 1px 1px #fff;
+    }
+
+    fieldset.chkbox .button {
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 27px;
+        margin-right: -6px;
+        line-height: 27px;
+        color: #425f86;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: rgba(255, 255, 255, .65) 0 1px 1px;
+        border: 1px solid #718295;
+        border-top-color: #627080;
+        background: #d3dadf;
+        background-clip: border-box;
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, .15)), color-stop(.5, rgba(255, 255, 255, .05)), color-stop(.5, transparent), to(transparent));
+        -webkit-box-shadow: rgba(255, 255, 255, .65) 0 0 0, inset rgba(0, 0, 0, .3) 0 1px 1px;
+        overflow: hidden;
+    }
+
+    fieldset.chkbox .button.selected {
+        color: #fff;
+        text-shadow: rgba(0, 0, 0, .65) 0 -1px 1px;
+        background-color: #677a94;
+        border: 1px solid #495e7b;
+        border-top-color: #41536d;
+    }
+
+    fieldset.chkbox .radio {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .button label {
+        vertical-align: baseline;
+        font-size: 11px;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .wrapper {
+    margin: 2%;
+    }
+}
+
+

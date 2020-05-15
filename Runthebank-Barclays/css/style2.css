@@ -131,7 +131,7 @@ nav ul li {
 
 /* Styling the links */
 nav a {
-    color: #ddd;
+    color: #00395d;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding-left: 0;
@@ -143,8 +143,8 @@ nav a {
 }
 nav li.last-grid a {
     background: none;
-    border: 2px solid #ffc168;
-    color: #ffc168;
+    border: 2px solid #00395d;
+    color: #00395d;
     font-size: 15px;
     letter-spacing: 1px;
     padding: 7px 25px;
@@ -213,7 +213,7 @@ li > a:only-child:after { content: ''; }
 
 	#logo {
 		display: block;
-		padding: 0;
+		padding-bottom: 10px;
 		width: 100%;
 		text-align: center;
 		float: none;
@@ -246,7 +246,7 @@ li > a:only-child:after { content: ''; }
 		text-decoration: none;
 		border: none;
 		float: right;
-		background-color: #ffc168;
+		background-color: #00395d;
 		color: #fff;
 		margin-bottom: 0;
 		margin-top: 0em;
@@ -369,19 +369,16 @@ li > a:only-child:after { content: ''; }
 
 /*-- banner --*/
 .banner {
-    background: url(../images/banner.jpg)no-repeat 0px 0px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
     background-size: cover;
 }
-.layer {
-    background: rgba(0, 0, 0, 0.3);
-}
+
 .w3ls_banner_txt p {
     font-size: 15px;
-    color: #eee;
+    color: #00395d;
     text-transform: capitalize;
 }
 .banner-text-w3pvt {
@@ -399,11 +396,11 @@ h3.b-w3ltxt span {
 }
 h2.b-w3ltxt,h3.b-w3ltxt {
     font-size: 4em;
-    color: #fff;
+    color: #00aeef;
     font-weight: 600;
 }
 h2.b-w3ltxt span,h3.b-w3ltxt span {
-    color: #db0012;
+    color: #00395d;
 }
 h4.b-w3ltxt {
     font-size: 3em;
@@ -414,16 +411,16 @@ h4.b-w3ltxt {
 
 .btn-banner {
     background: none;
-	border: 2px solid #fff;
-    color: #fff;
+	border: 2px solid #00aeef;
+    color: #00aeef;
     font-size: 15px;
     letter-spacing: 1px;
     padding: 10px 30px;
     display: inline-block;
 }
 .btn-banner1 {
-    background: #333;
-	border: 2px solid #333;
+    background: #00aeef;
+	border: 2px solid #00aeef;
     color: #fff;
     font-size: 15px;
     letter-spacing: 1px;
@@ -451,7 +448,7 @@ h4.b-w3ltxt {
 
 /*-- footer --*/
 footer,.copy-right,.middle{
-	background: #161616;
+	background: #00395d;
 }
 footer h4 {
     font-size: 23px;
@@ -459,7 +456,7 @@ footer h4 {
     color: #fff;
 }
 ul.list-w3 li a, ul.list-w3 li , .footer p.head,.copy-right p,.middle  p {
-    color: #777;
+    color: #ffffff;
     font-size: 16px;
     letter-spacing: .5px;
 }
@@ -655,7 +652,7 @@ p.para-text-w3ls{
 
 
 .inner-banner {
-    background: url(../images/innerbanner.jpg)no-repeat 0px 0px;
+    background: url(../images/1.png)no-repeat 0px 0px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

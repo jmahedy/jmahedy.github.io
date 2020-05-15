@@ -78,14 +78,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   "async": true,
                   "crossDomain": true,
                   //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
-                  "url": "https://api.box.com/2.0/folders/?parent_id=" + mainFolderId + "&path=Statements",
+                  "url": "https://api.box.com/2.0/folders/?parent_id=" + mainFolderId + "&path=Onboarding",
                   "method": "GET",
                   "headers": {"Authorization": "Bearer " + sessionStorage.getItem("accessToken")}
                 };
                 $.ajax(settings).done(function(response) {
 
                   $.each(response.entries, function(k, data) {
-                    if (data.name == "Statements") {
+                    if (data.name == "Onboarding") {
                       sessionStorage.setItem("st",data.id)
                     }
                   });
@@ -128,13 +128,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<input type="checkbox" id="drop" />
 			<ul class="menu ml-auto mt-1">
 				<li class="active"><a href="index.html">Home</a></li>
-				<li class=""><a href="about.html">About</a></li>
+
 				<li class=""><a href="apply.html">Apply</a></li>
-        <li class=""><a href="statements.html">Statements</a></li>
-        <li class=""><a href="vault.html">Digital Vault</a></li>
+        <li class=""><a href="onboarding.html">Onboarding</a></li>
+        <li class=""><a href="vault.html">Secure Vault</a></li>
         <li class=""><a href="advisor.html">Advisor</a></li>
         <li class=""><a href="login.html">Logout</a></li>
-				<li class="last-grid"><a href="#">Call Now</a></li>
+
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -156,11 +156,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="banner_slide_bg">
 						<li>
 							<div class="w3ls_banner_txt">
-								<h2 class="b-w3ltxt text-capitalize mt-md-4"> Barclays <span>Loans, Mortgages & Credit Cards.</span> </h2>
+								<h2 class="b-w3ltxt text-capitalize mt-md-4"> Banking <span>Mergers & Acquisitions, Debt & Equity Capital, Leveraged Finance, Risk Solutions </span> </h2>
 								<h4 class="b-w3ltxt text-capitalize">Made for you</h4>
-								<p class="w3ls_pvt-title my-3">Make managing your money easy with an Barclays current account. With access to linked savings accounts, overdrafts and digital banking, there’s plenty to consider. Take a look at our range of current accounts and guidance to see what will suit you.
-
-All loans are subject to status. Early settlement fees apply.</p>
+								<p class="w3ls_pvt-title my-3">We offer comprehensive financial advisory, capital raising, financing and risk management services for corporations, governments and financial institutions worldwide.</p>
+                <p class="w3ls_pvt-title my-3">Applying deep expertise across sectors, regions and products, we create customised, sophisticated strategies to help clients achieve their goals.</p>
 								<a href="services.html" class="btn btn-banner my-3 mr-2">Read More</a>
 								<a href="apply.html" class="btn btn-banner1 my-3">Apply Now</a>
 							</div>
@@ -356,7 +355,7 @@ All loans are subject to status. Early settlement fees apply.</p>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7">
-				<p class="">© 2019 Bank Card. All rights reserved | Design by
+				<p class="">©2020 Box
 					<a href="http://w3layouts.com"> W3layouts.</a>
 				</p>
 			</div>
