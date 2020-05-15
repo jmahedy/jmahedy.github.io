@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-	<title>HSBC - Secure Login</title>
+	<title>Barclays - Secure Client Login</title>
 	<!-- Meta-Tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
@@ -56,7 +56,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        sessionStorage.setItem("adminAccessToken",response.adminAccessToken);
 		        console.log("from storage access:" + sessionStorage.getItem("accessToken"));
 		        console.log("from storage admin:" + sessionStorage.getItem("adminAccessToken"));
-		        window.location.replace('/Runthebank-HSBC//index.html');
+		        window.location.replace('/Runthebank-Barclays/index.html');
 
 		      });
 		    }));
@@ -79,7 +79,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
-	<h1>HSBC</h1>
+	<h1>Barclays</h1>
 	<div class="w3ls-login box box--big">
 		<!-- form starts here -->
 		<form action="#" id="userlogin" method="get">
@@ -109,13 +109,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					}
 				}
 			</script>
-
-	<select class="browser-default custom-select">
-  <option selected>Type of customer</option>
-  <option value="1">Retail</option>
-  <option value="2">Wealth</option>
-  <option value="3">Corporate</option>
-</select>
+			
 			<!-- //script ends here -->
 			<div class="w3ls-bot">
 				<div class="switch-agileits">
