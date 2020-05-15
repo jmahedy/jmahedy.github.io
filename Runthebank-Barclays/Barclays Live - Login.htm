@@ -39,559 +39,58 @@
     <script type="text/javascript" src="./Barclays Live - Login_files/jquery-1.7.2.min.js"></script>
 	<script src="./Barclays Live - Login_files/bl-bcag-client-bundle-min.js"></script>
 	<script src="./Barclays Live - Login_files/core-min.js"></script>
-	<script src="./Barclays Live - Login_files/enc-base64-min.js"></script>		
-    <script language="javascript">
-	$(function () {
-	
-        $('a[href="#test"]').on('click', function () {
-			var $trigger = $(this);
-			$('.grid_5.sub_5').slideToggle('fast');
-        });
+    <script src="./Barclays Live - Login_files/enc-base64-min.js"></script>		
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        $('input.mandatory').keyup(function (){
+    <script>
 
-            var enable = true;
-            $('input.mandatory').each(function () {
-                if(enable) {
-                    enable = ($(this).val() != '');
-                }
-            });
-
-        });
-
-        $('#submit').click(function () {
-            $('input.mandatory').each(function () {
-                if($(this).val() == '') {
-                    $(this).css('border-color', '#D71D4F');
-                } else {
-                    $(this).css('border-color', '#c3c3c3');
-                }
-            });
-
-            if(validate(document.forms['passwdForm'])){
-                formSubmit();
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+    
+            function hideURLbar() {
+                window.scrollTo(0, 1);
             }
-        });
-    });
-	
-    window.alert = function (msg) {
-        $('.error-message').remove();
-        $("form[name='passwdForm']").before('<div class="error-message">' + msg + '</div>');
-    };
-
-    function encryptContents() {
-        //
-
-        var $form = $("form[name='passwdForm']");
-
-        var loginType = $('input[name="auth_mode"]', $form).val();
-        if (loginType != "basic") {
-            return true;
-        }
-
-        var pae = $('#e').val();
-
-        if (!$('#k').val() && !pae) {
-            return true;
-        }
-
-        var user = $('input[name="user"]', $form).val();
-        var $password = $('input[name="password"]', $form);
-        var hasError = false;
-
-        var bondhubAccountPattern = /^bh-/i;
-        if(bondhubAccountPattern.test(user)){
-            return true;
-        }
-
-        var bcagVersionParam = $('#v').val();
-        var bcagNonceParam = $('#n').val();
-        var bcagServerNonceParam = $('#s').val();
-        var bcagIv = $('#i').val();
-        var bcagKey = $('#k').val();
-
-        var bcagPreAuthRequired = $('#bcagPreAuthFlag').val();
-
-        if(bcagPreAuthRequired == "Y") {
-            $.ajax({
-                url: '/UAB/S/bcag/preauth',
-                type: 'POST',
-                contentType: "application/x-www-form-urlencoded",
-                dataType: 'json',
-                data: 'user=' + user,
-                async: false,
-                success: function (data) {
-                    if (data['e'] == "") {
-                        bcagVersionParam = data['v'];
-                        bcagNonceParam = data['n'];
-                        bcagServerNonceParam = data['s'];
-                        bcagIv = data['i'];
-                        bcagKey = data['k'];
-                    } else {
-                        pae = data['e'];
-                    }
-                },
-                error: function () {
-                    pae = "Internal server error";
-                }
-            });
-        }
-
-        if (pae) {
-            alert(pae);
-            hasError = true;
-        } else {
-            try {
-                var message = MessageBuilder.build({
-                    userId: user,
-                    password: $password.val()
-                }, {
-                    version: bcagVersionParam,
-                    nonce: bcagNonceParam,
-                    serverNonce: bcagServerNonceParam,
-                    iv: bcagIv,
-                    key: bcagKey
-                });
-                $password.val(message);
-                $form.attr('action', '/UAB/S/user_logon');
-            } catch (err) {
-                alert(err.message);
-                hasError = true;
-            }
-        }
-
-
-
-        // 
-        return !hasError;
-    }
-	
-	
-	
-    //
-    var focusField='user';
-    var pointer=this;
-    var l=document.layers;
-    if(l) captureEvents(Event.KEYPRESS);
-
-    function enablelpCookie(chkbx) {
-
-        if(chkbx=="lpCookie") {
-            if(!document.passwdForm.lpCookie.checked) {
-                document.passwdForm.lpCookie.checked=true;
-                showPersistentCookieWindow(document.passwdForm.lpCookie);
-            }
-        }
-
-    }
-    function changeLangPreference(lang)
-    {
-        var location = document.location+"";
-        //remove any hashes
-        location = location.replace(/#/,'');
-        var languageParam = "_lang=";
-
-        //replace _lang value if exists
-        var locIdx = location.indexOf(languageParam);
-        if(locIdx < 0)
-            if(location.indexOf("?") < 0)
-                location = location + "?" + languageParam+lang;
-            else
-                location = location + "&" + languageParam+lang;
-        else
-        {
-            var li = location.indexOf(locIdx, "&");
-            if(li < 0) li = location.length;
-
-            location = location.substring(0,locIdx)+ languageParam + lang + location.substring(li, location.length);
-        }
-
-        document.location = location;
-    }
-
-    function handleEnter(field, event) {
-        var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-        if(keyCode==13){
-            var i;
-            for(i=0; i<field.form.elements.length; i++){
-                if(field==field.form.elements[i])break;
-            }
-            if(!validate(field.form))return false;
-            //if this is the last field submit the form
-            if(i+1 == field.form.elements.length){
-                formSubmit();return;
-            }
-            i = (i + 1) % field.form.elements.length;
-            //skip hidden fields
-            if(field.form.elements[i].type == "hidden" || field.form.elements[i].type == "checkbox" || field.form.elements[i].type == "select-one"){
-                handleEnter(field.form.elements[i], event);return false;
-            }
-            field.form.elements[i].focus();
-            return false;
-        }else return true;
-    }
-    function setSize(){
-        var winW=0, winH=0;
-        if(parseInt(navigator.appVersion)>3) {
-            if (navigator.appName=="Netscape") {
-                winW = window.innerWidth -16;
-                winH = window.innerHeight -16;
-            }
-            if (navigator.appName.indexOf("Microsoft")!=-1) {
-                winW = document.body.offsetWidth -20;
-                winH = document.body.offsetHeight -20;
-            }
-        }
-        if(winW<790) window.resizeTo(800,600);
-    }
-    function setFocus(){
-
-        if (focusField == 'user'){
-           if(document.passwdForm.user != undefined && document.passwdForm.user.type != 'hidden') {
-               if (isIE6()) {
-                setTimeout(function() { document.getElementById('user').focus(); }, 100);
-               }else{
-                   document.passwdForm.user.focus();
-                }
-               return false;
-           }
-           else if (document.passwdForm.ntUser != undefined && document.passwdForm.ntUser.type != 'hidden') {
-               if (isIE6()) {
-                setTimeout(function() { document.getElementById('ntUser').focus(); }, 100);
-               }else{
-                   document.passwdForm.ntUser.focus();
-               }
-               return false;
-           }
-        }
-
-        if(focusField!='password'){
-            if(document.forms[0]){
-                form=document.forms[0];
-                for(i=0; i<form.length; i++){
-                    if(form.elements[i].type == "hidden") continue;
-                    form.elements[i].focus();return;
-                }}}
-        else useridSubmit();
-    }
-
-    function isIE6(){
-        return ($.browser.msie && $.browser.version.substr(0,1)<7);
-    }
-
-    function setPasswordFocus(){focusField = 'password';}
-    function useridSubmit() {
-        if(document.passwdForm.password){
-            document.passwdForm.password.focus();return false;
-        }
-        if(document.passwdForm.nt_password){
-            document.passwdForm.nt_password.focus();return false;
-        }
-        if(document.passwdForm.rsa_password){
-            document.passwdForm.rsa_password.focus();return false;
-        }
-        return false;
-    }
-    function getForgetPasswordUri(){
-        this.location = "/UAB/ResetWithSecrets?login_page=" + getLoginPageUri() + "&ct_orig_uri=" + getOrigUri();
-    }
-    function getLoginPageUri(){
-        var page=document.location.href;
-        var pos=page.indexOf("basic");
-        if (pos>=0) return "/UAB/ct_logon_basic";
-        var pos=page.indexOf("securid");
-        if(pos>=0) return "/UAB/ct_logon_securid";
-        return "/UAB/ct_logon";
-    }
-    function getOrigUri(){return document.passwdForm.ct_orig_uri.value;}
-    function FullURLEncode(str){
-        var ms="%25#23 20?3F<3C{7B}7D[5B]5D|7C^5E~7E`60/2F=3D&26&26";
-        var msi=0;var i,c,rs,ts;
-        while(msi<ms.length){
-        c=ms.charAt(msi);
-        rs=ms.substring(++msi,msi+2);
-        msi+=2;i=0;
-        while(true){
-            i=str.indexOf(c,i);
-            if(i==-1) break;
-            ts=str.substring(0,i);
-            str= ts+"%"+rs+str.substring(++i,str.length);
-            }
-        }return str
-    }
-    function redirectLogin(loginPage, isFullUri, uriParamName){
-        var pcOperation="";
-		var isiPad = navigator.userAgent.match(/iPad/i) != null;
-        if (eval("document.passwdForm.lpCookie")){
-            if(document.passwdForm.lpCookie.checked) pcOperation="&lpAuth=y";
-            else pcOperation = "&lpAuth=n";
-        }
-        if(eval("document.passwdForm.securIdPreferredPage")){
-            if(document.passwdForm.securIdPreferredPage.checked) pcOperation="&lpSp=y";
-            else pcOperation="&lpSp=n"
-        }
-
-        var fullUri = '';
-        if (isFullUri == 'Y')
-            fullUri = loginPage + "?";
-        else{
-			if(isiPad){
-				fullUri = "/UAB/" + loginPage + "?show=y&promo=n" + pcOperation + "&from=ct_logon&";
-			}else{
-				fullUri = "/UAB/" + loginPage + "?show=y" + pcOperation + "&from=ct_logon&";
-			}
-			
-			
-		}
-		
-
-        if (uriParamName == null || uriParamName == "")
-            uriParamName = "ct_orig_uri";
-
-        uri = document.passwdForm.ct_orig_uri.value;
-        if (uri == "")
-            uri = "/";
-
-        fullUri += uriParamName + "=" + FullURLEncode(uri);
-    // 
-	
-	
-        
-		
-	
-	
-    //
-
-        this.location = fullUri;
-    }
-    function ntExpiredVerify(form){
-        if(form.new_nt_password.value == form.new_nt_password2.value){
-            return true;
-        }
-        else {
-            alert("The new password is not repeated correctly. Please try again.");
-            return false;
-        }
-    }
-    var CanLogin = true;
-    function formSubmit(){
-      if(CanLogin){
-        CanLogin=false;
-            setTimeout("resetLogin()",5000);
-      }else{
-        return false;
-      }
-        // Get rid of previous persistent cookie tail (wrong id or pwd entered)
-        if(eval("document.passwdForm.lpCookie")){
-            var tempUri=document.passwdForm.ct_orig_uri.value;
-            pos=tempUri.indexOf("~createLP");
-            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
-            tempUri=document.passwdForm.ct_orig_uri.value;
-            pos=tempUri.indexOf("~removeLP");
-            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
-        }
-        if(eval("document.passwdForm.lpNTCookie")){
-            var tempUri=document.passwdForm.ct_orig_uri.value;
-            pos=tempUri.indexOf("~createLPNT");
-            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
-            tempUri=document.passwdForm.ct_orig_uri.value;
-            pos=tempUri.indexOf("~removeLPNT");
-            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
-        }
-        // Get rid of previous securid tail (wrong id or pwd entered)
-        if(eval("document.passwdForm.securIdPreferredPage")){
-            var tempUri=document.passwdForm.ct_orig_uri.value;
-            pos=tempUri.indexOf("~createSPP");
-            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
-            tempUri=document.passwdForm.ct_orig_uri.value;
-            pos=tempUri.indexOf("~removeSPP");
-            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
-        }
-        closePersistentCookieWindow();
-        if(eval("document.passwdForm.lpCookie")){
-            if(document.passwdForm.lpCookie.checked)document.passwdForm.ct_orig_uri.value+='~createLP';
-            else document.passwdForm.ct_orig_uri.value+='~removeLP';
-        }
-        if(eval("document.passwdForm.lpNTCookie")){
-            if(document.passwdForm.lpNTCookie.checked)document.passwdForm.ct_orig_uri.value+='~createLPNT';
-            else document.passwdForm.ct_orig_uri.value+='~removeLPNT';
-        }
-        if(eval("document.passwdForm.securIdPreferredPage")){
-            if (document.passwdForm.securIdPreferredPage.checked)document.passwdForm.ct_orig_uri.value+='~createSPP';
-            else document.passwdForm.ct_orig_uri.value+='~removeSPP';
-        }
-        // SET FIELD
-        if(eval("document.passwdForm.securIdPreferredPage")){
-            if(document.passwdForm.securIdPreferredPage.checked)document.passwdForm.lpSp.value+='y';
-            else document.passwdForm.lpSp.value+='n';
-        }
-        actionInfo = document.passwdForm.ct_orig_uri.value;
-        document.passwdForm.orig_url.value = actionInfo;
-
-        saveCookie("orig_url",actionInfo);
-
-        if(!encryptContents()) {
-			return false;
-		}
-        document.passwdForm.submit();
-        return true;
-    }
-    function resetLogin(){CanLogin=true;}
-    var persistentCookieWindow=null;
-    var wasOpened=null;
-    function showPersistentCookieWindow(checkBox){
-        if(checkBox.checked && wasOpened==null){
-            wasOpened='Y';
-            openPersistentCookieWindow();
-            setPersist(checkBox.form);
-        }
-    }
-    function setPersist(form){
-        //alert(form.lpCookie.value);
-        if(form.lpCookie && form.lpCookie.checked)document.passwdForm.ct_orig_uri.value+='~createLP';
-        else document.passwdForm.ct_orig_uri.value+='~removeLP';
-        if(form.lpNTCookie && form.lpNTCookie.checked)document.passwdForm.ct_orig_uri.value+='~createLPNT';
-        else document.passwdForm.ct_orig_uri.value+='~removeLPNT';
-    }
-    function openPersistentCookieWindow(){
-        persistentCookieWindow=LLOpenWindow("/BC_S/html/PersistentCookieDisclaimer.html");
-        wasOpened='Y';
-    }
-    function closePersistentCookieWindow(){
-        if(persistentCookieWindow!=null && !persistentCookieWindow.closed)
-        persistentCookieWindow.close();
-    }
-    function showPreferCookieWindow(checkBox){
-        if(checkBox.checked && wasOpened==null){
-            checkBox.wasOpened='Y';
-            openPreferCookieWindow();
-        }
-    }
-    function openPreferCookieWindow(){
-        preferCookieWindow=LLOpenWindow("/BC_S/html/PersistentCookieDisclaimer.html");
-        //wasOpened = 'Y';
-    }
-    function closePreferCookieWindow(){
-        if(preferCookieWindow!=null && !preferCookieWindow.closed) preferCookieWindow.close();
-    }
-    function setupHighlightNugget(){
-       if (document.getElementById('highlightsTable'))
-       {
-          var height = document.getElementById('highlightsTable').offsetHeight;
-          if (height < 220)
-             document.getElementById('highlights').style.height = document.getElementById('highlightsTable').offsetHeight;
-          else
-             document.getElementById('highlights').style.height = 220;
-       }
-    }
-
-    swfobject.registerObject("ipadAd", "9.0.0", "/BC_S/html/expressInstall.swf");
-    // 
-    //<takover_password>
-    window.onload = useridSubmit;
-    //</takover_password>
-    //<takover_userid>
-    window.onload = setFocus;
-    //</takover_userid>
-    //
-    // 
-
-
-</script><style type="text/css" media="screen">#ipadAd {visibility:hidden}#ipadAd {visibility:visible}</style>
-<script>
-if(typeof String.prototype.trim !== 'function') {
-  String.prototype.trim = function() {
-    return this.replace(/^\s+|\s+$/g, ''); 
-  }
-}
-function setCookie(cname,cvalue,expDays) {
-
-    var d = new Date();
-    d.setTime(d.getTime() + (expDays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname+"="+cvalue+"; "+expires+ ";path=/";
-	
-}
-function getCookie(cname){
-	var name=cname+"=";
-	var ca = document.cookie.split(';');
-	
-	for(var i in ca){
-		var c=ca[i].trim();
-		
-		if (c.indexOf(name) == 0) {
-		
-			return c.substring(name.length, c.length);
-		}
-	}
-	return "";
-}
-function checkCookie(cval) {
-    var times=getCookie(cval);
-	
-    if (times > 0) {
-	
-        $('#overlay').css("display","none");
-		
-    } else {
-		
-       $('#overlay').css("display","block");
-	
-    }
-}
-function getCookieDomain(){
-                var url=window.location.href;
-                if (url.indexOf("liveqa.barcap.com")>=0) return "QA";
-                else if (url.indexOf("livestage.barcap.com")>=0) return "Stage";
-                else if (url.indexOf("liveframe.barcap.com")>=0) return "Frame";
-                else if (url.indexOf("live.barcap.com")>=0) return "";
-				else return "Dev";
-                
-}
-
-
-function setWrapper(){
-	var curHeight=$(document).height();
-	var curWidth=$(window).width();
-	
-	$('#overlay').height(curHeight);
-	
-	
-	
-}
-function showOverlay(){
-
-	$('.contentWrap').load("../BC_S/html/ipadLogin.html",function(responseText, statusText, xhr){
-		if(statusText=="error"){
-					
-			$('#overlay').css("display","none");
-			$('.container').css("display","block");
-			$('.confirm_overlay').css("display","none");
-		}else{
-			$('#overlay').css("display","block");
-			setWrapper();
-			$('.confirm_overlay').css("display","none");
-		}
-					
-						
-					
-	});
-
-}
-
-function hideOverlay(){
-
-	$('#overlay').css("display","none");
-	$('.container').css("display","block");
-	$('.confirm_overlay').css("display","none");
-
-}
-</script>
-<script>
-
-
-
-</script>
+    
+              //Change this to change Application context
+              var clientId="go1olv0vrbrfmb4pm5k3equhhkoi8cef";
+              $(document).ready(function() {
+            //		$('.mdb-select').materialSelect();
+                sessionStorage.clear();
+                  $('#userlogin').on('submit', (function(ev) {
+                  $("#signbutton").hide();
+                  $("#loader").show();
+                  ev.preventDefault();
+                  console.log("Form submitted");
+                  var userLogin = $("#userLogin").val();
+                  var urlParams = "code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&clientId=" + clientId + "&userEmail=" + userLogin;
+                  console.log(urlParams);
+                  var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    //"url": "https://desc-transcode-function.azurewebsites.net/api/generateToken?code=Jq4te0OgMV6LCHpC0NrJu91aZpS/M0x56e6MzZdROAEL2kdkocaLmA==&client-id=r1yki89hxnzv6mrz14njndrr59dm5w0h&as-user=6203007648",
+                    "url": "https://bl2vhdoqzh.execute-api.eu-west-2.amazonaws.com/default/box-jwt-tokengenerator?" + urlParams,
+                    "method": "GET",
+                    "headers": {}
+                  };
+                  $.ajax(settings).done(function(response) {
+                    console.log(response);
+                    accessToken = response.token;
+                    sessionStorage.setItem("accessToken",accessToken);
+                    sessionStorage.setItem("userLogin",userLogin);
+                    sessionStorage.setItem("adminAccessToken",response.adminAccessToken);
+                    console.log("from storage access:" + sessionStorage.getItem("accessToken"));
+                    console.log("from storage admin:" + sessionStorage.getItem("adminAccessToken"));
+                    window.location.replace('/Runthebank-Barclays/index.html');
+    
+                  });
+                }));
+              });
+    
+    
+    
+    
+        </script>
 <style>
 
 @media only screen and (min-device-width: 418px) and (device-height: 1024px)  {
@@ -619,84 +118,10 @@ function hideOverlay(){
 	
 
 </style>
-<script language="javascript">
-	
-		var expPDays = 30;
-		var expDays = 1;
-		
-	
-
-	
-	var iPadOverlaySkip ="N";
-	
-
-
-        var bondhubAccountPattern = /^bh-/i;
-		var errText = '';
-		errText += '<br/><br/><img src="/BC_S/imagelibrary/icons/error_alert.gif" alt="Error " border="0" height="18" width="18">&#160;&#160;'
-		errText += '<span class="a11red"><b>Your current browser settings indicate that cookies are disabled.  Cookies are required for Barclays Live to function properly. <br/>';
-		errText += '<a href="#" title="How to Enable Cookies." onclick="LLOpenWindow(\'/BC_S/html/enable_cookies.html\');return false;">How to Enable Cookies.</a></b></span><br/><br/>';
-
-			function getRadioButtonValue(radioButtons) {
-				var elements = document.getElementsByName(radioButtons);
-				if (elements == null) {
-					return "";
-				}
-				for (var i = 0, l = elements.length; i < l; i++) {
-					if (elements[i].checked) {
-						return elements[i].value;
-					}
-				}
-				
-				return "";
-			}
-					
-			function validate(form, field){
-                if(field){
-                    if((field.name=="user" || field.name=="ntUser") && field.value==""){
-                        alert("You must specify the User ID. Thank you.");
-                        field.focus();return false;
-                    }
-                    if(field.name=="password" && field.value==""){
-                        alert("You must specify a password. Thank you.");
-                        field.focus();return false;
-                    }
-                    if(field.name=="nt_password" && field.value==""){
-                        alert("You must specify a password. Thank you.");
-                        field.focus();return false;
-                    }
-                    if(field.name=="rsa_password" && field.value==""){
-                        alert("You must specify a password. Thank you.");
-                        field.focus();return false;
-                    }
-					if(field.name=="user") {
-						var mp = document.passwdForm.mp.value;
-						var loginType = getRadioButtonValue("useLogin");
-						if (mp == "Y" && loginType == "standard") {
-							document.passwdForm.action = "/UAB/S/ct_logon";
-						}
-					}
-
-                    
-
-                        if(field.name=="user" && bondhubAccountPattern.test(field.value)) {
-                            form.action="https://live.barcap.com/UAB/bh_logon";
-                        }
-
-                    
-
-                    return true;
-                }
-                for(j=0; j<form.elements.length; j++){if(!validate(form,form.elements[j]))return false;}
-                return true;
-            }
-
-
-		</script>
 
 <style type="text/css">#topBanner #logo {background:url(/BC_S/images/bcnav/BarLive_Neg.gif) no-repeat;margin:10px 0 0;}</style></head>
 
-<body onload="javascript:setFocus();">
+<body >
 <script>
 //logo for one brand
 var url = document.location.href.split("?")[0];
@@ -795,11 +220,11 @@ head.appendChild(style);
                             Client Login
                         </div>
                         <div class="button" for="rsaSecurID" accesskey="r">
-                            <input name="useLogin" value="rsaSecur" type="radio" id="rsaSecurID" onclick="redirectLogin(&#39;ct_logon_securid&#39;);return false;" class="radio">
+                            <input name="useLogin" value="rsaSecur" type="radio" id="rsaSecurID" class="radio">
                             RSA SecurID
                         </div>
                         <div class="button" id="employeeNTXPButton" for="employeeNTXP" accesskey="e">
-                            <input name="useLogin" id="employeeNTXP" value="employee" type="radio" onclick="redirectLogin(&#39;ct_logon_external_nt&#39;);return false; " class="radio">
+                            <input name="useLogin" id="employeeNTXP" value="employee" type="radio" class="radio">
                             Employee Windows Login
                         </div>
 
@@ -817,17 +242,17 @@ head.appendChild(style);
                 
 
 
-                <form onsubmit="if(validate(this)){formSubmit();}return false;" name="passwdForm" method="post" action="https://live.barcap.com/UAB/ct_logon">
+                <form id="userlogin" name="passwdForm" method="post" action="https://live.barcap.com/UAB/ct_logon">
                     <input value="basic" name="pageId" type="hidden"><input value="basic" name="auth_mode" type="hidden"><input value="/BC/dispatcher" name="ct_orig_uri" type="hidden"><input value="Y" name="mp" type="hidden"><input value="" name="orig_url" type="hidden"><input value="" name="lpSp" type="hidden">
                     
 
                     <fieldset class="txtbox">
                         <label id="user" class="loginform-label" name="username-label">Username or Email</label>
-                        <input autocomplete="off" name="user" type="text" value="" size="60" class="hasPlaceholder mandatory" placeholder="Username or Email" onkeypress="return handleEnter(this, event);" autocorrect="off" autocapitalize="off">
+                        <input id="userLogin" autocomplete="off" name="user" type="text" value="" size="60" class="hasPlaceholder mandatory" placeholder="Username or Email" autocorrect="off" autocapitalize="off">
                         
 
                         <label class="loginform-label">Password</label>
-                        <input autocomplete="off" size="60" name="password" type="password" class="hasPlaceholder mandatory" placeholder="Password" onkeypress="return handleEnter(this, event);">
+                        <input id="password" autocomplete="off" size="60" name="password" type="password" class="hasPlaceholder mandatory" placeholder="Password" >
 
                     </fieldset>
 					
@@ -843,13 +268,13 @@ head.appendChild(style);
 					
 					
 					
-                </form>
+              
              
 
         <div id="submitBtn">
-            <button type="button" id="submit" name="" value="Submit">Login</button>
+            <button type="submit" id="submit" name="" value="Submit">Login</button>
         </div>
-        
+    </form>
             
                 <div id="resetAccount" style="width:100%;display:inline-block">
                     <div id="frgt" style="float: right">
@@ -951,103 +376,12 @@ head.appendChild(style);
         <ul id="footerLinks" style="display:none">
             <li class="copyright">© Barclays Bank PLC 2013</li>
         </ul>
-    <script language="javascript">
-
-        //var euLiveSecureImage = new Image();
-        //euLiveSecureImage.src = 'https://eu'+ document.domain +'/BC_S/images/cleardot.gif';
-        //var tkLiveSecureImage = new Image();
-        //tkLiveSecureImage.src = 'https://tk'+ document.domain +'/BC_S/images/cleardot.gif';
-
-        /* Safari Check */
-        var agt=navigator.userAgent.toLowerCase();
-
-        if(agt.indexOf("safari")>=0) {
-            //
-            /*var me = document.getElementsByTagName("input");
-
-            for(var k=0; k<me.length; k++)    {
-                var inp = me[k];
-                if(inp.type!= 'text' && inp.type!='password') continue;
-                inp.style.width = '395px';
-            }*/
-            // 
-
-            var sel = document.getElementsByName("nt_domain")[0];
-            if(sel) sel.className="";
-
-        }
-
-    </script>
+   
 </div>
 <div class="minWidth">
 </div>
 </div>
-<script>
-expDays = (typeof expDays==="undefined"||expDays==null||expDays=="" || expDays.length==0) ? 1 : expDays;
-var dayToMilliSeconds=24*60*60*1000;
-var adCookieName = "BCL"+getCookieDomain()+"LoginAd";
-var adCookie = getCookie(adCookieName);                                          
-var isiPad = navigator.userAgent.match(/iPad/i) != null;
-var isMobileDevices=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-var persistExpDays=(typeof expPDays==="undefined"||expPDays==null||expPDays==""|| expPDays.length==0)?30:expPDays;
-var displayState=(typeof iPadOverlaySkip==="undefined"||iPadOverlaySkip==null||iPadOverlaySkip==""|| iPadOverlaySkip.length==0)?"Y":iPadOverlaySkip;
-var lastPromoTs="";
-//var lastPromoLoginTs =(new Date()).getTime();
-var abc="abc";
-$(document).ready(function(){
-if(displayState=="N"){
-	if(isiPad){
-		if (adCookie.length!=0) {
-		
-			var overlaySkip=adCookie.split(":")[0];
-			var lastPromoLoginTs = adCookie.split(":")[1];
-			lastPromoTs=adCookie.split(":")[2];
-			
-			if (overlaySkip=="Y"){
-				if(((new Date()).getTime() - lastPromoLoginTs) > persistExpDays*dayToMilliSeconds)	{
-					showOverlay();
-				}else {
-					hideOverlay();
-				}
-			}else{
-				if(((new Date()).getTime() - lastPromoLoginTs) > expDays*dayToMilliSeconds){
-					showOverlay();
-				}else {
-					hideOverlay();
-				}
-			}
-		} else {
-			//since cookie does not exist,create cookie with default values.
-			setCookie(adCookieName,"N:"+(new Date()).getTime()+":",persistExpDays);
-			showOverlay();
-		}
 
-	}else{
-		hideOverlay();
-	}
-	
-		$('body').on('click','.fullSite',function(){
-			var cookieVal;
-			if($('#check').attr('src')=='/BC_S/img/icn-show-checked.png'){
-				cookieVal="Y:"+(new Date()).getTime() +":"+lastPromoTs;
-				
-			}else{
-				cookieVal="N:"+(new Date()).getTime() +":"+lastPromoTs;
-				
-			}
-			setCookie(adCookieName, cookieVal,persistExpDays);
-			$('#overlay').css("display","none");
-			$('.container').css("display","block");
-			
-		});
-}else{
-	hideOverlay();
-}
-});
-
-
-
-</script>
 
 
 </body></html>
