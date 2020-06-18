@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       let searchParams = new URLSearchParams(window.location.search)
       var productType = searchParams.get("productType");
       $('#creditloan').on('submit', (function (ev) {
-        var url = 'https://box-java-sandpit.herokuapp.com/sign?folderId=' + sessionStorage.getItem("dv") + '&action=sign&email=pchristensen+docusign@boxdemo.com&name=Peter Christensen&token=' + sessionStorage.getItem("accessToken") + "&fileName=" + name + "&d="+$("#loanDuration").val()+"&a="+$("#loanAmount").val() + "&t=" + $("#loanType").val();
+        var url = 'https://box-java-sandpit.herokuapp.com/sign?folderId=' + sessionStorage.getItem("dv") + '&action=sign&email=pchristensen+docusign@boxdemo.com&name=' + sessionStorage.getItem("userName") + '&token=' + sessionStorage.getItem("accessToken") + "&fileName=" + name + "&d="+$("#loanDuration").val()+"&a="+$("#loanAmount").val() + "&t=" + $("#loanType").val();
         ev.preventDefault();
         console.log("submitted");
         setLoader(productType);
@@ -111,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
       }));
       $('#credit').on('submit', (function (ev) {
-        var url = 'https://box-java-sandpit.herokuapp.com/sign?folderId=' + sessionStorage.getItem("dv") + '&action=sign&email=pchristensen+docusign@boxdemo.com&name=Peter Christensen&token=' + sessionStorage.getItem("accessToken") + "&fileName=" + name + "&d="+$("#loanDuration").val()+"&a="+$("#loanAmount").val() + "&t=" + $("#loanType").val();  
+        var url = 'https://box-java-sandpit.herokuapp.com/sign?folderId=' + sessionStorage.getItem("dv") + '&action=sign&email=pchristensen+docusign@boxdemo.com&name=' + sessionStorage.getItem("userName") + 'n&token=' + sessionStorage.getItem("accessToken") + "&fileName=" + name + "&d="+$("#loanDuration").val()+"&a="+$("#loanAmount").val() + "&t=" + $("#loanType").val();  
         ev.preventDefault();
         console.log("submitted");
         setLoader(productType);
