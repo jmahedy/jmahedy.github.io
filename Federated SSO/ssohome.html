@@ -1,0 +1,53 @@
+<html>
+
+<script type="text/javascript">
+        function getUrlVars() {
+                    var vars = {};
+                    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+                    function(m,key,value) {
+                     vars[key] = value;
+                    });
+                    return vars;
+        }
+
+
+        function addTR(obj,tr)
+        {
+                    obj.href = obj.href+tr;
+        }
+
+
+        function SetTR(elementID)
+        {         
+                    var tr = "#target_resource#";
+                    if (getUrlVars()["TargetResource"])
+                    {
+                                tr = getUrlVars()["TargetResource"];
+                    }
+
+
+                    var element = document.getElementById(elementID);
+                    addTR(element, tr);
+        }
+
+
+// Must give each <a> an id 
+// Each link must be given the TargetResource value
+        window.onload = SetTR("IdOfLink1");
+  window.onload = SetTR("IdOfLink2");
+</script>
+
+<img <source src="https://www.underconsideration.com/brandnew/archives/great_western_rail_logo_detail.jpg" type="image/"><a id="IdOfLink1" type="button" 
+href="https://sso.services.box.net/sp/startSSO.ping?PartnerIdpId=YOURENTITYID1&TargetResource=">
+Log In GWR
+</a>
+</img>
+<a id="IdOfLink2" type="button" 
+href="https://sso.services.box.net/sp/startSSO.ping?PartnerIdpId=YOURENTITYID2&TargetResource=">
+Log In to SWR
+</a>
+<a id="IdOfLink2" type="button" 
+href="https://sso.services.box.net/sp/startSSO.ping?PartnerIdpId=YOURENTITYID2&TargetResource=">
+Log In to Trans Pennine Express
+</a>
+<html>
